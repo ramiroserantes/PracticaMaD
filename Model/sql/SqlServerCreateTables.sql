@@ -1,0 +1,129 @@
+﻿USE [practicamad]
+
+/* ********** Drop Table UserProfile if already exists *********** */
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Likes]') AND type in ('U'))
+DROP TABLE [Likes]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Photo]') AND type in ('U'))
+DROP TABLE [Photo]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Category]') AND type in ('U'))
+DROP TABLE [Category]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Comment]') AND type in ('U'))
+DROP TABLE [Comment]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND type in ('U'))
+DROP TABLE [Tag]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Followed]') AND type in ('U'))
+DROP TABLE [Followed]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
+DROP TABLE [UserProfile]
+GO
+
+
+/*
+ * Create tables.
+ * UserProfile table is created. Indexes required for the 
+ * most common operations are also defined.
+ */
+
+/*  UserProfile */
+
+CREATE TABLE UserProfile (
+    userId bigint IDENTITY(1,1) NOT NULL,
+    loginName varchar(100) NOT NULL,
+    userPassword varchar(100) NOT NULL,
+    userName varchar(100) NOT NULL, 
+    firstName varchar(100) NOT NULL,
+    lastName varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    internationalization varchar(20) NOT NULL CHECK (internationalization IN ('idioma1','idioma2')),
+
+    CONSTRAINT [PK_UserProfile] PRIMARY KEY (userId),
+	CONSTRAINT [UniqueKey_Login] UNIQUE (loginName)
+);
+
+CREATE TABLE Tag (
+    tagId bigint IDENTITY(1,1) NOT NULL,
+    tagName varchar(100) NOT NULL,
+    userId bigint NOT NULL,
+
+    CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
+	CONSTRAINT [UniqueKey_Name] UNIQUE (tagName),
+    CONSTRAINT [FK_UserTag] FOREIGN KEY (userId)
+        REFERENCES UserProfile (userId)
+);
+
+CREATE TABLE Category (
+    categoryId bigint IDENTITY(1,1) NOT NULL,
+    categoryType varchar(100) NOT NULL CHECK (categoryType IN ('type1','type2')),
+
+    CONSTRAINT [PK_Category] PRIMARY KEY (categoryId),
+	CONSTRAINT [UniqueKey_CategorType] UNIQUE (categoryType)
+);
+
+CREATE TABLE Followed (
+    userId1 bigint NOT NULL,
+    userId2 bigint NOT NULL,
+
+	CONSTRAINT [PK_Followed] PRIMARY KEY (userId1, userId2),
+    CONSTRAINT [FK_User1Id]  FOREIGN KEY (userId1)
+        REFERENCES UserProfile (userId),
+    CONSTRAINT [FK_User2Id]  FOREIGN KEY (userId2)
+        REFERENCES UserProfile (userId)
+);
+
+CREATE TABLE Likes (
+    userId bigint NOT NULL,
+    photoId bigint NOT NULL,
+
+	CONSTRAINT [PK_Likes] PRIMARY KEY (userId, photoId),
+    CONSTRAINT [FK_UserLikes]  FOREIGN KEY (userId)
+        REFERENCES UserProfile(userId),
+    CONSTRAINT [FK_PhotoLikes]  FOREIGN KEY (photoId)
+        REFERENCES UserProfile(userId)
+);
+
+CREATE TABLE Comment(
+    commentId bigint IDENTITY(1,1) NOT NULL,
+    commentDescription varchar(100) NOT NULL,
+    commentDate DATETIME NOT NULL,
+    userId bigint NOT NULL,
+
+    CONSTRAINT [PK_Comment] PRIMARY KEY (commentId),
+    CONSTRAINT [FK_UserComment] FOREIGN KEY (userId)
+        REFERENCES UserProfile(userId)
+);
+
+CREATE TABLE Photo (
+    photoId bigint IDENTITY(1,1) NOT NULL,
+    title varchar(100) NOT NULL,
+    photoDescription varchar(100) NOT NULL,
+    photoDate DATETIME NOT NULL,
+    f bigint NOT NULL,
+    t bigint NOT NULL,
+    iso varchar(100) NOT NULL,
+    wb bigint NOT NULL,
+    categoryId bigint NOT NULL,
+
+    CONSTRAINT [PK_Photo] PRIMARY KEY (photoId),
+    CONSTRAINT [FK_CategoryPhoto] FOREIGN KEY (categoryId)
+        REFERENCES Category (categoryId)
+);
+
+CREATE NONCLUSTERED INDEX [IX_UserProfileIndexByLoginName]
+ON [UserProfile] ([loginName] ASC)
+
+PRINT N'Tables UserProfile, Tag, Category, Comment and Photo created.'
+GO
+
+GO
