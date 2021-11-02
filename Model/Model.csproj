@@ -43,11 +43,18 @@
     <Reference Include="ModelUtil">
       <HintPath>..\Lib\ModelUtil.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Interception, Version=3.3.5.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Interception.3.3.5\lib\net45\Ninject.Extensions.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,17 +64,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Category.cs">
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryDao\CategoryDaoEntityFramework.cs" />
+    <Compile Include="CategoryDao\ICategoryDao.cs" />
+    <Compile Include="Comment.cs">
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentDao\CommentDaoEntityFramework.cs" />
+    <Compile Include="CommentDao\ICommentDao.cs" />
+    <Compile Include="Photo.cs">
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoDao\IPhotoDao.cs" />
+    <Compile Include="PhotoDao\PhotoDaoEntityFramework.cs" />
+    <Compile Include="PhotoService\CommentBlock.cs" />
+    <Compile Include="PhotoService\Exceptions\Exception1.cs" />
+    <Compile Include="PhotoService\IPhotoService.cs" />
+    <Compile Include="PhotoService\PhotoBlock.cs" />
+    <Compile Include="PhotoService\PhotoService.cs" />
+    <Compile Include="PhotoService\TagBlock.cs" />
+    <Compile Include="PracticaMaD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PracticaMaD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PracticaMaD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PracticaMaD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag.cs">
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TagDao\ITagDao.cs" />
+    <Compile Include="TagDao\TagDaoEntityFramework.cs" />
+    <Compile Include="UserProfile.cs">
+      <DependentUpon>PracticaMaD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfileDao\IUserProfileDao.cs" />
+    <Compile Include="UserProfileDao\UserProfileDaoEntityFramework.cs" />
+    <Compile Include="UserService\Exceptions\IncorrectPasswordException.cs" />
+    <Compile Include="UserService\IUserService.cs" />
+    <Compile Include="UserService\LoginResult.cs" />
+    <Compile Include="UserService\UserProfileDetails.cs" />
+    <Compile Include="UserService\UserService.cs" />
+    <Compile Include="UserService\Util\PasswordEncrypter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="PracticaMaD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PracticaMaD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PracticaMaD.edmx.diagram">
+      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sql\SqlServerCreateData.sql" />
-    <Content Include="sql\SqlServerCreateDatabase.sql" />
-    <Content Include="sql\SqlServerCreateTables.sql" />
+    <Content Include="PracticaMaD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+      <LastGenOutput>PracticaMaD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PracticaMaD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+      <LastGenOutput>PracticaMaD.cs</LastGenOutput>
+    </Content>
+    <Content Include="Sql\SqlServerCreateDatabase.sql" />
+    <Content Include="Sql\SqlServerCreateTables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

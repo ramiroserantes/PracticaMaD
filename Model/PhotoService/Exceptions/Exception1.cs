@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService.Exceptions
 {
-    public class Class1
+    class Exception1
     {
     }
 }

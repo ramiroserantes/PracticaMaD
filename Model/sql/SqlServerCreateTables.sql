@@ -1,9 +1,6 @@
 ﻿USE [practicamad]
 
 /* ********** Drop Table UserProfile if already exists *********** */
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
-DROP TABLE [UserProfile]
-GO
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Likes]') AND type in ('U'))
 DROP TABLE [Likes]
@@ -23,6 +20,10 @@ GO
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND type in ('U'))
 DROP TABLE [Tag]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
+DROP TABLE [UserProfile]
 GO
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Followed]') AND type in ('U'))
@@ -47,7 +48,7 @@ CREATE TABLE UserProfile (
     firstName varchar(100) NOT NULL,
     lastName varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
-    internationalization varchar(20) NOT NULL CHECK (internationalization IN ('idioma1','idioma2')),
+    internalization varchar(20) NOT NULL CHECK (internalization IN ('idioma1','idioma2')),
 
     CONSTRAINT [PK_UserProfile] PRIMARY KEY (userId),
 	CONSTRAINT [UniqueKey_Login] UNIQUE (loginName)
@@ -95,7 +96,7 @@ CREATE TABLE Tag (
 );
 
 
-CREATE TABLE Followed (
+CREATE TABLE [Followed] (
     userId1 bigint NOT NULL,
     userId2 bigint NOT NULL,
 
@@ -103,10 +104,10 @@ CREATE TABLE Followed (
     CONSTRAINT [FK_User1Id]  FOREIGN KEY (userId1)
         REFERENCES UserProfile (userId),
     CONSTRAINT [FK_User2Id]  FOREIGN KEY (userId2)
-        REFERENCES UserProfile (userId)
+        REFERENCES UserProfile (userId) 
 );
 
-CREATE TABLE Likes (
+CREATE TABLE [Likes] (
     userId bigint NOT NULL,
     photoId bigint NOT NULL,
 
@@ -114,7 +115,7 @@ CREATE TABLE Likes (
     CONSTRAINT [FK_UserLikes]  FOREIGN KEY (userId)
         REFERENCES UserProfile(userId),
     CONSTRAINT [FK_PhotoLikes]  FOREIGN KEY (photoId)
-        REFERENCES Photo(photoId)
+        REFERENCES Photo(photoId) 
 );
 
 CREATE TABLE Comment(
