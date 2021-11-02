@@ -64,6 +64,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="sql\SqlServerCreateData.sql" />
+    <Content Include="sql\SqlServerCreateDatabase.sql" />
+    <Content Include="sql\SqlServerCreateTables.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

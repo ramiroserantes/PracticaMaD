@@ -1,6 +1,10 @@
 ﻿USE [practicamad]
 
 /* ********** Drop Table UserProfile if already exists *********** */
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
+DROP TABLE [UserProfile]
+GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Likes]') AND type in ('U'))
 DROP TABLE [Likes]
 GO
@@ -25,9 +29,6 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Followed]') 
 DROP TABLE [Followed]
 GO
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
-DROP TABLE [UserProfile]
-GO
 
 
 /*
@@ -52,17 +53,6 @@ CREATE TABLE UserProfile (
 	CONSTRAINT [UniqueKey_Login] UNIQUE (loginName)
 );
 
-CREATE TABLE Tag (
-    tagId bigint IDENTITY(1,1) NOT NULL,
-    tagName varchar(100) NOT NULL,
-    userId bigint NOT NULL,
-
-    CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
-	CONSTRAINT [UniqueKey_Name] UNIQUE (tagName),
-    CONSTRAINT [FK_UserTag] FOREIGN KEY (userId)
-        REFERENCES UserProfile (userId)
-);
-
 CREATE TABLE Category (
     categoryId bigint IDENTITY(1,1) NOT NULL,
     categoryType varchar(100) NOT NULL CHECK (categoryType IN ('type1','type2')),
@@ -70,6 +60,40 @@ CREATE TABLE Category (
     CONSTRAINT [PK_Category] PRIMARY KEY (categoryId),
 	CONSTRAINT [UniqueKey_CategorType] UNIQUE (categoryType)
 );
+
+CREATE TABLE Photo (
+    photoId bigint IDENTITY(1,1) NOT NULL,
+    title varchar(100) NOT NULL,
+    photoDescription varchar(100) NOT NULL,
+    photoDate DATETIME NOT NULL,
+    f bigint NOT NULL,
+    t bigint NOT NULL,
+    iso varchar(100) NOT NULL,
+    wb bigint NOT NULL,
+    categoryId bigint NOT NULL,
+    userId bigint NOT NULL,
+
+    CONSTRAINT [PK_Photo] PRIMARY KEY (photoId),
+    CONSTRAINT [FK_CategoryPhoto] FOREIGN KEY (categoryId)
+        REFERENCES Category (categoryId),
+    CONSTRAINT [FK_UserPhoto] FOREIGN KEY (userId)
+        REFERENCES UserProfile (userId)
+);
+
+CREATE TABLE Tag (
+    tagId bigint IDENTITY(1,1) NOT NULL,
+    tagName varchar(100) NOT NULL,
+    userId bigint NOT NULL,
+    photoId bigint NOT NULL,
+
+    CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
+	CONSTRAINT [UniqueKey_Name] UNIQUE (tagName),
+    CONSTRAINT [FK_UserTag] FOREIGN KEY (userId)
+        REFERENCES UserProfile (userId),
+    CONSTRAINT [FK_PhotoTag] FOREIGN KEY (photoId)
+        REFERENCES Photo(photoId)
+);
+
 
 CREATE TABLE Followed (
     userId1 bigint NOT NULL,
@@ -90,7 +114,7 @@ CREATE TABLE Likes (
     CONSTRAINT [FK_UserLikes]  FOREIGN KEY (userId)
         REFERENCES UserProfile(userId),
     CONSTRAINT [FK_PhotoLikes]  FOREIGN KEY (photoId)
-        REFERENCES UserProfile(userId)
+        REFERENCES Photo(photoId)
 );
 
 CREATE TABLE Comment(
@@ -98,27 +122,15 @@ CREATE TABLE Comment(
     commentDescription varchar(100) NOT NULL,
     commentDate DATETIME NOT NULL,
     userId bigint NOT NULL,
+    photoId bigint NOT NULL,
 
     CONSTRAINT [PK_Comment] PRIMARY KEY (commentId),
     CONSTRAINT [FK_UserComment] FOREIGN KEY (userId)
-        REFERENCES UserProfile(userId)
+        REFERENCES UserProfile(userId),
+    CONSTRAINT [FK_PhotoComment] FOREIGN KEY (photoId)
+        REFERENCES Photo(photoId)
 );
 
-CREATE TABLE Photo (
-    photoId bigint IDENTITY(1,1) NOT NULL,
-    title varchar(100) NOT NULL,
-    photoDescription varchar(100) NOT NULL,
-    photoDate DATETIME NOT NULL,
-    f bigint NOT NULL,
-    t bigint NOT NULL,
-    iso varchar(100) NOT NULL,
-    wb bigint NOT NULL,
-    categoryId bigint NOT NULL,
-
-    CONSTRAINT [PK_Photo] PRIMARY KEY (photoId),
-    CONSTRAINT [FK_CategoryPhoto] FOREIGN KEY (categoryId)
-        REFERENCES Category (categoryId)
-);
 
 CREATE NONCLUSTERED INDEX [IX_UserProfileIndexByLoginName]
 ON [UserProfile] ([loginName] ASC)
