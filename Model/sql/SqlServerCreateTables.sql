@@ -26,8 +26,8 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]
 DROP TABLE [UserProfile]
 GO
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Followed]') AND type in ('U'))
-DROP TABLE [Followed]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Follow]') AND type in ('U'))
+DROP TABLE [Follow]
 GO
 
 
@@ -96,11 +96,11 @@ CREATE TABLE Tag (
 );
 
 
-CREATE TABLE [Followed] (
+CREATE TABLE [Follow] (
     userId1 bigint NOT NULL,
     userId2 bigint NOT NULL,
 
-	CONSTRAINT [PK_Followed] PRIMARY KEY (userId1, userId2),
+	CONSTRAINT [PK_Follow] PRIMARY KEY (userId1, userId2),
     CONSTRAINT [FK_User1Id]  FOREIGN KEY (userId1)
         REFERENCES UserProfile (userId),
     CONSTRAINT [FK_User2Id]  FOREIGN KEY (userId2)
