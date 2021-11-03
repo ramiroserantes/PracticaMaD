@@ -64,19 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
     <Compile Include="CategoryDao\CategoryDaoEntityFramework.cs" />
     <Compile Include="CategoryDao\ICategoryDao.cs" />
-    <Compile Include="Comment.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
     <Compile Include="CommentDao\CommentDaoEntityFramework.cs" />
     <Compile Include="CommentDao\ICommentDao.cs" />
-    <Compile Include="Photo.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
     <Compile Include="PhotoDao\IPhotoDao.cs" />
     <Compile Include="PhotoDao\PhotoDaoEntityFramework.cs" />
     <Compile Include="PhotoService\CommentBlock.cs" />
@@ -85,30 +76,9 @@
     <Compile Include="PhotoService\PhotoBlock.cs" />
     <Compile Include="PhotoService\PhotoService.cs" />
     <Compile Include="PhotoService\TagBlock.cs" />
-    <Compile Include="PracticaMaD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PracticaMaD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PracticaMaD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tag.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
     <Compile Include="TagDao\ITagDao.cs" />
     <Compile Include="TagDao\TagDaoEntityFramework.cs" />
-    <Compile Include="UserProfile.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
-    </Compile>
     <Compile Include="UserProfileDao\IUserProfileDao.cs" />
     <Compile Include="UserProfileDao\UserProfileDaoEntityFramework.cs" />
     <Compile Include="UserService\Exceptions\IncorrectPasswordException.cs" />
@@ -121,25 +91,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="PracticaMaD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PracticaMaD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PracticaMaD.edmx.diagram">
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PracticaMaD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-      <LastGenOutput>PracticaMaD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PracticaMaD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-      <LastGenOutput>PracticaMaD.cs</LastGenOutput>
-    </Content>
     <Content Include="Sql\SqlServerCreateDatabase.sql" />
     <Content Include="Sql\SqlServerCreateTables.sql" />
   </ItemGroup>

@@ -140,9 +140,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             return true;
         }
 
-        
+        [Transactional]
+        public UserProfile GetFollowers(long userProfileId)
+        {
+            List<UserProfile> followers = UserProfileDao.FindByFollower(userProfileId);
+            return followers;
 
-      
+        }
+
+        [Transactional]
+        public UserProfile GetFolloweds(long userProfileId)
+        {
+            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
+            return followeds;
+
+        }
+
+
     }
 }
 

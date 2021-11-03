@@ -37,6 +37,27 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao
             return userProfile;
         }
 
+        public List<UserProfile> FindByFollower(long userId)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            return (
+                from l in userProfiles
+                where l.UserProfile2.Any(c => c.userId == userId)
+                select l).ToList();
+
+        }
+
+        public List<UserProfile> FindByFollowed(long userId)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            return (
+                from l in userProfiles
+                where l.UserProfile1.Any(c => c.userId == userId)
+                select l).ToList();
+
+        }
         #endregion IUserProfileDao Members
     }
 }

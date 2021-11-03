@@ -35,6 +35,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         bool UserExists(string loginName);
 
+        [Transactional]
+        UserProfile GetFollowers(long userProfileId);
+
+        [Transactional]
+        UserProfile GetFollowed(long userProfileId);
+
     }
 }
 
