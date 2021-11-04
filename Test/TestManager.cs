@@ -1,0 +1,75 @@
+﻿using Es.Udc.DotNet.PracticaMaD.Model.PhotoService;
+using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
+using Es.Udc.DotNet.PracticaMaD.Model.PhotoDao;
+using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
+using Es.Udc.DotNet.PracticaMaD.Model.TagDao;
+using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
+using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+using Ninject;
+using System.Configuration;
+using System.Data.Entity;
+
+
+namespace Es.Udc.DotNet.PracticaMaD.Test
+{
+    class TestManager
+    {
+        public static IKernel ConfigureNInjectKernel()
+        {
+            NinjectSettings settings = new NinjectSettings() { LoadExtensions = true };
+
+            IKernel kernel = new StandardKernel(settings);
+
+            kernel.Bind<IUserProfileDao>().
+                To<UserProfileDaoEntityFramework>();
+
+            kernel.Bind<ICommentDao>().
+                To<CommentDaoEntityFramework>();
+
+            /*kernel.Bind<IPhotoDao>().
+                To<PhotoDaoEntityFramework>();
+
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
+
+            kernel.Bind<ITagDao>().
+                To<TagDaoEntityFramework>();
+
+            kernel.Bind<IPhotoService>().
+                To<PhotoService>();
+
+            kernel.Bind<IUserService>().
+                To<UserService>();*/
+
+            string connectionString = 
+                ConfigurationManager.ConnectionStrings["practicamadEntities"].ConnectionString;
+
+            kernel.Bind<DbContext>().
+                ToSelf().
+                InSingletonScope().
+                WithConstructorArgument("nameOrConnectionString", connectionString);
+
+            return kernel;
+        }
+
+        /// <summary>
+        /// Configures the Ninject kernel from an external module file.
+        /// </summary>
+        /// <param name="moduleFilename">The module filename.</param>
+        /// <returns>The NInject kernel</returns>
+        public static IKernel ConfigureNInjectKernel(string moduleFilename)
+        {
+            NinjectSettings settings = new NinjectSettings() { LoadExtensions = true };
+            IKernel kernel = new StandardKernel(settings);
+
+            kernel.Load(moduleFilename);
+
+            return kernel;
+        }
+
+        public static void ClearNInjectKernel(IKernel kernel)
+        {
+            kernel.Dispose();
+        }
+    }
+}

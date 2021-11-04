@@ -12,12 +12,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
         public string email { get; private set; }
 
+        public string internalization { get; private set; }
+
         #endregion
-        public UserProfileDetails(string firstName, string lastName, string email)
+        public UserProfileDetails(string firstName, string lastName, string email, string internalization)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
+            this.internalization = internalization;
         }
 
         public override bool Equals(object obj)
@@ -26,7 +29,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             return (this.firstName == target.firstName)
                   && (this.lastName == target.lastName)
-                  && (this.email == target.email);
+                  && (this.email == target.email)
+                  && (this.internalization == target.internalization);
         }
       
         public override int GetHashCode()
@@ -41,7 +45,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
             strUserProfileDetails =
                 "[ firstName = " + firstName + " | " +
                 "lastName = " + lastName + " | " +
-                "email = " + email + " ]";
+                "email = " + email + " | " +
+                "internalization = " + internalization + " ]";
 
             return strUserProfileDetails;
         }

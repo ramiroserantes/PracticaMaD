@@ -59,7 +59,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
 
             bool existMorePhotos = (photos.Count == count + 1);
 
-            if (existMorePhotoss) photos.RemoveAt(count);
+            if (existMorePhotos) photos.RemoveAt(count);
 
             return new PhotoBlock(photos, existMorePhotos);
         }
@@ -80,11 +80,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             List<Photo> photos = PhotoDao.FindByCategoryId(keyword, categoryId,
                 startIndex, count + 1);
 
-            bool existMoreProducts = (products.Count == count + 1);
+            bool existMorePhotos = (photos.Count == count + 1);
 
-            if (existMoreProducts) products.RemoveAt(count);
+            if (existMorePhotos) photos.RemoveAt(count);
 
-            return new ProductBlock(products, existMoreProducts);
+            return new PhotoBlock(photos, existMorePhotos);
         }*/
 
         public Photo FindPhoto(long photoId)
@@ -104,14 +104,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
         }
 
         /// <exception cref="InstanceNotFoundException"/>
-        public long AddComment(long productId, long userId, string commentBody)
+        public long AddComment(long photoId, long userId, string commentBody)
         {
             Comment comment = new Comment
             {
-                comment1 = commentBody,
+                commentDescription = commentBody,
                 commentDate = System.DateTime.Now,
                 userId = userId,
-                productId = productId
+                photoId = photoId
             };
 
             CommentDao.Create(comment);
@@ -119,14 +119,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             return comment.commentId;
         }
 
-        public long AddComment(long productId, long userId, string commentBody, List<long> tags)
+        /*public long AddComment(long photoId, long userId, string commentBody, List<long> tags)
         {
             Comment comment = new Comment
             {
-                comment1 = commentBody,
+                commentDescription = commentBody,
                 commentDate = System.DateTime.Now,
                 userId = userId,
-                productId = productId
+                photoId = photoId
             };
 
             List<Tag> tagList = new List<Tag>();
@@ -140,7 +140,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             CommentDao.Create(comment);
 
             return comment.commentId;
-        }
+        }*/
 
         /// <exception cref="InstanceNotFoundException"/>
         public void DeleteComment(long commentId)
@@ -154,19 +154,19 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
         {
             Comment comment = CommentDao.Find(commentId);
 
-            comment.comment1 = commentBody;
+            comment.commentDescription = commentBody;
 
             CommentDao.Update(comment);
         }
 
         /// <exception cref="InstanceNotFoundException"/>
-        public void UpdateComment(long commentId, string commentBody, List<long> newTags)
+        /*public void UpdateComment(long commentId, string commentBody, List<long> newTags)
         {
             Comment comment = CommentDao.Find(commentId);
 
             ICollection<Tag> tags = new List<Tag>();
 
-            comment.comment1 = commentBody;
+            comment.commentDescription = commentBody;
             comment.Tags.Clear();
             foreach (var tagId in newTags)
             {
@@ -176,11 +176,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             comment.Tags = tags;
 
             CommentDao.Update(comment);
-        }
+        }*/
 
-        public CommentBlock FindAllProductComments(long productId, int startIndex = 0, int count = 20)
+        public CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20)
         {
-            List<Comment> comments = CommentDao.FindByProductIdOrderByDeliveryDate(productId, startIndex, count + 1);
+            List<Comment> comments = CommentDao.FindByPhotoIdOrderByCommentDate(photoId, startIndex, count + 1);
 
             bool existMoreComments = (comments.Count == count + 1);
 
@@ -190,9 +190,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
         }
 
         /// <exception cref="InstanceNotFoundException" />
-        public Comment FindCommentByProductAndUser(long productId, long userId)
+        public Comment FindCommentByPhotoAndUser(long photoId, long userId)
         {
-            return CommentDao.FindByProductIdAndUserId(productId, userId);
+            return CommentDao.FindByPhotoIdAndUserId(photoId, userId);
         }
 
         #endregion Comment Members
@@ -247,6 +247,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
 
         #endregion Category Members
 
-        #endregion IProductService Members
+        #endregion IPhotoService Members
     }
 }

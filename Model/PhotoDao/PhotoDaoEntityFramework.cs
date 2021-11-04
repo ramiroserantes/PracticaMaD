@@ -16,7 +16,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoDao
         #endregion Public Constructors
 
         #region IUserProfileDao Members. Specific Operations
-        public Photo FindById(string photoId)
+        public Photo FindById(long photoId)
         {
             Photo photo = null;
 
@@ -71,7 +71,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoDao
 
             var result =
                 (from p in photos
-                 where p.Comments.Any(c => c.Tags.Any(t => t.tagId == tagId))
+                 where p.Tag.Any(t => t.tagId == tagId)
                  orderby p.title ascending
                  select p).Skip(startIndex).Take(count);
 

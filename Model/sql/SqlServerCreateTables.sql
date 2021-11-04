@@ -44,11 +44,10 @@ CREATE TABLE UserProfile (
     userId bigint IDENTITY(1,1) NOT NULL,
     loginName varchar(100) NOT NULL,
     userPassword varchar(100) NOT NULL,
-    userName varchar(100) NOT NULL, 
     firstName varchar(100) NOT NULL,
     lastName varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
-    internalization varchar(20) NOT NULL CHECK (internalization IN ('idioma1','idioma2')),
+    internalization varchar(20) NOT NULL,
 
     CONSTRAINT [PK_UserProfile] PRIMARY KEY (userId),
 	CONSTRAINT [UniqueKey_Login] UNIQUE (loginName)
@@ -56,7 +55,7 @@ CREATE TABLE UserProfile (
 
 CREATE TABLE Category (
     categoryId bigint IDENTITY(1,1) NOT NULL,
-    categoryType varchar(100) NOT NULL CHECK (categoryType IN ('type1','type2')),
+    categoryType varchar(100) NOT NULL CHECK (categoryType IN ('typeTest','type2')),
 
     CONSTRAINT [PK_Category] PRIMARY KEY (categoryId),
 	CONSTRAINT [UniqueKey_CategorType] UNIQUE (categoryType)

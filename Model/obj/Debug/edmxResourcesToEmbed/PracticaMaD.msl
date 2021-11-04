@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="practicamadModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="categoryType" ColumnName="categoryType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="practicamadModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="commentId" ColumnName="commentId" />
+          <ScalarProperty Name="commentDescription" ColumnName="commentDescription" />
+          <ScalarProperty Name="commentDate" ColumnName="commentDate" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="photoId" ColumnName="photoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photo">
+      <EntityTypeMapping TypeName="practicamadModel.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="photoId" ColumnName="photoId" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="photoDescription" ColumnName="photoDescription" />
+          <ScalarProperty Name="photoDate" ColumnName="photoDate" />
+          <ScalarProperty Name="f" ColumnName="f" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="iso" ColumnName="iso" />
+          <ScalarProperty Name="wb" ColumnName="wb" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tag">
+      <EntityTypeMapping TypeName="practicamadModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="tagId" ColumnName="tagId" />
+          <ScalarProperty Name="tagName" ColumnName="tagName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="photoId" ColumnName="photoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfile">
+      <EntityTypeMapping TypeName="practicamadModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="loginName" ColumnName="loginName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="internalization" ColumnName="internalization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Follow" TypeName="practicamadModel.Follow" StoreEntitySet="Follow">
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="userId" ColumnName="userId1" />
+      </EndProperty>
+      <EndProperty Name="UserProfile1">
+        <ScalarProperty Name="userId" ColumnName="userId2" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Likes" TypeName="practicamadModel.Likes" StoreEntitySet="Likes">
+      <EndProperty Name="Photo">
+        <ScalarProperty Name="photoId" ColumnName="photoId" />
+      </EndProperty>
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="userId" ColumnName="userId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

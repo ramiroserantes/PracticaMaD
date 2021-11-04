@@ -45,7 +45,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
 
             UserProfileDetails userProfileDetails =
                 new UserProfileDetails(userProfile.firstName,
-                    userProfile.lastName, userProfile.email);
+                    userProfile.lastName, userProfile.email, userProfile.internalization);
 
             return userProfileDetails;
 
@@ -141,18 +141,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         }
 
         [Transactional]
-        public UserProfile GetFollowers(long userProfileId)
+        public List<UserProfile> GetFollowers(long userProfileId)
         {
-            List<UserProfile> followers = UserProfileDao.FindByFollower(userProfileId);
-            return followers;
+            return UserProfileDao.FindByFollower(userProfileId);
 
         }
 
         [Transactional]
-        public UserProfile GetFolloweds(long userProfileId)
+        public List<UserProfile> GetFolloweds(long userProfileId)
         {
-            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
-            return followeds;
+            return UserProfileDao.FindByFollowed(userProfileId);   
 
         }
 

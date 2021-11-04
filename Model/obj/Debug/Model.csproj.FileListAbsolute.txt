@@ -1,0 +1,17 @@
+D:\MaD\PracticaMaD\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\MaD\PracticaMaD\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\MaD\PracticaMaD\Model\bin\Debug\Model.dll.config
+D:\MaD\PracticaMaD\Model\bin\Debug\Model.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\Model.pdb
+D:\MaD\PracticaMaD\Model\bin\Debug\EntityFramework.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\ModelUtil.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\Ninject.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.dll
+D:\MaD\PracticaMaD\Model\bin\Debug\EntityFramework.xml
+D:\MaD\PracticaMaD\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\MaD\PracticaMaD\Model\bin\Debug\Ninject.xml
+D:\MaD\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.xml
+D:\MaD\PracticaMaD\Model\obj\Debug\Model.csproj.CopyComplete
+D:\MaD\PracticaMaD\Model\obj\Debug\Model.dll
+D:\MaD\PracticaMaD\Model\obj\Debug\Model.pdb
