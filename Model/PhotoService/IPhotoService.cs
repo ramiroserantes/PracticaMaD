@@ -60,5 +60,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
 
         List<Category> FindAllCategories();
 
+        int getPhotoLikes(long photoId);
+
     }
 }

@@ -103,6 +103,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
 
             return new PhotoBlock(photos, existMorePhotos);
         }
+
+        public int getPhotoLikes(long photoId)
+        {
+            return PhotoDao.findPhotoLikes(photoId);
+        }
+
         #endregion Photo Members
 
         #region Comment Members

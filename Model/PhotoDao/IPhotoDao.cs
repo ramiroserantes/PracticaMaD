@@ -15,5 +15,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoDao
         List<Photo> FindAll(int startIndex = 0, int count = 20);
 
         List<Photo> FindByCategoryAndKeywords(string keywords, long categoryId, int startIndex = 0, int count = 20);
+
+        int findPhotoLikes(long photoId);
     }
 }
