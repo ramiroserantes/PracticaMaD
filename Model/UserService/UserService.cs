@@ -155,6 +155,51 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         }
 
 
+        [Transactional]
+        public void FollowUser(long userProfileId, long userIdToFollow)
+        {
+
+            UserProfile userProfile = UserProfileDao.Find(userProfileId);
+            UserProfile userProfile2 = UserProfileDao.Find(userIdToFollow);
+
+
+            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
+
+            bool containsItem = followeds.Any(u => u.userId == userProfile2.userId); //comprobacion
+            if (!containsItem)
+            {
+
+                followeds.Add(userProfile2);
+
+                ICollection<UserProfile> newFollowedList = new List<UserProfile>();
+                foreach (UserProfile followedUser in followeds)
+                {
+                    newFollowedList.Add(UserProfileDao.Find(followedUser.userId));
+                }
+
+                userProfile.UserProfile2.Clear(); //vaciar lista de seguidos
+                userProfile.UserProfile2 = newFollowedList;
+
+                UserProfileDao.Update(userProfile);
+
+
+                // actualizamos la lista de seguidores del otro perfil
+                List<UserProfile> followers = UserProfileDao.FindByFollower(userIdToFollow);
+                followers.Add(userProfile);
+
+                ICollection<UserProfile> newFollowerList = new List<UserProfile>();
+                foreach (UserProfile followerUser in followers)
+                {
+                    newFollowerList.Add(UserProfileDao.Find(followerUser.userId));
+                }
+
+                userProfile2.UserProfile1.Clear(); //vaciar lista de seguidores
+                userProfile2.UserProfile1 = newFollowerList;
+
+                UserProfileDao.Update(userProfile2);
+            }
+        }
+
     }
 }
 

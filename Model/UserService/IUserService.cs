@@ -41,6 +41,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.UserService
         [Transactional]
         List<UserProfile> GetFolloweds(long userProfileId);
 
+        [Transactional]
+        void FollowUser(long userProfileId, long userIdToFollow);
     }
 }
 
