@@ -149,7 +149,7 @@
     <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="practicamadEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="practicaMad" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Category" EntityType="Self.Category" />
     <EntitySet Name="Comment" EntityType="Self.Comment" />
     <EntitySet Name="Photo" EntityType="Self.Photo" />

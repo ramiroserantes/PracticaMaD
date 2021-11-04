@@ -38,6 +38,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoDao
             return photo;
         }
 
+        public List<Photo> FindByUserId(long userId, int startIndex = 0, int count = 20) 
+        {
+            List<Photo> photos = null;
+
+            #region Option 1: Using Linq.
+            DbSet<Photo> userPhotos = Context.Set<Photo>();
+
+            var result =
+                (from p in userPhotos 
+                 where p.userId == userId
+                 orderby p.photoDate descending
+                 select p).Skip(startIndex).Take(count);
+
+            #endregion Option 1: Using Linq.
+
+            photos = result.ToList();
+
+            return photos;
+        }
         public Photo FindByTitle(string title)
         {
             Photo photo = null;
@@ -99,6 +118,32 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoDao
             return result.ToList();
         }
 
+        public List<Photo> FindByCategoryAndKeywords(string keywords, long categoryId, int startIndex = 0, int count = 20)
+        {
+            List<Photo> photos = null;
+
+            #region Option 1: Using Linq.
+
+            DbSet<Photo> photo = Context.Set<Photo>();
+
+            var result =
+                (from p in photos
+                 where (p.title.ToLower().Contains(keywords.ToLower()) &&
+                        (p.categoryId == categoryId))
+                 orderby p.photoDate descending
+                 select p).Skip(startIndex).Take(count);
+
+            #endregion Option 1: Using Linq.
+
+            photos = result.ToList();
+
+            return photos;
+
+        }
         #endregion  IUserProfileDao Members. Specific Operations
+
+
     }
+
+  
 }

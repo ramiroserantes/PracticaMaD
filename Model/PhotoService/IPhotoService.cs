@@ -31,22 +31,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
 
         PhotoBlock FindAllPhotosByTag(long tagId, int startIndex = 0, int count = 20);
 
-        //PhotoBlock FindAllPhotosByCategory(long categoryId, int startIndex = 0, int count = 20);
+        PhotoBlock FindAllPhotosByUser(long userId, int startIndex = 0, int count = 20);
+
+        PhotoBlock FindAllPhotosByCategoryAndKeyword(string keyword, long categoryId, int startIndex = 0, int count = 20);
 
         Photo FindPhoto(long photoId);
 
         [Transactional]
         Comment FindCommentById(long commentId);
 
-        //long AddComment(long photoId, long userId, string commentBody);
-
-        //long AddComment(long photoId, long userId, string commentBody, List<long> tags);
+        long AddComment(long photoId, long userId, string commentBody);
 
         void DeleteComment(long commentId);
 
-        //void UpdateComment(long commentId, string commentBody);
-
-        //void UpdateComment(long commentId, string commentBody, List<long> newTags);
+        void UpdateComment(long commentId, string commentBody);
 
         [Transactional]
         CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20);

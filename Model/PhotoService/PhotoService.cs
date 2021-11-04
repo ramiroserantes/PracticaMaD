@@ -75,9 +75,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
-        /*public PhotoBlock FindAllPhotosByCategory(long categoryId, int startIndex = 0, int count = 20)
+        public PhotoBlock FindAllPhotosByCategoryAndKeyword(string keyword, long categoryId, int startIndex = 0, int count = 20)
         {
-            List<Photo> photos = PhotoDao.FindByCategoryId(keyword, categoryId,
+            List<Photo> photos = PhotoDao.FindByCategoryAndKeywords(keyword, categoryId,
                 startIndex, count + 1);
 
             bool existMorePhotos = (photos.Count == count + 1);
@@ -85,13 +85,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             if (existMorePhotos) photos.RemoveAt(count);
 
             return new PhotoBlock(photos, existMorePhotos);
-        }*/
+        }
 
         public Photo FindPhoto(long photoId)
         {
             return PhotoDao.Find(photoId);
         }
 
+        public PhotoBlock FindAllPhotosByUser(long userId, int startIndex = 0, int count = 20)
+        {
+            List<Photo> photos = PhotoDao.FindByUserId(userId,
+               startIndex, count + 1);
+
+            bool existMorePhotos = (photos.Count == count + 1);
+
+            if (existMorePhotos) photos.RemoveAt(count);
+
+            return new PhotoBlock(photos, existMorePhotos);
+        }
         #endregion Photo Members
 
         #region Comment Members
@@ -119,28 +130,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             return comment.commentId;
         }
 
-        /*public long AddComment(long photoId, long userId, string commentBody, List<long> tags)
-        {
-            Comment comment = new Comment
-            {
-                commentDescription = commentBody,
-                commentDate = System.DateTime.Now,
-                userId = userId,
-                photoId = photoId
-            };
-
-            List<Tag> tagList = new List<Tag>();
-
-            foreach (var tagId in tags)
-            {
-                tagList.Add(TagDao.Find(tagId));
-            }
-            comment.Tags = tagList;
-
-            CommentDao.Create(comment);
-
-            return comment.commentId;
-        }*/
 
         /// <exception cref="InstanceNotFoundException"/>
         public void DeleteComment(long commentId)
@@ -159,24 +148,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Model.PhotoService
             CommentDao.Update(comment);
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
-        /*public void UpdateComment(long commentId, string commentBody, List<long> newTags)
-        {
-            Comment comment = CommentDao.Find(commentId);
-
-            ICollection<Tag> tags = new List<Tag>();
-
-            comment.commentDescription = commentBody;
-            comment.Tags.Clear();
-            foreach (var tagId in newTags)
-            {
-                tags.Add(TagDao.Find(tagId));
-            }
-
-            comment.Tags = tags;
-
-            CommentDao.Update(comment);
-        }*/
+      
 
         public CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20)
         {

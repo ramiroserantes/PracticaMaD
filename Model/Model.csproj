@@ -65,17 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
     <Compile Include="CategoryDao\CategoryDaoEntityFramework.cs" />
     <Compile Include="CategoryDao\ICategoryDao.cs" />
     <Compile Include="Comment.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
     <Compile Include="CommentDao\CommentDaoEntityFramework.cs" />
     <Compile Include="CommentDao\ICommentDao.cs" />
     <Compile Include="Photo.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
     <Compile Include="PhotoDao\IPhotoDao.cs" />
     <Compile Include="PhotoDao\PhotoDaoEntityFramework.cs" />
@@ -85,29 +85,29 @@
     <Compile Include="PhotoService\PhotoBlock.cs" />
     <Compile Include="PhotoService\PhotoService.cs" />
     <Compile Include="PhotoService\TagBlock.cs" />
-    <Compile Include="PracticaMaD.Context.cs">
+    <Compile Include="practicaMad.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.Context.tt</DependentUpon>
+      <DependentUpon>practicaMad.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PracticaMaD.cs">
+    <Compile Include="practicaMad.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
-    <Compile Include="PracticaMaD.Designer.cs">
+    <Compile Include="practicaMad.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+      <DependentUpon>practicaMad.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tag.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
     <Compile Include="TagDao\ITagDao.cs" />
     <Compile Include="TagDao\TagDaoEntityFramework.cs" />
     <Compile Include="UserProfile.cs">
-      <DependentUpon>PracticaMaD.tt</DependentUpon>
+      <DependentUpon>practicaMad.tt</DependentUpon>
     </Compile>
     <Compile Include="UserProfileDao\IUserProfileDao.cs" />
     <Compile Include="UserProfileDao\UserProfileDaoEntityFramework.cs" />
@@ -121,24 +121,24 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="PracticaMaD.edmx">
+    <EntityDeploy Include="practicaMad.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PracticaMaD.Designer.cs</LastGenOutput>
+      <LastGenOutput>practicaMad.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="PracticaMaD.edmx.diagram">
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
+    <None Include="practicaMad.edmx.diagram">
+      <DependentUpon>practicaMad.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PracticaMaD.Context.tt">
+    <Content Include="practicaMad.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-      <LastGenOutput>PracticaMaD.Context.cs</LastGenOutput>
+      <DependentUpon>practicaMad.edmx</DependentUpon>
+      <LastGenOutput>practicaMad.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PracticaMaD.tt">
+    <Content Include="practicaMad.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PracticaMaD.edmx</DependentUpon>
-      <LastGenOutput>PracticaMaD.cs</LastGenOutput>
+      <DependentUpon>practicaMad.edmx</DependentUpon>
+      <LastGenOutput>practicaMad.cs</LastGenOutput>
     </Content>
     <Content Include="Sql\SqlServerCreateData.sql" />
     <Content Include="Sql\SqlServerCreateDatabase.sql" />

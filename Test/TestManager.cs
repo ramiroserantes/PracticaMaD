@@ -42,7 +42,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
                 To<UserService>();*/
 
             string connectionString = 
-                ConfigurationManager.ConnectionStrings["practicamadEntities"].ConnectionString;
+                ConfigurationManager.ConnectionStrings["practicaMaD"].ConnectionString;
 
             kernel.Bind<DbContext>().
                 ToSelf().

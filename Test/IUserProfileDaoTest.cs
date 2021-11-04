@@ -4,6 +4,9 @@ using Es.Udc.DotNet.PracticaMaD.Model.UserService.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
+using System.Data.Entity;
+using Ninject.Activation;
+using Es.Udc.DotNet.ModelUtil.Dao;
 using System.Transactions;
 namespace Es.Udc.DotNet.PracticaMaD.Test
 {
