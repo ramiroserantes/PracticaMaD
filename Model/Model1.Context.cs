@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Model
+namespace Es.Udc.DotNet.PracticaMad.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class practicamadEntities2 : DbContext
+    public partial class practicamad2Entities : DbContext
     {
-        public practicamadEntities2()
-            : base("name=practicamadEntities2")
+        public practicamad2Entities()
+            : base("name=practicamad2Entities")
         {
         }
     

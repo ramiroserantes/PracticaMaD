@@ -1,18 +1,12 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.PhotoService;
-using Es.Udc.DotNet.PracticaMaD.Model.UserProfileDao;
-using Es.Udc.DotNet.PracticaMaD.Model.PhotoDao;
-using Es.Udc.DotNet.PracticaMaD.Model.CategoryDao;
-using Es.Udc.DotNet.PracticaMaD.Model.TagDao;
-using Es.Udc.DotNet.PracticaMaD.Model.CommentDao;
-using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+﻿using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
 using Ninject;
 using System.Configuration;
 using System.Data.Entity;
 
-
-namespace Es.Udc.DotNet.PracticaMaD.Test
+namespace Es.Udc.DotNet.PracticaMad.Test
 {
-    class TestManager
+    public class TestManager
     {
         public static IKernel ConfigureNInjectKernel()
         {
@@ -23,26 +17,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Test
             kernel.Bind<IUserProfileDao>().
                 To<UserProfileDaoEntityFramework>();
 
-            kernel.Bind<ICommentDao>().
-                To<CommentDaoEntityFramework>();
-
-            /*kernel.Bind<IPhotoDao>().
-                To<PhotoDaoEntityFramework>();
-
-            kernel.Bind<ICategoryDao>().
-                To<CategoryDaoEntityFramework>();
-
-            kernel.Bind<ITagDao>().
-                To<TagDaoEntityFramework>();
-
-            kernel.Bind<IPhotoService>().
-                To<PhotoService>();
-
             kernel.Bind<IUserService>().
-                To<UserService>();*/
+                To<UserService>();
 
-            string connectionString = 
-                ConfigurationManager.ConnectionStrings["practicaMaD"].ConnectionString;
+            string connectionString =
+                ConfigurationManager.ConnectionStrings["PhotogramDbEntities"].ConnectionString;
 
             kernel.Bind<DbContext>().
                 ToSelf().

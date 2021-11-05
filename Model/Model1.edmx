@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="practicamadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="practicamad2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -22,7 +22,7 @@
           <Property Name="userId" Type="bigint" Nullable="false" />
           <Property Name="photoId" Type="bigint" Nullable="false" />
         </EntityType>
-        <EntityType Name="Followed">
+        <EntityType Name="Follow">
           <Key>
             <PropertyRef Name="userId1" />
             <PropertyRef Name="userId2" />
@@ -51,6 +51,7 @@
           <Property Name="iso" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="wb" Type="bigint" Nullable="false" />
           <Property Name="categoryId" Type="bigint" Nullable="false" />
+          <Property Name="userId" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -68,11 +69,10 @@
           <Property Name="userId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="loginName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="userPassword" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="userName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="firstName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="lastName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="internationalization" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="lenguage" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_CategoryPhoto">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -124,24 +124,24 @@
         </Association>
         <Association Name="FK_User1Id">
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-          <End Role="Followed" Type="Self.Followed" Multiplicity="*" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserProfile">
               <PropertyRef Name="userId" />
             </Principal>
-            <Dependent Role="Followed">
+            <Dependent Role="Follow">
               <PropertyRef Name="userId1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User2Id">
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-          <End Role="Followed" Type="Self.Followed" Multiplicity="*" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserProfile">
               <PropertyRef Name="userId" />
             </Principal>
-            <Dependent Role="Followed">
+            <Dependent Role="Follow">
               <PropertyRef Name="userId2" />
             </Dependent>
           </ReferentialConstraint>
@@ -170,6 +170,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserPhoto">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserTag">
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
@@ -182,10 +194,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="practicamadModelStoreContainer">
+        <EntityContainer Name="practicamad2ModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Followed" EntityType="Self.Followed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
@@ -208,11 +220,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_User1Id" Association="Self.FK_User1Id">
             <End Role="UserProfile" EntitySet="UserProfile" />
-            <End Role="Followed" EntitySet="Followed" />
+            <End Role="Follow" EntitySet="Follow" />
           </AssociationSet>
           <AssociationSet Name="FK_User2Id" Association="Self.FK_User2Id">
             <End Role="UserProfile" EntitySet="UserProfile" />
-            <End Role="Followed" EntitySet="Followed" />
+            <End Role="Follow" EntitySet="Follow" />
           </AssociationSet>
           <AssociationSet Name="FK_UserComment" Association="Self.FK_UserComment">
             <End Role="UserProfile" EntitySet="UserProfile" />
@@ -221,6 +233,10 @@
           <AssociationSet Name="FK_UserLikes" Association="Self.FK_UserLikes">
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPhoto" Association="Self.FK_UserPhoto">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Photo" EntitySet="Photo" />
           </AssociationSet>
           <AssociationSet Name="FK_UserTag" Association="Self.FK_UserTag">
             <End Role="UserProfile" EntitySet="UserProfile" />
@@ -231,7 +247,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="practicamadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="practicamad2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -265,10 +281,12 @@
           <Property Name="iso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="wb" Type="Int64" Nullable="false" />
           <Property Name="categoryId" Type="Int64" Nullable="false" />
+          <Property Name="userId" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.FK_CategoryPhoto" FromRole="Photo" ToRole="Category" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_PhotoComment" FromRole="Photo" ToRole="Comment" />
           <NavigationProperty Name="Tag" Relationship="Self.FK_PhotoTag" FromRole="Photo" ToRole="Tag" />
-          <NavigationProperty Name="UserProfile" Relationship="Self.Likes" FromRole="Photo" ToRole="UserProfile" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK_UserPhoto" FromRole="Photo" ToRole="UserProfile" />
+          <NavigationProperty Name="UserProfile1" Relationship="Self.Likes" FromRole="Photo" ToRole="UserProfile" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -288,16 +306,16 @@
           <Property Name="userId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="loginName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="internationalization" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lenguage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_UserComment" FromRole="UserProfile" ToRole="Comment" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_UserPhoto" FromRole="UserProfile" ToRole="Photo" />
           <NavigationProperty Name="Tag" Relationship="Self.FK_UserTag" FromRole="UserProfile" ToRole="Tag" />
-          <NavigationProperty Name="UserProfile1" Relationship="Self.Followed" FromRole="UserProfile" ToRole="UserProfile1" />
-          <NavigationProperty Name="UserProfile2" Relationship="Self.Followed" FromRole="UserProfile1" ToRole="UserProfile" />
-          <NavigationProperty Name="Photo" Relationship="Self.Likes" FromRole="UserProfile" ToRole="Photo" />
+          <NavigationProperty Name="UserProfile1" Relationship="Self.Follow" FromRole="UserProfile" ToRole="UserProfile1" />
+          <NavigationProperty Name="UserProfile2" Relationship="Self.Follow" FromRole="UserProfile1" ToRole="UserProfile" />
+          <NavigationProperty Name="Photo1" Relationship="Self.Likes" FromRole="UserProfile" ToRole="Photo" />
         </EntityType>
         <Association Name="FK_CategoryPhoto">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -347,6 +365,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserPhoto">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserTag">
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
@@ -359,7 +389,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Followed">
+        <Association Name="Follow">
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
           <End Role="UserProfile1" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
@@ -367,7 +397,7 @@
           <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="practicamadEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="practicamad2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="Photo" EntityType="Self.Photo" />
@@ -389,11 +419,15 @@
             <End Role="Photo" EntitySet="Photo" />
             <End Role="Tag" EntitySet="Tag" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserPhoto" Association="Self.FK_UserPhoto">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserTag" Association="Self.FK_UserTag">
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="Tag" EntitySet="Tag" />
           </AssociationSet>
-          <AssociationSet Name="Followed" Association="Self.Followed">
+          <AssociationSet Name="Follow" Association="Self.Follow">
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="UserProfile1" EntitySet="UserProfile" />
           </AssociationSet>
@@ -407,9 +441,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities2">
+        <EntityContainerMapping StorageEntityContainer="practicamad2ModelStoreContainer" CdmEntityContainer="practicamad2Entities">
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="practicamadModel.Category">
+            <EntityTypeMapping TypeName="practicamad2Model.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
                 <ScalarProperty Name="categoryType" ColumnName="categoryType" />
@@ -417,7 +451,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comment">
-            <EntityTypeMapping TypeName="practicamadModel.Comment">
+            <EntityTypeMapping TypeName="practicamad2Model.Comment">
               <MappingFragment StoreEntitySet="Comment">
                 <ScalarProperty Name="commentId" ColumnName="commentId" />
                 <ScalarProperty Name="commentDescription" ColumnName="commentDescription" />
@@ -428,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Photo">
-            <EntityTypeMapping TypeName="practicamadModel.Photo">
+            <EntityTypeMapping TypeName="practicamad2Model.Photo">
               <MappingFragment StoreEntitySet="Photo">
                 <ScalarProperty Name="photoId" ColumnName="photoId" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -439,11 +473,12 @@
                 <ScalarProperty Name="iso" ColumnName="iso" />
                 <ScalarProperty Name="wb" ColumnName="wb" />
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tag">
-            <EntityTypeMapping TypeName="practicamadModel.Tag">
+            <EntityTypeMapping TypeName="practicamad2Model.Tag">
               <MappingFragment StoreEntitySet="Tag">
                 <ScalarProperty Name="tagId" ColumnName="tagId" />
                 <ScalarProperty Name="tagName" ColumnName="tagName" />
@@ -453,20 +488,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserProfile">
-            <EntityTypeMapping TypeName="practicamadModel.UserProfile">
+            <EntityTypeMapping TypeName="practicamad2Model.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="loginName" ColumnName="loginName" />
                 <ScalarProperty Name="userPassword" ColumnName="userPassword" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="internationalization" ColumnName="internationalization" />
+                <ScalarProperty Name="lenguage" ColumnName="lenguage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Followed" TypeName="practicamadModel.Followed" StoreEntitySet="Followed">
+          <AssociationSetMapping Name="Follow" TypeName="practicamad2Model.Follow" StoreEntitySet="Follow">
             <EndProperty Name="UserProfile">
               <ScalarProperty Name="userId" ColumnName="userId1" />
             </EndProperty>
@@ -474,7 +508,7 @@
               <ScalarProperty Name="userId" ColumnName="userId2" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="Likes" TypeName="practicamadModel.Likes" StoreEntitySet="Likes">
+          <AssociationSetMapping Name="Likes" TypeName="practicamad2Model.Likes" StoreEntitySet="Likes">
             <EndProperty Name="Photo">
               <ScalarProperty Name="photoId" ColumnName="photoId" />
             </EndProperty>
