@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="practicamad2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="practicamadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -194,7 +194,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="practicamad2ModelStoreContainer">
+        <EntityContainer Name="practicamadModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
@@ -247,7 +247,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="practicamad2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="practicamadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="categoryId" />
@@ -397,7 +397,7 @@
           <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="practicamad2Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="practicamadEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="Photo" EntityType="Self.Photo" />
@@ -441,9 +441,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="practicamad2ModelStoreContainer" CdmEntityContainer="practicamad2Entities">
+        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities">
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="practicamad2Model.Category">
+            <EntityTypeMapping TypeName="practicamadModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
                 <ScalarProperty Name="categoryType" ColumnName="categoryType" />
@@ -451,7 +451,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comment">
-            <EntityTypeMapping TypeName="practicamad2Model.Comment">
+            <EntityTypeMapping TypeName="practicamadModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
                 <ScalarProperty Name="commentId" ColumnName="commentId" />
                 <ScalarProperty Name="commentDescription" ColumnName="commentDescription" />
@@ -462,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Photo">
-            <EntityTypeMapping TypeName="practicamad2Model.Photo">
+            <EntityTypeMapping TypeName="practicamadModel.Photo">
               <MappingFragment StoreEntitySet="Photo">
                 <ScalarProperty Name="photoId" ColumnName="photoId" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -478,7 +478,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tag">
-            <EntityTypeMapping TypeName="practicamad2Model.Tag">
+            <EntityTypeMapping TypeName="practicamadModel.Tag">
               <MappingFragment StoreEntitySet="Tag">
                 <ScalarProperty Name="tagId" ColumnName="tagId" />
                 <ScalarProperty Name="tagName" ColumnName="tagName" />
@@ -488,7 +488,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserProfile">
-            <EntityTypeMapping TypeName="practicamad2Model.UserProfile">
+            <EntityTypeMapping TypeName="practicamadModel.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="loginName" ColumnName="loginName" />
@@ -500,7 +500,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Follow" TypeName="practicamad2Model.Follow" StoreEntitySet="Follow">
+          <AssociationSetMapping Name="Follow" TypeName="practicamadModel.Follow" StoreEntitySet="Follow">
             <EndProperty Name="UserProfile">
               <ScalarProperty Name="userId" ColumnName="userId1" />
             </EndProperty>
@@ -508,7 +508,7 @@
               <ScalarProperty Name="userId" ColumnName="userId2" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="Likes" TypeName="practicamad2Model.Likes" StoreEntitySet="Likes">
+          <AssociationSetMapping Name="Likes" TypeName="practicamadModel.Likes" StoreEntitySet="Likes">
             <EndProperty Name="Photo">
               <ScalarProperty Name="photoId" ColumnName="photoId" />
             </EndProperty>

@@ -21,7 +21,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 To<UserService>();
 
             string connectionString =
-                ConfigurationManager.ConnectionStrings["PhotogramDbEntities"].ConnectionString;
+                ConfigurationManager.ConnectionStrings["practicamadEntities"].ConnectionString;
 
             kernel.Bind<DbContext>().
                 ToSelf().

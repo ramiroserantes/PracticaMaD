@@ -1,4 +1,4 @@
-﻿USE [practicamad2]
+﻿USE [practicamad]
 
 /* ********** Drop Table UserProfile if already exists *********** */
 
@@ -22,12 +22,12 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND t
 DROP TABLE [Tag]
 GO
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
-DROP TABLE [UserProfile]
-GO
-
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Follow]') AND type in ('U'))
 DROP TABLE [Follow]
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[UserProfile]') AND type in ('U'))
+DROP TABLE [UserProfile]
 GO
 
 

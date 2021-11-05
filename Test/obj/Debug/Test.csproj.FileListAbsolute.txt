@@ -1,77 +1,32 @@
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Test.dll.config
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Test.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Test.pdb
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Castle.Core.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\EntityFramework.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\ModelUtil.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Model.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Model.pdb
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\PracticaMad.Model.dll.config
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Castle.Core.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\EntityFramework.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.xml
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\obj\Debug\Test.csprojAssemblyReference.cache
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\obj\Debug\Test.csproj.CopyComplete
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\obj\Debug\PracticaMad.Test.dll
-C:\Users\Faby609\OneDrive\Escritorio\2021-2022\PracticaMAD\PracticaMad\Test\obj\Debug\PracticaMad.Test.pdb
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\es\Microsoft.TestPlatform.AdapterUtilities.resources.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Castle.Core.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\EntityFramework.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\ModelUtil.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\PracticaMad.Model.dll
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\PracticaMad.Model.pdb
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\PracticaMad.Model.dll.config
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Castle.Core.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\EntityFramework.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.xml
-D:\MaD\AAA\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
-D:\MaD\AAA\PracticaMad\Test\obj\Debug\Test.csprojAssemblyReference.cache
-D:\MaD\AAA\PracticaMad\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
-D:\MaD\AAA\PracticaMad\Test\obj\Debug\Test.csproj.CopyComplete
-D:\MaD\AAA\PracticaMad\Test\obj\Debug\PracticaMad.Test.dll
-D:\MaD\AAA\PracticaMad\Test\obj\Debug\PracticaMad.Test.pdb
-D:\MaD\PracticaMaD\PracticaMaD\Test\obj\Debug\Test.csprojAssemblyReference.cache
-D:\MaD\PracticaMaD\PracticaMaD\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
-D:\MaD\PracticaMaD\PracticaMaD\Test\obj\Debug\PracticaMad.Test.dll
-D:\MaD\PracticaMaD\PracticaMaD\Test\obj\Debug\PracticaMad.Test.pdb
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Test.dll.config
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Test.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Test.pdb
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Castle.Core.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\EntityFramework.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Model.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\ModelUtil.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.dll
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Model.pdb
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Model.dll.config
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Castle.Core.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\EntityFramework.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\EntityFramework.SqlServer.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\Ninject.Extensions.Xml.xml
+D:\MaD\LA BUENA\PracticaMad\Test\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.csprojAssemblyReference.cache
+D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.csproj.CopyComplete
+D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.dll
+D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.pdb

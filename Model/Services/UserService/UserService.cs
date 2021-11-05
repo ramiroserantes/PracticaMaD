@@ -16,7 +16,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         [Inject]
         public IUserProfileDao UserProfileDao { private get; set; }
 
-        public void ChangePassword(long userProfileId, string oldClearPassword,
+        /*public void ChangePassword(long userProfileId, string oldClearPassword,
             string newClearPassword)
         {
             UserProfile userProfile = UserProfileDao.Find(userProfileId);
@@ -73,11 +73,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
                 }
             }
 
-
+            
             return new LoginResult(userProfile.userId, userProfile.firstName,
-                storedPassword);
+                storedPassword, userProfile.lenguage);
 
-        }
+        }*/
 
         [Transactional]
         public long RegisterUser(string loginName, string clearPassword, 
@@ -109,7 +109,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             }
         }
 
-        [Transactional]
+        /*[Transactional]
         public void UpdateUserProfileDetails(long userProfileId,
             UserProfileDetails userProfileDetails)
         {
@@ -150,7 +150,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         {
             return UserProfileDao.FindByFollowed(userProfileId);
 
-        }
+        }*/
 
     }
 }

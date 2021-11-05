@@ -6,19 +6,19 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserService
     public class LoginResult
     {
         public LoginResult(long userProfileId, String firstName,
-            String encryptedPassword)
+            String encryptedPassword, string lenguage)
         {
             this.UserProfileId = userProfileId;
             this.FirstName = firstName;
             this.EncryptedPassword = encryptedPassword;
-            //this.Internalization = internalization;
+            this.Lenguage = lenguage;
         }
 
         #region Properties Region
 
         public string EncryptedPassword { get; private set; }
 
-        public Enum Internalization { get; private set; }
+        public string Lenguage { get; private set; }
 
         public string FirstName { get; private set; }
 
@@ -32,8 +32,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserService
 
             return (this.UserProfileId == target.UserProfileId)
                    && (this.FirstName == target.FirstName)
-                   && (this.EncryptedPassword == target.EncryptedPassword);
-                   //&& (this.Internalization == target.Internalization);
+                   && (this.EncryptedPassword == target.EncryptedPassword)
+                   && (this.Lenguage == target.Lenguage);
         }
 
         public override int GetHashCode()
@@ -49,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserService
                 "[ userProfileId = " + UserProfileId + " | " +
                 "firstName = " + FirstName + " | " +
                 "encryptedPassword = " + EncryptedPassword + " | " +
-                "language = " + Internalization + " ]";
+                "lenguage = " + Lenguage + " ]";
 
             return strLoginResult;
         }
