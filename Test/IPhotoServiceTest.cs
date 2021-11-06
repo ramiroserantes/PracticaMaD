@@ -44,6 +44,14 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private const string email = "user@udc.es";
         private const string lenguage = "es";
 
+        private const string loginName2 = "loginNameTest2";
+
+        private const string clearPassword2 = "password2";
+        private const string firstName2 = "name2";
+        private const string lastName2 = "lastName2";
+        private const string email2 = "user2@udc.es";
+        private const string lenguage2 = "en";
+
         private const string commentBody = "comment1";
 
         private const string tagName1 = "tag1";
@@ -216,7 +224,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             }
         }
 
-        // <summary>
+        /// <summary>
         /// A test for FindAllPhotosByKeywordAndCategory.
         /// </summary>
         [TestMethod]
@@ -263,6 +271,113 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                     Assert.AreEqual(photoList[i].UserProfile.userId, expectedPhotoList.Photos[i].UserProfile.userId);
 
                 }
+            }
+        }
+
+        /// <summary>
+        /// A test for UploadPhoto.
+        /// </summary>
+        [TestMethod]
+        public void UploadPhotoTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register user
+                var user1 = CreateUser();
+
+                var category = CreateCategory(categoryType);
+                var photoId = photoService.UploadPhoto(user1.userId, title, photoDescription, f, t, iso, wb,
+                    category.categoryId);
+                var findPhoto = photoDao.Find(photoId);
+
+                Assert.AreEqual(findPhoto.photoDate.Date, System.DateTime.Now.Date);
+                Assert.AreEqual(findPhoto.categoryId, category.categoryId);
+                Assert.AreEqual(findPhoto.photoDescription, photoDescription);
+                Assert.AreEqual(findPhoto.userId, user1.userId);
+                Assert.AreEqual(findPhoto.title, title);
+                Assert.AreEqual(findPhoto.f, f);
+                Assert.AreEqual(findPhoto.t, t);
+                Assert.AreEqual(findPhoto.iso, iso);
+                Assert.AreEqual(findPhoto.wb, wb);
+            }
+        }
+
+        /// <summary>
+        /// A test for DeletePhoto.
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void DeletePhotoTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register user
+                var user1 = CreateUser();
+                var category = CreateCategory(categoryType);
+
+                var photoId = photoService.UploadPhoto(user1.userId, title, photoDescription, f, t, iso, wb,
+                    category.categoryId);
+
+                var findPhoto = photoDao.Find(photoId);
+                Assert.AreEqual(findPhoto.photoDescription, photoDescription);
+
+                photoService.DeletePhoto(photoId);
+                photoDao.Find(photoId); //InstanceNotFoundException
+
+            }
+        }
+
+        /// <summary>
+        /// A test for GenerateLike.
+        /// </summary>
+        [TestMethod]
+        public void GenerateLikeTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register users
+                var user1 = CreateUser();
+                var user2 = CreateUser();
+                // Add photo
+                var category = CreateCategory(categoryType);
+                Photo photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user2.userId);
+
+
+                photoService.GenerateLike(user1.userId, photo.photoId);
+                Assert.AreEqual(1, photo.UserProfile1.Count);
+
+                photoService.GenerateLike(user2.userId, photo.photoId);
+                Assert.AreEqual(2, photo.UserProfile1.Count);
+
+            }
+        }
+
+        // <summary>
+        /// A test for DeleteLike.
+        /// </summary>
+        [TestMethod]
+        public void DeleteLikeTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register users
+                var user1 = CreateUser();
+                var user2 = CreateUser();
+                var user3 = CreateUser();
+
+                // Add photo
+                var category = CreateCategory(categoryType);
+                Photo photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user1.userId);
+
+                photoService.GenerateLike(user1.userId, photo.photoId);
+                photoService.GenerateLike(user2.userId, photo.photoId);
+                photoService.GenerateLike(user3.userId, photo.photoId);
+                Assert.AreEqual(3, photo.UserProfile1.Count);
+
+                photoService.DeleteLike(user2.userId, photo.photoId);
+                Assert.AreEqual(2, photo.UserProfile1.Count);
+                Assert.AreEqual(2, photoService.getPhotoLikes(photo.photoId));
             }
         }
 

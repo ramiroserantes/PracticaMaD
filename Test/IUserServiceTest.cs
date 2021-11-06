@@ -363,6 +363,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 List<UserProfile> expectedFollowers = userProfileDao.FindByFollower(userId2);
 
                 Assert.AreEqual(1, expectedFollowers.Count);
+                Assert.AreEqual(1, userProfileDao.FindByFollowed(userId1));
 
                 for (int i = 0; i < expectedFollowers.Count; i++)
                 {
