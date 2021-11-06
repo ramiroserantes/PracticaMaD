@@ -38,21 +38,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
         }
 
-        public int findPhotoLikes(long photoId) {
-
-            #region Option 1: Using Linq.
-            DbSet<Photo> photo = Context.Set<Photo>();
-
-            var result =
-                (from p in photo
-                 where p.UserProfile1.Any(p1 => p1.Photo1.Any(p2 => p2.photoId == photoId))
-                 select p).Count();
-
-            #endregion Option 1: Using Linq.
-
-            return result;
-        }
-
+       
         public List<Photo> FindByUserId(long userId, int startIndex = 0, int count = 20) 
         {
             List<Photo> photos = null;

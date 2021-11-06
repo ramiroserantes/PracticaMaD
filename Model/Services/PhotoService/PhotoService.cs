@@ -125,7 +125,9 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         public int getPhotoLikes(long photoId)
         {
-            return PhotoDao.findPhotoLikes(photoId);
+            Photo photo = PhotoDao.Find(photoId);
+
+            return photo.UserProfile1.Count();
         }
 
         /// <exception cref="InstanceNotFoundException"/>
@@ -137,34 +139,17 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             List<Photo> likeListUser = new List<Photo>(userProfile.Photo1);
 
-            if (!likeListUser.Any(u => u.photoId == photoId))
+            bool containsItem = likeListUser.Any(p => p.photoId == photoId);
+            if (!containsItem)
             {
                 likeListUser.Add(photo);
-                ICollection<Photo> newLikeList = new List<Photo>();
-                foreach (Photo p in likeListUser)
-                {
-                    newLikeList.Add(PhotoDao.Find(p.photoId));
-                }
-
+                ICollection<Photo> newLikeList = new List<Photo>(likeListUser);
+              
                 userProfile.Photo1.Clear();
                 userProfile.Photo1 = newLikeList;
 
                 UserProfileDao.Update(userProfile);
 
-                // actualizamos la lista de perfiles que le dieron like a la foto
-                List<UserProfile> likeListPhoto = new List<UserProfile>(photo.UserProfile1);
-
-                likeListPhoto.Add(userProfile);
-                ICollection<UserProfile> newLikeList2 = new List<UserProfile>();
-                foreach (UserProfile p1 in likeListPhoto)
-                {
-                    newLikeList2.Add(UserProfileDao.Find(p1.userId));
-                }
-
-                photo.UserProfile1.Clear();
-                photo.UserProfile1 = newLikeList2;
-
-                PhotoDao.Update(photo);
             }
 
         }
@@ -192,20 +177,6 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
                 UserProfileDao.Update(userProfile);
 
-                // actualizamos la lista de perfiles que le dieron like a la foto
-                List<UserProfile> likeListPhoto = new List<UserProfile>(photo.UserProfile1);
-
-                ICollection<UserProfile> newLikeList2 = new List<UserProfile>();
-                foreach (UserProfile p1 in likeListPhoto)
-                {
-                    if (p1.userId != userProfileId)
-                        newLikeList2.Add(UserProfileDao.Find(p1.userId));
-                }
-
-                photo.UserProfile1.Clear();
-                photo.UserProfile1 = newLikeList2;
-
-                PhotoDao.Update(photo);
             }
         }
 
