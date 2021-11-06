@@ -153,6 +153,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
+        /// <exception cref="InstanceNotFoundException"/>
         [Transactional]
         public void FollowUser(long userProfileId, long userIdToFollow)
         {

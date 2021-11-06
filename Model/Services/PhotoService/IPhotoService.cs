@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
 using Es.Udc.DotNet.PracticaMad.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMad.Model.CommentDao;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoDao;
@@ -11,6 +12,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 {
     public interface IPhotoService
     {
+        [Inject]
+        IUserProfileDao UserProfileDao { set; }
 
         [Inject]
         IPhotoDao PhotoDao { set; }
@@ -51,6 +54,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         [Transactional]
         Comment FindCommentByPhotoAndUser(long photoId, long userId);
+
+        [Transactional]
+        void GenerateLike(long userProfileId, long photoId);
+
+        [Transactional]
+        void DeleteLike(long userProfileId, long photoId);
 
         long AddTag(string tagName);
 

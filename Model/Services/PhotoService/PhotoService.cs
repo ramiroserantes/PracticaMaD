@@ -1,10 +1,12 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
+using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
 using Es.Udc.DotNet.PracticaMad.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMad.Model.CommentDao;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoDao;
 using Es.Udc.DotNet.PracticaMad.Model.TagDao;
 using Ninject;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
@@ -13,6 +15,9 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
     {
         [Inject]
         public IPhotoDao PhotoDao { private get; set; }
+
+        [Inject]
+        public IUserProfileDao UserProfileDao { private get; set; }
 
         [Inject]
         public ICommentDao CommentDao { private get; set; }
@@ -106,6 +111,87 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         public int getPhotoLikes(long photoId)
         {
             return PhotoDao.findPhotoLikes(photoId);
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void GenerateLike(long userProfileId, long photoId)
+        {
+            Photo photo = PhotoDao.Find(photoId);
+            UserProfile userProfile = UserProfileDao.Find(userProfileId);
+
+            List<Photo> likeListUser = new List<Photo>(userProfile.Photo1);
+
+            if (!likeListUser.Any(u => u.photoId == photoId))
+            {
+                likeListUser.Add(photo);
+                ICollection<Photo> newLikeList = new List<Photo>();
+                foreach (Photo p in likeListUser)
+                {
+                    newLikeList.Add(PhotoDao.Find(p.photoId));
+                }
+
+                userProfile.Photo1.Clear();
+                userProfile.Photo1 = newLikeList;
+
+                UserProfileDao.Update(userProfile);
+
+                // actualizamos la lista de perfiles que le dieron like a la foto
+                List<UserProfile> likeListPhoto = new List<UserProfile>(photo.UserProfile1);
+
+                likeListPhoto.Add(userProfile);
+                ICollection<UserProfile> newLikeList2 = new List<UserProfile>();
+                foreach (UserProfile p1 in likeListPhoto)
+                {
+                    newLikeList2.Add(UserProfileDao.Find(p1.userId));
+                }
+
+                photo.UserProfile1.Clear();
+                photo.UserProfile1 = newLikeList2;
+
+                PhotoDao.Update(photo);
+            }
+
+        }
+
+        /// <exception cref="InstanceNotFoundException"/>
+        [Transactional]
+        public void DeleteLike(long userProfileId, long photoId)
+        {
+            Photo photo = PhotoDao.Find(photoId);
+            UserProfile userProfile = UserProfileDao.Find(userProfileId);
+
+            List<Photo> likeListUser = new List<Photo>(userProfile.Photo1);
+
+            if (likeListUser.Any(u => u.photoId == photoId))
+            {
+                ICollection<Photo> newLikeList = new List<Photo>();
+                foreach (Photo p in likeListUser)
+                {
+                    if (p.photoId != photoId)
+                        newLikeList.Add(PhotoDao.Find(p.photoId));
+                }
+
+                userProfile.Photo1.Clear();
+                userProfile.Photo1 = newLikeList;
+
+                UserProfileDao.Update(userProfile);
+
+                // actualizamos la lista de perfiles que le dieron like a la foto
+                List<UserProfile> likeListPhoto = new List<UserProfile>(photo.UserProfile1);
+
+                ICollection<UserProfile> newLikeList2 = new List<UserProfile>();
+                foreach (UserProfile p1 in likeListPhoto)
+                {
+                    if (p1.userId != userProfileId)
+                        newLikeList2.Add(UserProfileDao.Find(p1.userId));
+                }
+
+                photo.UserProfile1.Clear();
+                photo.UserProfile1 = newLikeList2;
+
+                PhotoDao.Update(photo);
+            }
         }
 
         #endregion Photo Members
