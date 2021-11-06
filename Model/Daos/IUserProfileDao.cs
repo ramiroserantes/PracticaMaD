@@ -17,5 +17,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         /// <exception cref="InstanceNotFoundException"/>
         UserProfile FindByLoginName(String loginName);
 
+        List<UserProfile> FindByFollower(long userId);
+
+        List<UserProfile> FindByFollowed(long userId);
     }
 }

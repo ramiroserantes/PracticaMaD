@@ -135,24 +135,25 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
 
         public List<Photo> FindByCategoryAndKeywords(string keywords, long categoryId, int startIndex = 0, int count = 20)
         {
-            List<Photo> photos = null;
+            List<Photo> photo = null;
 
             #region Option 1: Using Linq.
 
-            DbSet<Photo> photo = Context.Set<Photo>();
+            DbSet<Photo> photos = Context.Set<Photo>();
 
             var result =
                 (from p in photos
-                 where (p.title.ToLower().Contains(keywords.ToLower()) &&
-                        (p.categoryId == categoryId))
-                 orderby p.photoDate descending
-                 select p).Skip(startIndex).Take(count);
+                where ((p.title.ToLower().Contains(keywords.ToLower()) ||
+                (p.photoDescription.ToLower().Contains(keywords.ToLower())) &&
+                (p.categoryId == categoryId)))
+                orderby p.photoDate descending
+                select p).Skip(startIndex).Take(count);
 
             #endregion Option 1: Using Linq.
 
-            photos = result.ToList();
+            photo = result.ToList();
 
-            return photos;
+            return photo;
 
         }
         #endregion  IUserProfileDao Members. Specific Operations

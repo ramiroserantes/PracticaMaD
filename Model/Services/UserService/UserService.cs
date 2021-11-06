@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
@@ -16,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         [Inject]
         public IUserProfileDao UserProfileDao { private get; set; }
 
-        /*public void ChangePassword(long userProfileId, string oldClearPassword,
+        public void ChangePassword(long userProfileId, string oldClearPassword,
             string newClearPassword)
         {
             UserProfile userProfile = UserProfileDao.Find(userProfileId);
@@ -77,7 +78,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             return new LoginResult(userProfile.userId, userProfile.firstName,
                 storedPassword, userProfile.lenguage);
 
-        }*/
+        }
 
         [Transactional]
         public long RegisterUser(string loginName, string clearPassword, 
@@ -109,7 +110,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             }
         }
 
-        /*[Transactional]
+        [Transactional]
         public void UpdateUserProfileDetails(long userProfileId,
             UserProfileDetails userProfileDetails)
         {
@@ -150,7 +151,53 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         {
             return UserProfileDao.FindByFollowed(userProfileId);
 
-        }*/
+        }
+
+        [Transactional]
+        public void FollowUser(long userProfileId, long userIdToFollow)
+        {
+
+            UserProfile userProfile = UserProfileDao.Find(userProfileId);
+            UserProfile userProfile2 = UserProfileDao.Find(userIdToFollow);
+
+
+            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
+
+            bool containsItem = followeds.Any(u => u.userId == userProfile2.userId); //comprobacion
+            if (!containsItem)
+            {
+
+                followeds.Add(userProfile2);
+
+                ICollection<UserProfile> newFollowedList = new List<UserProfile>();
+                foreach (UserProfile followedUser in followeds)
+                {
+                    newFollowedList.Add(UserProfileDao.Find(followedUser.userId));
+                }
+
+                userProfile.UserProfile2.Clear(); //vaciar lista de seguidos
+                userProfile.UserProfile2 = newFollowedList;
+
+                UserProfileDao.Update(userProfile);
+
+
+                // actualizamos la lista de seguidores del otro perfil
+                List<UserProfile> followers = UserProfileDao.FindByFollower(userIdToFollow);
+                followers.Add(userProfile);
+
+                ICollection<UserProfile> newFollowerList = new List<UserProfile>();
+                foreach (UserProfile followerUser in followers)
+                {
+                    newFollowerList.Add(UserProfileDao.Find(followerUser.userId));
+                }
+
+                userProfile2.UserProfile1.Clear(); //vaciar lista de seguidores
+                userProfile2.UserProfile1 = newFollowerList;
+
+                UserProfileDao.Update(userProfile2);
+            }
+        }
+
 
     }
 }

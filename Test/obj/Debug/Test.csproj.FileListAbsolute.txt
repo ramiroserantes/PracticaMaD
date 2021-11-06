@@ -30,3 +30,35 @@ D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.csproj.CopyComplete
 D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.dll
 D:\MaD\LA BUENA\PracticaMad\Test\obj\Debug\Test.pdb
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Test.dll.config
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Test.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Test.pdb
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Castle.Core.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\EntityFramework.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Model.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\ModelUtil.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Interception.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Xml.dll
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Model.pdb
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Model.dll.config
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Castle.Core.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\EntityFramework.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Interception.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\Ninject.Extensions.Xml.xml
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\ProyectoMad\PracticaMaD\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\ProyectoMad\PracticaMaD\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\ProyectoMad\PracticaMaD\Test\obj\Debug\Test.csproj.CopyComplete
+C:\ProyectoMad\PracticaMaD\Test\obj\Debug\Test.dll
+C:\ProyectoMad\PracticaMaD\Test\obj\Debug\Test.pdb

@@ -13,7 +13,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         [Inject]
         IUserProfileDao UserProfileDao { set; }
 
-        /*void ChangePassword(long userProfileId, string oldClearPassword,
+        void ChangePassword(long userProfileId, string oldClearPassword,
             string newClearPassword);
 
         [Transactional]
@@ -21,13 +21,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         [Transactional]
         LoginResult Login(string loginName, string password,
-            Boolean passwordIsEncrypted);*/
+            Boolean passwordIsEncrypted);
 
         [Transactional]
         long RegisterUser(string loginName, string clearPassword,
             UserProfileDetails userProfileDetails);
 
-        /*[Transactional]
+        [Transactional]
         void UpdateUserProfileDetails(long userProfileId,
             UserProfileDetails userProfileDetails);
 
@@ -37,7 +37,10 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         List<UserProfile> GetFollowers(long userProfileId);
 
         [Transactional]
-        List<UserProfile> GetFolloweds(long userProfileId);*/
+        List<UserProfile> GetFolloweds(long userProfileId);
+
+        [Transactional]
+        void FollowUser(long userProfileId, long userIdToFollow);
 
     }
 }

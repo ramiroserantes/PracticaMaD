@@ -23,3 +23,28 @@ D:\MaD\LA BUENA\PracticaMad\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\MaD\LA BUENA\PracticaMad\Model\obj\Debug\Model.csproj.CopyComplete
 D:\MaD\LA BUENA\PracticaMad\Model\obj\Debug\Model.dll
 D:\MaD\LA BUENA\PracticaMad\Model\obj\Debug\Model.pdb
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Model.dll.config
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Model.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Model.pdb
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Castle.Core.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\EntityFramework.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\ModelUtil.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Castle.Core.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\EntityFramework.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.xml
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+C:\ProyectoMad\PracticaMaD\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\ProyectoMad\PracticaMaD\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\ProyectoMad\PracticaMaD\Model\obj\Debug\Model.csproj.CopyComplete
+C:\ProyectoMad\PracticaMaD\Model\obj\Debug\Model.dll
+C:\ProyectoMad\PracticaMaD\Model\obj\Debug\Model.pdb
