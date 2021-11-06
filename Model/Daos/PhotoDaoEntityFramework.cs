@@ -95,6 +95,29 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
         }
 
+        public Photo FindByPhotoDescription(string photoDescription)
+        {
+            Photo photo = null;
+
+            #region Option 1: Using Linq.
+
+            DbSet<Photo> userProfiles = Context.Set<Photo>();
+
+            var result =
+                (from u in userProfiles
+                 where u.photoDescription == photoDescription
+                 select u);
+
+            photo = result.FirstOrDefault();
+
+            #endregion Option 1: Using Linq.
+            if (photo == null)
+                throw new InstanceNotFoundException(photoDescription,
+                    typeof(Photo).FullName);
+
+            return photo;
+        }
+
         public List<Photo> FindByTagId(long tagId, int startIndex = 0, int count = 20)
         {
             List<Photo> photo = null;

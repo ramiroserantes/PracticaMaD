@@ -2,6 +2,10 @@
 
 /* ********** Drop Table UserProfile if already exists *********** */
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND type in ('U'))
+DROP TABLE [Tag]
+GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Likes]') AND type in ('U'))
 DROP TABLE [Likes]
 GO
@@ -18,9 +22,6 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Comment]') A
 DROP TABLE [Comment]
 GO
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND type in ('U'))
-DROP TABLE [Tag]
-GO
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Follow]') AND type in ('U'))
 DROP TABLE [Follow]
@@ -84,7 +85,7 @@ CREATE TABLE Tag (
     tagId bigint IDENTITY(1,1) NOT NULL,
     tagName varchar(100) NOT NULL,
     userId bigint NOT NULL,
-    photoId bigint NOT NULL,
+    photoId bigint NULL,
 
     CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
 	CONSTRAINT [UniqueKey_Name] UNIQUE (tagName),

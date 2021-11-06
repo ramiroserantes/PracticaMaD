@@ -54,6 +54,21 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
                 }
             }
 
+            if (!photo.photoDescription.Equals(photoDescription))
+            {
+                try
+                {
+                    PhotoDao.FindByPhotoDescription(photoDescription);
+
+                    throw new DuplicateInstanceException(photoDescription,
+                    typeof(Photo).FullName);
+                }
+                catch (InstanceNotFoundException)
+                {
+                    photo.photoDescription = photoDescription;
+                }
+            }
+
             PhotoDao.Update(photo);
         }
 
@@ -290,7 +305,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         #region Tag Members
 
         /// <exception cref="DuplicateInstanceException"/>
-        public long AddTag(string tagName)
+        public long AddTag(string tagName, long userId)
         {
             Tag tag = new Tag();
             try
@@ -303,6 +318,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             catch (InstanceNotFoundException)
             {
                 tag.tagName = tagName;
+                tag.userId = userId;
 
                 TagDao.Create(tag);
             }

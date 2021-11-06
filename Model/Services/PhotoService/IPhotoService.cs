@@ -45,6 +45,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         long AddComment(long photoId, long userId, string commentBody);
 
+        /// <exception cref="InstanceNotFoundException"/>
         void DeleteComment(long commentId);
 
         void UpdateComment(long commentId, string commentBody);
@@ -66,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         void DeletePhoto(long photoId);
 
-        long AddTag(string tagName);
+        long AddTag(string tagName, long userId);
 
         Tag FindTagByName(string tagName);
 

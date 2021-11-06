@@ -60,7 +60,7 @@
           <Property Name="tagId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tagName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="userId" Type="bigint" Nullable="false" />
-          <Property Name="photoId" Type="bigint" Nullable="false" />
+          <Property Name="photoId" Type="bigint" />
         </EntityType>
         <EntityType Name="UserProfile">
           <Key>
@@ -111,7 +111,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PhotoTag">
-          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Photo">
@@ -295,7 +295,7 @@
           <Property Name="tagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tagName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="userId" Type="Int64" Nullable="false" />
-          <Property Name="photoId" Type="Int64" Nullable="false" />
+          <Property Name="photoId" Type="Int64" />
           <NavigationProperty Name="Photo" Relationship="Self.FK_PhotoTag" FromRole="Tag" ToRole="Photo" />
           <NavigationProperty Name="UserProfile" Relationship="Self.FK_UserTag" FromRole="Tag" ToRole="UserProfile" />
         </EntityType>
@@ -354,7 +354,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PhotoTag">
-          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Photo">
@@ -397,7 +397,7 @@
           <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="practicamadEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="Photo" EntityType="Self.Photo" />
@@ -441,7 +441,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities">
+        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="practicamadModel.Category">
               <MappingFragment StoreEntitySet="Category">

@@ -17,7 +17,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         public long tagId { get; set; }
         public string tagName { get; set; }
         public long userId { get; set; }
-        public long photoId { get; set; }
+        public Nullable<long> photoId { get; set; }
     
         public virtual Photo Photo { get; set; }
         public virtual UserProfile UserProfile { get; set; }

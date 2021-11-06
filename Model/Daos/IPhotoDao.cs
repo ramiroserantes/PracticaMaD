@@ -8,6 +8,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
         Photo FindById(long photoId);
 
         Photo FindByTitle(string title);
+        Photo FindByPhotoDescription(string photoDescription);
 
         List<Photo> FindByTagId(long tagId, int startIndex = 0, int count = 20);
 

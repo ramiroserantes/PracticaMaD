@@ -14,7 +14,7 @@ using System.Linq;
 using System.Transactions;
 
 /// <summary>
-/// This is a test class for IProductServiceTest and is intended to contain all IProductServiceTest
+/// This is a test class for IPhotoServiceTest and is intended to contain all IPhotoServiceTest
 /// Unit Tests
 /// </summary>
 namespace Es.Udc.DotNet.PracticaMad.Test
@@ -28,7 +28,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
         private const string title = "title";
         private const string photoDescription = "description";
-        private const string categoryName = "category1";
+        private const string categoryType = "category1";
         private readonly System.DateTime photoDate = System.DateTime.Now;
         private const long f = 2;
         private const long t = 22;
@@ -99,31 +99,98 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
             return photo;
         }
-        private long CreateUser()
-        {
-            
-            return userService.RegisterUser(loginName, clearPassword,
-                        new UserProfileDetails(loginName, firstName, lastName, email, lenguage));
 
+        private UserProfile CreateUser()
+        {
+            UserProfile user = new UserProfile
+            {
+                loginName = "loginNameTest",
+                userPassword = "password",
+                firstName = "name",
+                lastName = "lastName",
+                email = "user@udc.es",
+                lenguage = "es",
+            };
+
+            userDao.Create(user);
+
+            return user;
+        }
+
+        private Tag CreateTag(string tagName, long userId)
+        {
+            Tag tag = new Tag
+            {
+                tagName = tagName,
+                userId = userId
+            };
+
+            tagDao.Create(tag);
+
+            return tag;
         }
 
         /// <summary>
-        /// A test for FindAllProducts
+        /// A test for UpdatePhoto
+        /// </summary>
+        [TestMethod]
+        public void UpdatePhotoTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
+                var photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user.userId);
+                var photoFind = photoDao.Find(photo.photoId);
+
+                // Check data
+                Assert.AreEqual(title, photoFind.title);
+                Assert.AreEqual(photoDescription, photoFind.photoDescription);
+                Assert.AreEqual(photoDate, photoFind.photoDate);
+                Assert.AreEqual(f, photoFind.f);
+                Assert.AreEqual(t, photoFind.t);
+                Assert.AreEqual(iso, photoFind.iso);
+                Assert.AreEqual(wb, photoFind.wb);
+                Assert.AreEqual(category.categoryId, photoFind.categoryId);
+                Assert.AreEqual(user.userId, photoFind.userId);
+
+                string titulo = "update1";
+                string descripcion = "update2";
+
+                photoService.UpdatePhotoDetails(photo.photoId, titulo, descripcion);
+                photoFind = photoDao.Find(photo.photoId);
+
+                // Check data
+                Assert.AreEqual(titulo, photoFind.title);
+                Assert.AreEqual(descripcion, photoFind.photoDescription);
+                Assert.AreEqual(photoDate, photoFind.photoDate);
+                Assert.AreEqual(f, photoFind.f);
+                Assert.AreEqual(t, photoFind.t);
+                Assert.AreEqual(iso, photoFind.iso);
+                Assert.AreEqual(wb, photoFind.wb);
+                Assert.AreEqual(category.categoryId, photoFind.categoryId);
+                Assert.AreEqual(user.userId, photoFind.userId);
+            }
+        }
+
+        /// <summary>
+        /// A test for FindAllFhotos
         /// </summary>
         [TestMethod]
         public void FindAllPhotosTest()
         {
             using (var scope = new TransactionScope())
             {
-                long userId = CreateUser();
-                var category = CreateCategory(categoryName);
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
                 List<Photo> photoList = new List<Photo>
                 {
                     CreatePhoto(title, photoDescription, photoDate,
-                    f,  t,  iso, wb, category.categoryId,  userId),
+                    f,  t,  iso, wb, category.categoryId,  user.userId),
 
                     CreatePhoto("title2", "photoDescription2", System.DateTime.Now,
-                    3,  33,  "iso2", 333, category.categoryId,  userId),
+                    3,  33,  "iso2", 333, category.categoryId,  user.userId),
 
                 };
 
@@ -150,32 +217,32 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         }
 
         // <summary>
-        /// A test for FindAllProductsByKeyword. With Category.
+        /// A test for FindAllPhotosByKeywordAndCategory.
         /// </summary>
         [TestMethod]
         public void FindAllPhotosByKeywordAndCategoryTest()
         {
             using (var scope = new TransactionScope())
             {
-                long userId = CreateUser();
-                var category1 = CreateCategory(categoryName);
+                var user = CreateUser();
+                var category1 = CreateCategory(categoryType);
                 var category2 = CreateCategory("category2");
 
                 List<Photo> photoList = new List<Photo>
                 {
                     CreatePhoto(title, photoDescription, photoDate,
-                    f,  t,  iso, wb, category1.categoryId,  userId),
+                    f,  t,  iso, wb, category1.categoryId,  user.userId),
 
                     CreatePhoto("title2", "photoDescription2", System.DateTime.Now,
-                    3,  33,  "iso2", 333, category1.categoryId,  userId),
+                    3,  33,  "iso2", 333, category1.categoryId,  user.userId),
 
                 };
 
                 CreatePhoto("ooo", "oooo", System.DateTime.Now,
-                   3, 33, "iso2", 333, category2.categoryId, userId);
+                   3, 33, "iso2", 333, category2.categoryId, user.userId);
 
                 CreatePhoto("ooo", "oooo", System.DateTime.Now,
-                   3, 33, "iso2", 333, category2.categoryId, userId);
+                   3, 33, "iso2", 333, category2.categoryId, user.userId);
 
                 var expectedPhotoList = photoService.FindAllPhotosByCategoryAndKeyword("title", category1.categoryId);
 
@@ -199,10 +266,177 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             }
         }
 
+        /// <summary>
+        /// A test for AddComment.
+        /// </summary>
+        [TestMethod]
+        public void AddCommentTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
+                var photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user.userId);
+                
+
+                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
+
+                var findComment = commentDao.Find(commentId);
+
+                // Check data
+                Assert.AreEqual(photo.photoId, findComment.photoId);
+                Assert.AreEqual(user.userId, findComment.userId);
+                Assert.AreEqual(commentBody, findComment.commentDescription);
+                Assert.AreEqual(System.DateTime.Now.Date, findComment.commentDate.Date);
+            }
+        }
+
+        /// <summary>
+        /// A test for DeleteComment.
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void DeleteCommentTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
+                var photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user.userId);
+
+                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
+
+                var findComment = commentDao.Find(commentId);
+                Assert.AreEqual(commentBody, findComment.commentDescription);
+
+                photoService.DeleteComment(commentId);
+                commentDao.Find(commentId);
+            }
+        }
+
+        /// <summary>
+        /// A test for UpdateComment.
+        /// </summary>
+        [TestMethod]
+        public void UpdateCommentTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
+                var photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user.userId);
+
+                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
+
+                var findComment = commentDao.Find(commentId);
+
+                // Check data
+                Assert.AreEqual(photo.photoId, findComment.photoId);
+                Assert.AreEqual(user.userId, findComment.userId);
+                Assert.AreEqual(commentBody, findComment.commentDescription);
+                Assert.AreEqual(System.DateTime.Now.Date, findComment.commentDate.Date);
+
+                photoService.UpdateComment(commentId, "commentTest2");
+                findComment = commentDao.Find(commentId);
+
+                // Check data
+                Assert.AreEqual("commentTest2", findComment.commentDescription);
+            }
+        }
+
+        /// <summary>
+        /// A test for FindAllPhotoComments.
+        /// </summary>
+        [TestMethod]
+        public void FindAllPhotoCommentsTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+                var category = CreateCategory(categoryType);
+                var photo = CreatePhoto(title, photoDescription, photoDate,
+                    f, t, iso, wb, category.categoryId, user.userId);
+
+                List<string> commentsBody = new List<string>
+                {
+                    commentBody,
+                    "comment2"
+                };
+
+                List<long> commentsIds = new List<long>
+                {
+                    photoService.AddComment(photo.photoId, user.userId, commentsBody[0]),
+                    photoService.AddComment(photo.photoId, user.userId, commentsBody[1])
+                };
+
+                CommentBlock listComments = photoService.FindAllPhotoComments(photo.photoId);
+
+                // Check data
+                Assert.AreEqual(commentsIds.Count, listComments.Comments.Count);
+
+                listComments.Comments.Reverse();
+
+                for (int i = 0; i < listComments.Comments.Count; i++)
+                {
+                    Assert.AreEqual(commentsIds[i], listComments.Comments[i].commentId);
+                    Assert.AreEqual(commentsBody[i], listComments.Comments[i].commentDescription);
+                    Assert.AreEqual(System.DateTime.Now.Date, listComments.Comments[i].commentDate.Date);
+                }
+            }
+        }
 
 
+        /// <summary>
+        /// A test for AddTag.
+        /// </summary>
+        [TestMethod]
+        public void AddTagTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
 
+                var tagId = photoService.AddTag(tagName1, user.userId);
 
+                var tag = tagDao.Find(tagId);
+
+                // Check data
+                Assert.AreEqual(tagName1, tag.tagName);
+            }
+        }
+
+        /// <summary>
+        /// A test for FindAllTags.
+        /// </summary>
+        [TestMethod]
+        public void FindAllTagsTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                var user = CreateUser();
+
+                List<Tag> tagList = new List<Tag>
+                {
+                    CreateTag(tagName1, user.userId),
+                    CreateTag(tagName2, user.userId)
+                };
+
+                TagBlock tagFoundList = photoService.FindAllTags();
+
+                // Check data
+                Assert.AreEqual(tagList.Count, tagFoundList.Tags.Count);
+
+                for (int i = 0; i < tagList.Count; i++)
+                {
+                    Assert.AreEqual(tagList[i].tagId, tagFoundList.Tags[i].tagId);
+                    Assert.AreEqual(tagList[i].tagName, tagFoundList.Tags[i].tagName);
+                }
+
+                Assert.IsFalse(tagFoundList.ExistMoreTags);
+            }
+        }
 
         #region Additional test attributes
 

@@ -55,7 +55,7 @@
     <Property Name="tagId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tagName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="userId" Type="bigint" Nullable="false" />
-    <Property Name="photoId" Type="bigint" Nullable="false" />
+    <Property Name="photoId" Type="bigint" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
@@ -106,7 +106,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PhotoTag">
-    <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
     <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Photo">

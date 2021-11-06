@@ -39,7 +39,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private static IUserService userService;
         private static IUserProfileDao userProfileDao;
 
-        private TransactionScope transaction;
+        //private TransactionScope transaction;
 
 
         public TestContext TestContext { get; set; }
@@ -360,9 +360,41 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 userService.FollowUser(userId1, userId2);
 
-                List<UserProfile> expectedFollowers = userProfileDao.FindByFollowed(userId1);
+                List<UserProfile> expectedFollowers = userProfileDao.FindByFollower(userId2);
 
                 Assert.AreEqual(1, expectedFollowers.Count);
+
+                for (int i = 0; i < expectedFollowers.Count; i++)
+                {
+                    Assert.AreEqual(userId1, expectedFollowers[i].userId);
+                }
+
+            }
+        }
+
+        [TestMethod]
+        public void RegisterUserFollowed()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register user1
+                long userId1 = userService.RegisterUser(loginName, clearPassword,
+                    new UserProfileDetails(firstName, lastName, email, lenguage));
+
+                // Register user2
+                long userId2 = userService.RegisterUser(loginName2, clearPassword2,
+                    new UserProfileDetails(firstName2, lastName2, email2, lenguage2));
+
+                userService.FollowUser(userId1, userId2);
+
+                List<UserProfile> expectedFolloweds = userProfileDao.FindByFollowed(userId1);
+
+                Assert.AreEqual(1, expectedFolloweds.Count);
+
+                for (int i = 0; i < expectedFolloweds.Count; i++)
+                {
+                    Assert.AreEqual(userId2, expectedFolloweds[i].userId);
+                }
 
             }
         }
