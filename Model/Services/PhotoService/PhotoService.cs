@@ -194,6 +194,33 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             }
         }
 
+        public long UploadPhoto(long userId, string title, string description, long f,
+                                long t, string iso, long wb, long categoryId)
+        {
+            Photo newPhoto = new Photo
+            {
+                title = title,
+                photoDescription = description,
+                photoDate = System.DateTime.Now,
+                f = f,
+                t = t,
+                iso = iso,
+                wb = wb,
+                categoryId = categoryId,
+                userId = userId,
+            };
+            PhotoDao.Create(newPhoto);
+
+            return newPhoto.photoId;
+        }
+
+        public void DeletePhoto(long photoId)
+        {
+            Photo photo = PhotoDao.Find(photoId);
+            PhotoDao.Remove(photo.photoId);
+
+        }
+
         #endregion Photo Members
 
         #region Comment Members

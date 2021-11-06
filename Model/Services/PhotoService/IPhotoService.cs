@@ -61,6 +61,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         [Transactional]
         void DeleteLike(long userProfileId, long photoId);
 
+        long UploadPhoto(long userId, string title, string description, long f, long t,
+                        string iso, long wb, long categoryId);
+
+        void DeletePhoto(long photoId);
+
         long AddTag(string tagName);
 
         Tag FindTagByName(string tagName);
