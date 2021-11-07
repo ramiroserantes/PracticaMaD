@@ -6,6 +6,7 @@ using System;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
 {
+    /// <seealso cref="Es.Udc.DotNet.ModelUtil.Dao.IGenericDao&lt;Es.Udc.DotNet.PracticaMad.Model.UserProfile, System.Int64&gt;" />
     public interface IUserProfileDao : IGenericDao<UserProfile, Int64>
     {
 
@@ -13,12 +14,24 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         /// Finds a UserProfile by loginName
         /// </summary>
         /// <param name="loginName">loginName</param>
-        /// <returns>The UserProfile</returns>
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <returns>
+        /// The UserProfile
+        /// </returns>
+        /// <exception cref="InstanceNotFoundException"></exception>
         UserProfile FindByLoginName(String loginName);
 
+        /// <summary>
+        /// Finds the by follower.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         List<UserProfile> FindByFollower(long userId);
 
+        /// <summary>
+        /// Finds the by followed.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         List<UserProfile> FindByFollowed(long userId);
     }
 }

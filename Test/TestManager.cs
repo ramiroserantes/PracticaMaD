@@ -13,6 +13,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 {
     public class TestManager
     {
+        /// <summary>
+        /// Configures the n inject kernel.
+        /// </summary>
+        /// <returns></returns>
         public static IKernel ConfigureNInjectKernel()
         {
             NinjectSettings settings = new NinjectSettings() { LoadExtensions = true };
@@ -55,7 +59,9 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         /// Configures the Ninject kernel from an external module file.
         /// </summary>
         /// <param name="moduleFilename">The module filename.</param>
-        /// <returns>The NInject kernel</returns>
+        /// <returns>
+        /// The NInject kernel
+        /// </returns>
         public static IKernel ConfigureNInjectKernel(string moduleFilename)
         {
             NinjectSettings settings = new NinjectSettings() { LoadExtensions = true };
@@ -66,6 +72,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             return kernel;
         }
 
+        /// <summary>
+        /// Clears the n inject kernel.
+        /// </summary>
+        /// <param name="kernel">The kernel.</param>
         public static void ClearNInjectKernel(IKernel kernel)
         {
             kernel.Dispose();

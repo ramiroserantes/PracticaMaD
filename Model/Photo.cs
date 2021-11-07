@@ -30,6 +30,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         public long t { get; set; }
         public string iso { get; set; }
         public long wb { get; set; }
+        public string link { get; set; }
         public long categoryId { get; set; }
         public long userId { get; set; }
     

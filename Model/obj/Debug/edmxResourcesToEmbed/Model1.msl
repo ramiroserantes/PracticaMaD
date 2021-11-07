@@ -31,6 +31,7 @@
           <ScalarProperty Name="t" ColumnName="t" />
           <ScalarProperty Name="iso" ColumnName="iso" />
           <ScalarProperty Name="wb" ColumnName="wb" />
+          <ScalarProperty Name="link" ColumnName="link" />
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="userId" ColumnName="userId" />
         </MappingFragment>

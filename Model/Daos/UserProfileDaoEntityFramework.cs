@@ -8,9 +8,19 @@ using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
 {
+    /// <seealso cref="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;Es.Udc.DotNet.PracticaMad.Model.UserProfile, System.Int64&gt;" />
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.UserProfileDao.IUserProfileDao" />
     public class UserProfileDaoEntityFramework :
         GenericDaoEntityFramework<UserProfile, Int64>, IUserProfileDao
     {
+        /// <summary>
+        /// Finds a UserProfile by loginName
+        /// </summary>
+        /// <param name="loginName">loginName</param>
+        /// <returns>
+        /// The UserProfile
+        /// </returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public UserProfile FindByLoginName(string loginName)
         {
             UserProfile userProfile = null;
@@ -32,6 +42,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
             return userProfile;
         }
 
+        /// <summary>
+        /// Finds the by follower.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         public List<UserProfile> FindByFollower(long userId)
         {
             DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
@@ -43,6 +58,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
 
         }
 
+        /// <summary>
+        /// Finds the by followed.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         public List<UserProfile> FindByFollowed(long userId)
         {
             DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();

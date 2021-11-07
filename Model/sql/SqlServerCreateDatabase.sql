@@ -71,6 +71,7 @@ CREATE TABLE Photo (
     t bigint NOT NULL,
     iso varchar(100) NOT NULL,
     wb bigint NOT NULL,
+	link varchar(200) NULL,
     categoryId bigint NOT NULL,
     userId bigint NOT NULL,
 

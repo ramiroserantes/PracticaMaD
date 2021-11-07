@@ -6,16 +6,27 @@ using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
 {
+    /// <seealso cref="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;Es.Udc.DotNet.PracticaMad.Model.Tag, System.Int64&gt;" />
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.TagDao.ITagDao" />
     public class TagDaoEntityFramework :
          GenericDaoEntityFramework<Tag, long>, ITagDao
     {
         #region Public Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TagDaoEntityFramework"/> class.
+        /// </summary>
         public TagDaoEntityFramework()
         {
         }
         #endregion Public Constructors
 
         #region ITagDao Members. Specific Operations
+        /// <summary>
+        /// Finds all.
+        /// </summary>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public List<Tag> FindAll(int startIndex = 0, int count = 20)
         {
             List<Tag> tags = new List<Tag>();
@@ -35,7 +46,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
             return tags;
         }
 
-       
+
+        /// <summary>
+        /// Finds the name of the by.
+        /// </summary>
+        /// <param name="tagName">Name of the tag.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public Tag FindByName(string tagName)
         {
             Tag tag = null;

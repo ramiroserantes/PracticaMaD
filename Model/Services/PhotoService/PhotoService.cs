@@ -11,20 +11,53 @@ using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 {
+
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.PhotoService.IPhotoService" />
     public class PhotoService : IPhotoService
     {
+
+        /// <summary>
+        /// Sets the photo DAO.
+        /// </summary>
+        /// <value>
+        /// The photo DAO.
+        /// </value>
         [Inject]
         public IPhotoDao PhotoDao { private get; set; }
 
+        /// <summary>
+        /// Sets the user profile DAO.
+        /// </summary>
+        /// <value>
+        /// The user profile DAO.
+        /// </value>
         [Inject]
         public IUserProfileDao UserProfileDao { private get; set; }
 
+        /// <summary>
+        /// Sets the comment DAO.
+        /// </summary>
+        /// <value>
+        /// The comment DAO.
+        /// </value>
         [Inject]
         public ICommentDao CommentDao { private get; set; }
 
+        /// <summary>
+        /// Sets the tag DAO.
+        /// </summary>
+        /// <value>
+        /// The tag DAO.
+        /// </value>
         [Inject]
         public ITagDao TagDao { private get; set; }
 
+        /// <summary>
+        /// Sets the category DAO.
+        /// </summary>
+        /// <value>
+        /// The category DAO.
+        /// </value>
         [Inject]
         public ICategoryDao CategoryDao { private get; set; }
 
@@ -32,8 +65,16 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         #region Photo Members
 
-        /// <exception cref="InstanceNotFoundException"/>
-        /// <exception cref="DuplicateInstanceException"/>
+        /// <summary>
+        /// Updates the photo details.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="photoDescription">The photo description.</param>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.DuplicateInstanceException">
+        /// </exception>
+        /// <exception cref="InstanceNotFoundException"></exception>
+        /// <exception cref="DuplicateInstanceException"></exception>
         [Transactional]
         public void UpdatePhotoDetails(long photoId, string title, string photoDescription)
         {
@@ -72,6 +113,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             PhotoDao.Update(photo);
         }
 
+        /// <summary>
+        /// Finds all photos.
+        /// </summary>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public PhotoBlock FindAllPhotos(int startIndex = 0, int count = 20)
         {
             List<Photo> photos = PhotoDao.FindAll(startIndex, count + 1);
@@ -83,6 +130,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
+        /// <summary>
+        /// Finds all photos by tag.
+        /// </summary>
+        /// <param name="tagId">The tag identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public PhotoBlock FindAllPhotosByTag(long tagId, int startIndex = 0, int count = 20)
         {
             List<Photo> photos = PhotoDao.FindByTagId(tagId);
@@ -94,6 +148,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
+        /// <summary>
+        /// Finds all photos by category and keyword.
+        /// </summary>
+        /// <param name="keyword">The keyword.</param>
+        /// <param name="categoryId">The category identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public PhotoBlock FindAllPhotosByCategoryAndKeyword(string keyword, long categoryId, int startIndex = 0, int count = 20)
         {
             List<Photo> photos = PhotoDao.FindByCategoryAndKeywords(keyword, categoryId,
@@ -106,11 +168,23 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
+        /// <summary>
+        /// Finds the photo.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <returns></returns>
         public Photo FindPhoto(long photoId)
         {
             return PhotoDao.Find(photoId);
         }
 
+        /// <summary>
+        /// Finds all photos by user.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public PhotoBlock FindAllPhotosByUser(long userId, int startIndex = 0, int count = 20)
         {
             List<Photo> photos = PhotoDao.FindByUserId(userId,
@@ -123,14 +197,24 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
-        public int getPhotoLikes(long photoId)
+        /// <summary>
+        /// Gets the photo likes.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <returns></returns>
+        public int GetPhotoLikes(long photoId)
         {
             Photo photo = PhotoDao.Find(photoId);
 
             return photo.UserProfile1.Count();
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Generates the like.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
         [Transactional]
         public void GenerateLike(long userProfileId, long photoId)
         {
@@ -154,7 +238,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Deletes the like.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
         [Transactional]
         public void DeleteLike(long userProfileId, long photoId)
         {
@@ -180,8 +269,20 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             }
         }
 
-        public long UploadPhoto(long userId, string title, string description, long f,
-                                long t, string iso, long wb, long categoryId)
+        /// <summary>
+        /// Uploads the photo.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="description">The description.</param>
+        /// <param name="f">The f.</param>
+        /// <param name="t">The t.</param>
+        /// <param name="iso">The iso.</param>
+        /// <param name="wb">The wb.</param>
+        /// <param name="categoryId">The category identifier.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        public long UploadPhoto(string title, string description, long f,
+                                long t, string iso, long wb, long categoryId, long userId)
         {
             Photo newPhoto = new Photo
             {
@@ -195,11 +296,20 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
                 categoryId = categoryId,
                 userId = userId,
             };
+
             PhotoDao.Create(newPhoto);
+
+            newPhoto.link = @"c:\Resource\" + newPhoto.photoId.ToString();
+
+            PhotoDao.Update(newPhoto);
 
             return newPhoto.photoId;
         }
 
+        /// <summary>
+        /// Deletes the photo.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
         public void DeletePhoto(long photoId)
         {
             Photo photo = PhotoDao.Find(photoId);
@@ -211,14 +321,26 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         #region Comment Members
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Finds the comment by identifier.
+        /// </summary>
+        /// <param name="commentId">The comment identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="InstanceNotFoundException"></exception>
         [Transactional]
         public Comment FindCommentById(long commentId)
         {
             return CommentDao.Find(commentId);
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="commentBody">The comment body.</param>
+        /// <returns></returns>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public long AddComment(long photoId, long userId, string commentBody)
         {
             Comment comment = new Comment
@@ -235,14 +357,23 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         }
 
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Deletes the comment.
+        /// </summary>
+        /// <param name="commentId">The comment identifier.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public void DeleteComment(long commentId)
         {
             var comment = CommentDao.Find(commentId);
             CommentDao.Remove(comment.commentId);
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Updates the comment.
+        /// </summary>
+        /// <param name="commentId">The comment identifier.</param>
+        /// <param name="commentBody">The comment body.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public void UpdateComment(long commentId, string commentBody)
         {
             Comment comment = CommentDao.Find(commentId);
@@ -252,8 +383,15 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             CommentDao.Update(comment);
         }
 
-      
 
+
+        /// <summary>
+        /// Finds all photo comments.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20)
         {
             List<Comment> comments = CommentDao.FindByPhotoIdOrderByCommentDate(photoId, startIndex, count + 1);
@@ -265,7 +403,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new CommentBlock(comments, existMoreComments);
         }
 
-        /// <exception cref="InstanceNotFoundException" />
+        /// <summary>
+        /// Finds the comment by photo and user.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public Comment FindCommentByPhotoAndUser(long photoId, long userId)
         {
             return CommentDao.FindByPhotoIdAndUserId(photoId, userId);
@@ -275,7 +419,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         #region Tag Members
 
-        /// <exception cref="DuplicateInstanceException"/>
+        /// <summary>
+        /// Adds the tag.
+        /// </summary>
+        /// <param name="tagName">Name of the tag.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.DuplicateInstanceException"></exception>
+        /// <exception cref="DuplicateInstanceException"></exception>
         public long AddTag(string tagName, long userId)
         {
             Tag tag = new Tag();
@@ -296,12 +447,23 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return tag.tagId;
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Finds the name of the tag by.
+        /// </summary>
+        /// <param name="tagName">Name of the tag.</param>
+        /// <returns></returns>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public Tag FindTagByName(string tagName)
         {
             return TagDao.FindByName(tagName);
         }
 
+        /// <summary>
+        /// Finds all tags.
+        /// </summary>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public TagBlock FindAllTags(int startIndex = 0, int count = 20)
         {
             List<Tag> tags = TagDao.FindAll(startIndex, count + 1);
@@ -317,6 +479,10 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         #region Category Members
 
+        /// <summary>
+        /// Finds all categories.
+        /// </summary>
+        /// <returns></returns>
         public List<Category> FindAllCategories()
         {
             return CategoryDao.FindAll();

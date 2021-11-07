@@ -7,11 +7,16 @@ using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.CommentDao
 {
+    /// <seealso cref="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;Es.Udc.DotNet.PracticaMad.Model.Comment, System.Int64&gt;" />
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.CommentDao.ICommentDao" />
     public class CommentDaoEntityFramework :
         GenericDaoEntityFramework<Comment, long>, ICommentDao
     {
         #region Public Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommentDaoEntityFramework"/> class.
+        /// </summary>
         public CommentDaoEntityFramework()
         {
         }
@@ -20,6 +25,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.CommentDao
 
         #region ICommentDao Members. Specific Operations
 
+        /// <summary>
+        /// Finds the by photo identifier order by comment date.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public List<Comment> FindByPhotoIdOrderByCommentDate(long photoId, int startIndex = 0, int count = 20)
         {
             List<Comment> comments = null;
@@ -45,6 +58,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.CommentDao
             return comments;
         }
 
+        /// <summary>
+        /// Finds the by photo identifier and user identifier.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public Comment FindByPhotoIdAndUserId(long photoId, long userId)
         {
             Comment comment = null;

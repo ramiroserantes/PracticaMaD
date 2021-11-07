@@ -461,7 +461,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 photoService.GenerateLike(user2.userId, photo.photoId);
                 photoService.GenerateLike(user3.userId, photo.photoId);
 
-                Assert.AreEqual(3, photoService.getPhotoLikes(photo.photoId));
+                Assert.AreEqual(3, photoService.GetPhotoLikes(photo.photoId));
                
             }
         }
@@ -490,7 +490,62 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 photoService.DeleteLike(user.userId, photo.photoId);
                 photoService.DeleteLike(user2.userId, photo.photoId);
                
-                Assert.AreEqual(1, photoService.getPhotoLikes(photo.photoId));
+                Assert.AreEqual(1, photoService.GetPhotoLikes(photo.photoId));
+
+            }
+        }
+
+        /// <summary>
+        /// A test for UploadPhoto.
+        /// </summary>
+        [TestMethod]
+        public void UploadPhotoTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                string linkPath = @"c:\Resource\";
+                // Register user
+                var user = CreateUser("loginNameTest1");
+                var category = CreateCategory(categoryType);
+                var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
+                    category.categoryId, user.userId);
+
+                var findPhoto = photoDao.Find(photoId);
+
+                Assert.AreEqual(findPhoto.photoDate.Date, System.DateTime.Now.Date);
+                Assert.AreEqual(findPhoto.title, title);
+                Assert.AreEqual(findPhoto.photoDescription, photoDescription);
+                Assert.AreEqual(findPhoto.photoDate.Date, System.DateTime.Now.Date);
+                Assert.AreEqual(findPhoto.f, f);
+                Assert.AreEqual(findPhoto.t, t);
+                Assert.AreEqual(findPhoto.iso, iso);
+                Assert.AreEqual(findPhoto.wb, wb);
+                Assert.AreEqual(findPhoto.link, linkPath + findPhoto.photoId.ToString());
+                Assert.AreEqual(findPhoto.categoryId, category.categoryId);
+                Assert.AreEqual(findPhoto.userId, user.userId);
+            }
+        }
+
+        /// <summary>
+        /// A test for DeletePhoto.
+        [TestMethod]
+        [ExpectedException(typeof(InstanceNotFoundException))]
+        public void DeletePhotoTest()
+        {
+            using (var scope = new TransactionScope())
+            {
+                // Register user
+                var user1 = CreateUser("loginNameTest1");
+                var category = CreateCategory(categoryType);
+                var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
+                    category.categoryId, user1.userId);
+
+                var findPhoto = photoDao.Find(photoId);
+
+                Assert.AreEqual(findPhoto.photoDescription, photoDescription);
+
+                photoService.DeletePhoto(photoId);
+                photoDao.Find(photoId); //InstanceNotFoundException
 
             }
         }

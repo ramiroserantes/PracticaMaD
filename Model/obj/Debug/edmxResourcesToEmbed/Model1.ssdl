@@ -45,6 +45,7 @@
     <Property Name="t" Type="bigint" Nullable="false" />
     <Property Name="iso" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="wb" Type="bigint" Nullable="false" />
+    <Property Name="link" Type="varchar" MaxLength="200" />
     <Property Name="categoryId" Type="bigint" Nullable="false" />
     <Property Name="userId" Type="bigint" Nullable="false" />
   </EntityType>

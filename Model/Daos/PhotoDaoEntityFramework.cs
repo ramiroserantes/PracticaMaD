@@ -6,16 +6,27 @@ using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
 {
+    /// <seealso cref="Es.Udc.DotNet.ModelUtil.Dao.GenericDaoEntityFramework&lt;Es.Udc.DotNet.PracticaMad.Model.Photo, System.Int64&gt;" />
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.PhotoDao.IPhotoDao" />
     public class PhotoDaoEntityFramework :
         GenericDaoEntityFramework<Photo, long>, IPhotoDao
     {
         #region Public Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PhotoDaoEntityFramework"/> class.
+        /// </summary>
         public PhotoDaoEntityFramework()
         {
         }
         #endregion Public Constructors
 
         #region IUserProfileDao Members. Specific Operations
+        /// <summary>
+        /// Finds the by identifier.
+        /// </summary>
+        /// <param name="photoId">The photo identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public Photo FindById(long photoId)
         {
             Photo photo = null;
@@ -38,7 +49,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
         }
 
-       
+
+        /// <summary>
+        /// Finds the by user identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public List<Photo> FindByUserId(long userId, int startIndex = 0, int count = 20) 
         {
             List<Photo> photos = null;
@@ -58,6 +76,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
 
             return photos;
         }
+        /// <summary>
+        /// Finds the by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public Photo FindByTitle(string title)
         {
             Photo photo = null;
@@ -81,6 +105,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
         }
 
+        /// <summary>
+        /// Finds the by photo description.
+        /// </summary>
+        /// <param name="photoDescription">The photo description.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.InstanceNotFoundException"></exception>
         public Photo FindByPhotoDescription(string photoDescription)
         {
             Photo photo = null;
@@ -104,6 +134,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
         }
 
+        /// <summary>
+        /// Finds the by tag identifier.
+        /// </summary>
+        /// <param name="tagId">The tag identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public List<Photo> FindByTagId(long tagId, int startIndex = 0, int count = 20)
         {
             List<Photo> photo = null;
@@ -127,6 +164,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
 
         }
 
+        /// <summary>
+        /// Finds all.
+        /// </summary>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public List<Photo> FindAll(int startIndex, int count)
         {
 
@@ -142,6 +185,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return result.ToList();
         }
 
+        /// <summary>
+        /// Finds the by category and keywords.
+        /// </summary>
+        /// <param name="keywords">The keywords.</param>
+        /// <param name="categoryId">The category identifier.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
         public List<Photo> FindByCategoryAndKeywords(string keywords, long categoryId, int startIndex = 0, int count = 20)
         {
             List<Photo> photo = null;

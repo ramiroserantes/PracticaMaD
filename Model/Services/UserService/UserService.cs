@@ -11,12 +11,27 @@ using Ninject;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 {
+
+    /// <seealso cref="Es.Udc.DotNet.PracticaMad.Model.Services.UserService.IUserService" />
     public class UserService : IUserService
     {
 
+        /// <summary>
+        /// Sets the user profile DAO.
+        /// </summary>
+        /// <value>
+        /// The user profile DAO.
+        /// </value>
         [Inject]
         public IUserProfileDao UserProfileDao { private get; set; }
 
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="oldClearPassword">The old clear password.</param>
+        /// <param name="newClearPassword">The new clear password.</param>
+        /// <exception cref="Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions.IncorrectPasswordException"></exception>
         public void ChangePassword(long userProfileId, string oldClearPassword,
             string newClearPassword)
         {
@@ -36,6 +51,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
+        /// <summary>
+        /// Finds the user profile details.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <returns></returns>
         [Transactional]
         public UserProfileDetails FindUserProfileDetails(long userProfileId)
         {
@@ -49,6 +69,15 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
+        /// <summary>
+        /// Logins the specified login name.
+        /// </summary>
+        /// <param name="loginName">Name of the login.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="passwordIsEncrypted">if set to <c>true</c> [password is encrypted].</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions.IncorrectPasswordException">
+        /// </exception>
         [Transactional]
         public LoginResult Login(String loginName, String password,
             Boolean passwordIsEncrypted)
@@ -80,6 +109,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
+        /// <summary>
+        /// Registers the user.
+        /// </summary>
+        /// <param name="loginName">Name of the login.</param>
+        /// <param name="clearPassword">The clear password.</param>
+        /// <param name="userProfileDetails">The user profile details.</param>
+        /// <returns></returns>
+        /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.DuplicateInstanceException"></exception>
         [Transactional]
         public long RegisterUser(string loginName, string clearPassword, 
             UserProfileDetails userProfileDetails)
@@ -110,6 +147,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             }
         }
 
+        /// <summary>
+        /// Updates the user profile details.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="userProfileDetails">The user profile details.</param>
         [Transactional]
         public void UpdateUserProfileDetails(long userProfileId,
             UserProfileDetails userProfileDetails)
@@ -125,6 +167,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             UserProfileDao.Update(userProfile);
         }
 
+        /// <summary>
+        /// Users the exists.
+        /// </summary>
+        /// <param name="loginName">Name of the login.</param>
+        /// <returns></returns>
         public bool UserExists(string loginName)
         {
             try
@@ -139,6 +186,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             return true;
         }
 
+        /// <summary>
+        /// Gets the followers.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <returns></returns>
         [Transactional]
         public List<UserProfile> GetFollowers(long userProfileId)
         {
@@ -146,6 +198,11 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
+        /// <summary>
+        /// Gets the followeds.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <returns></returns>
         [Transactional]
         public List<UserProfile> GetFolloweds(long userProfileId)
         {
@@ -153,7 +210,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
         }
 
-        /// <exception cref="InstanceNotFoundException"/>
+        /// <summary>
+        /// Follows the user.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="userIdToFollow">The user identifier to follow.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
         [Transactional]
         public void FollowUser(long userProfileId, long userIdToFollow)
         {
