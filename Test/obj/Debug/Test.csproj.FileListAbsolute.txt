@@ -94,3 +94,4 @@ D:\MaD\MaD-GitHub\PracticaMaD\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 D:\MaD\MaD-GitHub\PracticaMaD\Test\obj\Debug\Test.csproj.CopyComplete
 D:\MaD\MaD-GitHub\PracticaMaD\Test\obj\Debug\Test.dll
 D:\MaD\MaD-GitHub\PracticaMaD\Test\obj\Debug\Test.pdb
+C:\ProyectoMad\PracticaMaD\Test\bin\Debug\System.Drawing.Common.dll

@@ -10,8 +10,11 @@ using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Transactions;
+using System.Windows.Forms;
 
 /// <summary>
 /// This is a test class for IPhotoServiceTest and is intended to contain all IPhotoServiceTest
@@ -428,16 +431,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 // Check data
                 Assert.AreEqual(commentsIds.Count, listComments.Comments.Count);
 
-                //FIXME
-                //listComments.Comments.Reverse();
-
-                /*for (int i = 0; i < listComments.Comments.Count; i++)
-                {
-                    Assert.AreEqual(commentsIds[i], listComments.Comments[i].commentId);
-                    Assert.AreEqual(commentsBody[i], listComments.Comments[i].commentDescription);
-                    Assert.AreEqual(user.userId, listComments.Comments[i].userId);
-                    Assert.AreEqual(System.DateTime.Now.Date, listComments.Comments[i].commentDate.Date);
-                }*/
+              
             }
         }
 
@@ -503,12 +497,14 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         {
             using (var scope = new TransactionScope())
             {
-                string linkPath = @"c:\Resource\";
-                // Register user
+             
+           
+                string path = "C:/resourceTest/copo.jpg";
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
+                var image = Image.FromFile(path);
                 var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
-                    category.categoryId, user.userId);
+                    category.categoryId, user.userId, image);
 
                 var findPhoto = photoDao.Find(photoId);
 
@@ -520,7 +516,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 Assert.AreEqual(findPhoto.t, t);
                 Assert.AreEqual(findPhoto.iso, iso);
                 Assert.AreEqual(findPhoto.wb, wb);
-                Assert.AreEqual(findPhoto.link, linkPath + findPhoto.photoId.ToString());
+                Assert.AreEqual(findPhoto.link, "C:/resource/" + findPhoto.photoId.ToString() + ".png");
                 Assert.AreEqual(findPhoto.categoryId, category.categoryId);
                 Assert.AreEqual(findPhoto.userId, user.userId);
             }
@@ -534,18 +530,19 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         {
             using (var scope = new TransactionScope())
             {
-                // Register user
+                string path = "C:/resourceTest/copo.jpg";
                 var user1 = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
+                var image = Image.FromFile(path);
                 var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
-                    category.categoryId, user1.userId);
+                    category.categoryId, user1.userId, image);
 
                 var findPhoto = photoDao.Find(photoId);
 
                 Assert.AreEqual(findPhoto.photoDescription, photoDescription);
 
                 photoService.DeletePhoto(photoId);
-                photoDao.Find(photoId); //InstanceNotFoundException
+                photoDao.Find(photoId);
 
             }
         }

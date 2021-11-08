@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9e78497c0b4645ceba9eb521931df4dc" Name="Diagram1">
-        <EntityTypeShape EntityType="practicamadModel.Category" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Comment" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Photo" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Tag" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.UserProfile" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+      <Diagram DiagramId="9e78497c0b4645ceba9eb521931df4dc" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="practicamadModel.Category" Width="1.5" PointX="9.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Comment" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Photo" Width="1.5" PointX="9.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Tag" Width="1.5" PointX="6.125" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.UserProfile" Width="1.5" PointX="2.375" PointY="8.125" IsExpanded="true" />
         <AssociationConnector Association="practicamadModel.FK_CategoryPhoto" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.FK_PhotoComment" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.FK_UserComment" ManuallyRouted="false" />

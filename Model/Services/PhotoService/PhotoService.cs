@@ -8,6 +8,10 @@ using Es.Udc.DotNet.PracticaMad.Model.TagDao;
 using Ninject;
 using System.Linq;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 {
@@ -78,6 +82,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         [Transactional]
         public void UpdatePhotoDetails(long photoId, string title, string photoDescription)
         {
+           
             Photo photo = PhotoDao.Find(photoId);
 
             if (!photo.title.Equals(title))
@@ -281,9 +286,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <param name="categoryId">The category identifier.</param>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
+        /// 
         public long UploadPhoto(string title, string description, long f,
-                                long t, string iso, long wb, long categoryId, long userId)
+                                long t, string iso, long wb, long categoryId, long userId, Image newImage)
         {
+
+
             Photo newPhoto = new Photo
             {
                 title = title,
@@ -299,13 +307,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             PhotoDao.Create(newPhoto);
 
-            newPhoto.link = @"c:\Resource\" + newPhoto.photoId.ToString();
+            newPhoto.link = "C:/resource/" + newPhoto.photoId.ToString() + ".png";
+            newImage.Save(newPhoto.link, System.Drawing.Imaging.ImageFormat.Png);
 
             PhotoDao.Update(newPhoto);
 
             return newPhoto.photoId;
         }
-
+        
         /// <summary>
         /// Deletes the photo.
         /// </summary>
@@ -313,6 +322,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         public void DeletePhoto(long photoId)
         {
             Photo photo = PhotoDao.Find(photoId);
+            File.Delete(photo.link);
             PhotoDao.Remove(photo.photoId);
 
         }

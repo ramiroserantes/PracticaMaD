@@ -73,3 +73,4 @@ D:\MaD\MaD-GitHub\PracticaMaD\Model\obj\Debug\Model.csproj.CoreCompileInputs.cac
 D:\MaD\MaD-GitHub\PracticaMaD\Model\obj\Debug\Model.csproj.CopyComplete
 D:\MaD\MaD-GitHub\PracticaMaD\Model\obj\Debug\Model.dll
 D:\MaD\MaD-GitHub\PracticaMaD\Model\obj\Debug\Model.pdb
+C:\ProyectoMad\PracticaMaD\Model\bin\Debug\System.Drawing.Common.dll

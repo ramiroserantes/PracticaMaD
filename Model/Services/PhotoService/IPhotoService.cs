@@ -7,6 +7,7 @@ using Es.Udc.DotNet.PracticaMad.Model.PhotoDao;
 using Es.Udc.DotNet.PracticaMad.Model.TagDao;
 using Ninject;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 {
@@ -189,7 +190,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <returns></returns>
         [Transactional]
         long UploadPhoto(string title, string description, long f, long t,
-                        string iso, long wb, long categoryId, long userId);
+                        string iso, long wb, long categoryId, long userId, Image newImage);
 
         /// <summary>
         /// Deletes the photo.
