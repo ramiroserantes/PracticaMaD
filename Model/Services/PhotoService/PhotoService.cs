@@ -173,6 +173,16 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             return new PhotoBlock(photos, existMorePhotos);
         }
 
+        public PhotoBlock FindAllPhotosByKeyword(string keyword, int startIndex = 0, int count = 20)
+        {
+            List<Photo> photos = PhotoDao.FindByKeywords(keyword, startIndex, count + 1);
+
+            bool existMorePhotos = (photos.Count == count + 1);
+
+            if (existMorePhotos) photos.RemoveAt(count);
+
+            return new PhotoBlock(photos, existMorePhotos);
+        }
         /// <summary>
         /// Finds the photo.
         /// </summary>
@@ -314,16 +324,22 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             return newPhoto.photoId;
         }
-        
+
         /// <summary>
         /// Deletes the photo.
         /// </summary>
         /// <param name="photoId">The photo identifier.</param>
-        public void DeletePhoto(long photoId)
+        /// <param name="userId">The user identifier.</param>
+        public void DeletePhoto(long photoId, long userId)
         {
             Photo photo = PhotoDao.Find(photoId);
-            File.Delete(photo.link);
-            PhotoDao.Remove(photo.photoId);
+            
+            if (userId == UserProfileDao.FindByPhotoId(photoId))
+            {
+                File.Delete(photo.link);
+                PhotoDao.Remove(photo.photoId);
+            }
+            
 
         }
 
@@ -331,99 +347,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         #region Comment Members
 
-        /// <summary>
-        /// Finds the comment by identifier.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <returns></returns>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        [Transactional]
-        public Comment FindCommentById(long commentId)
-        {
-            return CommentDao.Find(commentId);
-        }
-
-        /// <summary>
-        /// Adds the comment.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="userId">The user identifier.</param>
-        /// <param name="commentBody">The comment body.</param>
-        /// <returns></returns>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        public long AddComment(long photoId, long userId, string commentBody)
-        {
-            Comment comment = new Comment
-            {
-                commentDescription = commentBody,
-                commentDate = System.DateTime.Now,
-                userId = userId,
-                photoId = photoId
-            };
-
-            CommentDao.Create(comment);
-
-            return comment.commentId;
-        }
-
-
-        /// <summary>
-        /// Deletes the comment.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        public void DeleteComment(long commentId)
-        {
-            var comment = CommentDao.Find(commentId);
-            CommentDao.Remove(comment.commentId);
-        }
-
-        /// <summary>
-        /// Updates the comment.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <param name="commentBody">The comment body.</param>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        public void UpdateComment(long commentId, string commentBody)
-        {
-            Comment comment = CommentDao.Find(commentId);
-
-            comment.commentDescription = commentBody;
-
-            CommentDao.Update(comment);
-        }
-
-
-
-        /// <summary>
-        /// Finds all photo comments.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="startIndex">The start index.</param>
-        /// <param name="count">The count.</param>
-        /// <returns></returns>
-        public CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20)
-        {
-            List<Comment> comments = CommentDao.FindByPhotoIdOrderByCommentDate(photoId, startIndex, count + 1);
-
-            bool existMoreComments = (comments.Count == count + 1);
-
-            if (existMoreComments) comments.RemoveAt(count);
-
-            return new CommentBlock(comments, existMoreComments);
-        }
-
-        /// <summary>
-        /// Finds the comment by photo and user.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="userId">The user identifier.</param>
-        /// <returns></returns>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        public Comment FindCommentByPhotoAndUser(long photoId, long userId)
-        {
-            return CommentDao.FindByPhotoIdAndUserId(photoId, userId);
-        }
+        
 
         #endregion Comment Members
 

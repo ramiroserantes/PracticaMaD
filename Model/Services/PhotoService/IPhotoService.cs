@@ -104,61 +104,22 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         PhotoBlock FindAllPhotosByCategoryAndKeyword(string keyword, long categoryId, int startIndex = 0, int count = 20);
 
         /// <summary>
+        /// Finds all photos by keyword.
+        /// </summary>
+        /// <param name="keyword">The keyword.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
+        PhotoBlock FindAllPhotosByKeyword(string keyword, int startIndex = 0, int count = 20);
+
+        /// <summary>
         /// Finds the photo.
         /// </summary>
         /// <param name="photoId">The photo identifier.</param>
         /// <returns></returns>
         Photo FindPhoto(long photoId);
 
-        /// <summary>
-        /// Finds the comment by identifier.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <returns></returns>
-        [Transactional]
-        Comment FindCommentById(long commentId);
-
-        /// <summary>
-        /// Adds the comment.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="userId">The user identifier.</param>
-        /// <param name="commentBody">The comment body.</param>
-        /// <returns></returns>
-        long AddComment(long photoId, long userId, string commentBody);
-
-        /// <summary>
-        /// Deletes the comment.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <exception cref="InstanceNotFoundException"></exception>
-        void DeleteComment(long commentId);
-
-        /// <summary>
-        /// Updates the comment.
-        /// </summary>
-        /// <param name="commentId">The comment identifier.</param>
-        /// <param name="commentBody">The comment body.</param>
-        void UpdateComment(long commentId, string commentBody);
-
-        /// <summary>
-        /// Finds all photo comments.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="startIndex">The start index.</param>
-        /// <param name="count">The count.</param>
-        /// <returns></returns>
-        [Transactional]
-        CommentBlock FindAllPhotoComments(long photoId, int startIndex = 0, int count = 20);
-
-        /// <summary>
-        /// Finds the comment by photo and user.
-        /// </summary>
-        /// <param name="photoId">The photo identifier.</param>
-        /// <param name="userId">The user identifier.</param>
-        /// <returns></returns>
-        [Transactional]
-        Comment FindCommentByPhotoAndUser(long photoId, long userId);
+     
 
         /// <summary>
         /// Generates the like.
@@ -196,7 +157,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// Deletes the photo.
         /// </summary>
         /// <param name="photoId">The photo identifier.</param>
-        void DeletePhoto(long photoId);
+        void DeletePhoto(long photoId, long userId);
 
         /// <summary>
         /// Adds the tag.

@@ -1,5 +1,6 @@
 ﻿using Es.Udc.DotNet.PracticaMad.Model.CategoryDao;
 using Es.Udc.DotNet.PracticaMad.Model.CommentDao;
+using Es.Udc.DotNet.PracticaMad.Model.CommentService;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoDao;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
@@ -43,6 +44,9 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
             kernel.Bind<IPhotoService>().
                 To<PhotoService>();
+
+            kernel.Bind<ICommentService>().
+                To<CommentService>();
 
             string connectionString =
                 ConfigurationManager.ConnectionStrings["practicamadEntities"].ConnectionString;

@@ -270,86 +270,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             }
         }
 
-        /// <summary>
-        /// A test for AddComment.
-        /// </summary>
-        [TestMethod]
-        public void AddCommentTest()
-        {
-            using (var scope = new TransactionScope())
-            {
-                var user = CreateUser("loginNameTest1");
-                var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
-                    f, t, iso, wb, category.categoryId, user.userId);
-                
-
-                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
-
-                var findComment = commentDao.Find(commentId);
-
-                // Check data
-                Assert.AreEqual(photo.photoId, findComment.photoId);
-                Assert.AreEqual(user.userId, findComment.userId);
-                Assert.AreEqual(commentBody, findComment.commentDescription);
-                Assert.AreEqual(System.DateTime.Now.Date, findComment.commentDate.Date);
-            }
-        }
-
-        /// <summary>
-        /// A test for DeleteComment.
-        [TestMethod]
-        [ExpectedException(typeof(InstanceNotFoundException))]
-        public void DeleteCommentTest()
-        {
-            using (var scope = new TransactionScope())
-            {
-                var user = CreateUser("loginNameTest1");
-                var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
-                    f, t, iso, wb, category.categoryId, user.userId);
-
-                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
-
-                var findComment = commentDao.Find(commentId);
-                Assert.AreEqual(commentBody, findComment.commentDescription);
-
-                photoService.DeleteComment(commentId);
-                commentDao.Find(commentId);
-            }
-        }
-
-        /// <summary>
-        /// A test for UpdateComment.
-        /// </summary>
-        [TestMethod]
-        public void UpdateCommentTest()
-        {
-            using (var scope = new TransactionScope())
-            {
-                var user = CreateUser("loginNameTest1");
-                var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
-                    f, t, iso, wb, category.categoryId, user.userId);
-
-                var commentId = photoService.AddComment(photo.photoId, user.userId, commentBody);
-
-                var findComment = commentDao.Find(commentId);
-
-                // Check data
-                Assert.AreEqual(photo.photoId, findComment.photoId);
-                Assert.AreEqual(user.userId, findComment.userId);
-                Assert.AreEqual(commentBody, findComment.commentDescription);
-                Assert.AreEqual(System.DateTime.Now.Date, findComment.commentDate.Date);
-
-                photoService.UpdateComment(commentId, "commentTest2");
-                findComment = commentDao.Find(commentId);
-
-                // Check data
-                Assert.AreEqual("commentTest2", findComment.commentDescription);
-            }
-        }
-
+        
 
         /// <summary>
         /// A test for AddTag.
@@ -401,40 +322,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             }
         }
 
-        /// <summary>
-        /// A test for FindAllPhotoComments.
-        /// </summary>
-        [TestMethod]
-        public void FindAllPhotoCommentsTest()
-        {
-            using (var scope = new TransactionScope())
-            {
-                var user = CreateUser("loginNameTest1");
-                var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
-                    f, t, iso, wb, category.categoryId, user.userId);
-
-                List<string> commentsBody = new List<string>
-                {
-                    commentBody,
-                    "comment2"
-                };
-
-                List<long> commentsIds = new List<long>
-                {
-                    photoService.AddComment(photo.photoId, user.userId, commentsBody[0]),
-                    photoService.AddComment(photo.photoId, user.userId, commentsBody[1])
-                };
-
-                CommentBlock listComments = photoService.FindAllPhotoComments(photo.photoId);
-
-                // Check data
-                Assert.AreEqual(commentsIds.Count, listComments.Comments.Count);
-
-              
-            }
-        }
-
+       
         /// <summary>
         /// A test for FindAllPhotoLikes.
         /// </summary>
@@ -541,7 +429,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 Assert.AreEqual(findPhoto.photoDescription, photoDescription);
 
-                photoService.DeletePhoto(photoId);
+                photoService.DeletePhoto(photoId, user1.userId);
                 photoDao.Find(photoId);
 
             }

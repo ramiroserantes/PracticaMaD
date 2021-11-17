@@ -74,6 +74,25 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
 
         }
 
+        public long FindByPhotoId(long photoId)
+        {
+          
+            Photo photo = null;
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            var result =
+                (from p in photos
+                 where p.photoId == photoId
+                 select p);
+
+            photo = result.FirstOrDefault();
+
+            if (photo == null)
+                throw new InstanceNotFoundException(photoId,
+                    typeof(Photo).FullName);
+
+            return photo.userId;
+        }
     }
 
 }

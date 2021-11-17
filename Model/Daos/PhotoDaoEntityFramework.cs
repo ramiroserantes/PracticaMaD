@@ -216,6 +216,36 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
 
         }
+
+        /// <summary>
+        /// Finds the by keywords.
+        /// </summary>
+        /// <param name="keywords">The keywords.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
+        public List<Photo> FindByKeywords(string keywords, int startIndex = 0, int count = 20)
+        {
+            List<Photo> photo = null;
+
+            #region Option 1: Using Linq.
+
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            var result =
+                (from p in photos
+                 where ((p.title.ToLower().Contains(keywords.ToLower()) ||
+                 (p.photoDescription.ToLower().Contains(keywords.ToLower()))))
+                 orderby p.photoDate descending
+                 select p).Skip(startIndex).Take(count);
+
+            #endregion Option 1: Using Linq.
+
+            photo = result.ToList();
+
+            return photo;
+
+        }
         #endregion  IUserProfileDao Members. Specific Operations
 
 

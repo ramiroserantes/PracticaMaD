@@ -88,6 +88,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICommentServiceTest.cs" />
     <Compile Include="IPhotoServiceTest.cs" />
     <Compile Include="IUserServiceTest.cs" />
     <Compile Include="TestManager.cs" />

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
+namespace Es.Udc.DotNet.PracticaMad.Model.CommentService
 {
 
     public class CommentBlock

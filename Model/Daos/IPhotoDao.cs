@@ -61,5 +61,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
         /// <returns></returns>
         List<Photo> FindByCategoryAndKeywords(string keywords, long categoryId, int startIndex = 0, int count = 20);
 
+        /// <summary>
+        /// Finds the by keywords.
+        /// </summary>
+        /// <param name="keywords">The keywords.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The count.</param>
+        /// <returns></returns>
+        List<Photo> FindByKeywords(string keywords, int startIndex = 0, int count = 20);
     }
 }

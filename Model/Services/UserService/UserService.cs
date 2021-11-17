@@ -243,21 +243,6 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
                 UserProfileDao.Update(userProfile);
 
-
-                // actualizamos la lista de seguidores del otro perfil
-                List<UserProfile> followers = UserProfileDao.FindByFollower(userIdToFollow);
-                followers.Add(userProfile);
-
-                ICollection<UserProfile> newFollowerList = new List<UserProfile>();
-                foreach (UserProfile followerUser in followers)
-                {
-                    newFollowerList.Add(UserProfileDao.Find(followerUser.userId));
-                }
-
-                userProfile2.UserProfile1.Clear(); //vaciar lista de seguidores
-                userProfile2.UserProfile1 = newFollowerList;
-
-                UserProfileDao.Update(userProfile2);
             }
         }
 

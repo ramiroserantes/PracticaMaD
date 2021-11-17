@@ -33,5 +33,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
         List<UserProfile> FindByFollowed(long userId);
+
+        long FindByPhotoId(long photoId);
     }
 }
