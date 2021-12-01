@@ -34,6 +34,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         /// <returns></returns>
         List<UserProfile> FindByFollowed(long userId);
 
+        void UpdateFollowUser(long userId, long userId2);
+
+        List<Photo> FindByLikedPhotos(long userId);
+
+        void UpdateLikePhoto(long userId, long photoId);
+
+        void DeleteLikePhoto(long userId, long photoId);
+
         long FindByPhotoId(long photoId);
     }
 }

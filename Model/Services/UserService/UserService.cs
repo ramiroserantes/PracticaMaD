@@ -220,29 +220,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         public void FollowUser(long userProfileId, long userIdToFollow)
         {
 
-            UserProfile userProfile = UserProfileDao.Find(userProfileId);
-            UserProfile userProfile2 = UserProfileDao.Find(userIdToFollow);
-
-
             List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
 
-            bool containsItem = followeds.Any(u => u.userId == userProfile2.userId); //comprobacion
+            bool containsItem = followeds.Any(u => u.userId == userIdToFollow); //comprobacion
             if (!containsItem)
             {
-
-                followeds.Add(userProfile2);
-
-                ICollection<UserProfile> newFollowedList = new List<UserProfile>();
-                foreach (UserProfile followedUser in followeds)
-                {
-                    newFollowedList.Add(UserProfileDao.Find(followedUser.userId));
-                }
-
-                userProfile.UserProfile2.Clear(); //vaciar lista de seguidos
-                userProfile.UserProfile2 = newFollowedList;
-
-                UserProfileDao.Update(userProfile);
-
+                UserProfileDao.UpdateFollowUser(userProfileId, userIdToFollow);
             }
         }
 

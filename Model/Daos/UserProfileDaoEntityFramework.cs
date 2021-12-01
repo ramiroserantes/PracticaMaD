@@ -74,6 +74,123 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
 
         }
 
+        /// <summary>
+        /// Follows an user.
+        /// </summary>
+        /// <param name="userId">The user who follows the other.</param>
+        /// <param name="userId2">The user who is going to be followed.</param>
+        /// <returns></returns>
+        public void UpdateFollowUser(long userId, long userId2)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            UserProfile userProfile = null;
+            UserProfile userProfile2 = null;
+
+            var result =
+                (from u in userProfiles
+                 where u.userId == userId
+                 select u);
+
+            var result2 =
+                (from u in userProfiles
+                 where u.userId == userId2
+                 select u);
+
+            userProfile = result.FirstOrDefault();
+            userProfile2 = result2.FirstOrDefault();
+
+            userProfile.UserProfile2.Add(userProfile2);
+            this.Update(userProfile);
+
+        }
+
+        /// <summary>
+        /// Finds list with liked photos.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        public List<Photo> FindByLikedPhotos(long userId)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            UserProfile userProfile = null;
+
+            var result =
+                (from u in userProfiles
+                 where u.userId == userId
+                 select u);
+
+            userProfile = result.FirstOrDefault();
+
+            return (List<Photo>) userProfile.Photo1;
+
+        }
+
+        /// <summary>
+        /// Generates a like from a user.
+        /// </summary>
+        /// <param name="userId">The user who likes the photo.</param>
+        /// <param name="photoId">The photo that is liked.</param>
+        /// <returns></returns>
+        public void UpdateLikePhoto(long userId, long photoId)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            UserProfile userProfile = null;
+            Photo photo = null;
+
+            var result =
+                (from u in userProfiles
+                 where u.userId == userId
+                 select u);
+
+            var result2 =
+                (from u in photos
+                 where u.photoId == photoId
+                 select u);
+
+            userProfile = result.FirstOrDefault();
+            photo = result2.FirstOrDefault();
+
+            userProfile.Photo1.Add(photo);
+            this.Update(userProfile);
+
+        }
+
+        /// <summary>
+        /// Deletes a like from a user.
+        /// </summary>
+        /// <param name="userId">The user who likes the photo.</param>
+        /// <param name="photoId">The photo that is liked.</param>
+        /// <returns></returns>
+        public void DeleteLikePhoto(long userId, long photoId)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            UserProfile userProfile = null;
+            Photo photo = null;
+
+            var result =
+                (from u in userProfiles
+                 where u.userId == userId
+                 select u);
+
+            var result2 =
+                (from u in photos
+                 where u.photoId == photoId
+                 select u);
+
+            userProfile = result.FirstOrDefault();
+            photo = result2.FirstOrDefault();
+
+            userProfile.Photo1.Remove(photo);
+            this.Update(userProfile);
+
+        }
+
         public long FindByPhotoId(long photoId)
         {
           

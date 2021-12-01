@@ -233,22 +233,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         [Transactional]
         public void GenerateLike(long userProfileId, long photoId)
         {
-            Photo photo = PhotoDao.Find(photoId);
-            UserProfile userProfile = UserProfileDao.Find(userProfileId);
 
-            List<Photo> likeListUser = new List<Photo>(userProfile.Photo1);
+            List<Photo> likeListUser = UserProfileDao.FindByLikedPhotos(userProfileId);
 
             bool containsItem = likeListUser.Any(p => p.photoId == photoId);
             if (!containsItem)
             {
-                likeListUser.Add(photo);
-                ICollection<Photo> newLikeList = new List<Photo>(likeListUser);
-              
-                userProfile.Photo1.Clear();
-                userProfile.Photo1 = newLikeList;
-
-                UserProfileDao.Update(userProfile);
-
+                UserProfileDao.UpdateLikePhoto(userProfileId, photoId);
             }
 
         }
@@ -262,25 +253,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         [Transactional]
         public void DeleteLike(long userProfileId, long photoId)
         {
-            Photo photo = PhotoDao.Find(photoId);
-            UserProfile userProfile = UserProfileDao.Find(userProfileId);
 
-            List<Photo> likeListUser = new List<Photo>(userProfile.Photo1);
+            List<Photo> likeListUser = UserProfileDao.FindByLikedPhotos(userProfileId);
 
             if (likeListUser.Any(u => u.photoId == photoId))
             {
-                ICollection<Photo> newLikeList = new List<Photo>();
-                foreach (Photo p in likeListUser)
-                {
-                    if (p.photoId != photoId)
-                        newLikeList.Add(PhotoDao.Find(p.photoId));
-                }
-
-                userProfile.Photo1.Clear();
-                userProfile.Photo1 = newLikeList;
-
-                UserProfileDao.Update(userProfile);
-
+                UserProfileDao.DeleteLikePhoto(userProfileId, photoId);
             }
         }
 
