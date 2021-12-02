@@ -112,18 +112,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         /// <returns></returns>
         public List<Photo> FindByLikedPhotos(long userId)
         {
-            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+            DbSet<Photo> photos = Context.Set<Photo>();
 
-            UserProfile userProfile = null;
-
-            var result =
-                (from u in userProfiles
-                 where u.userId == userId
-                 select u);
-
-            userProfile = result.FirstOrDefault();
-
-            return (List<Photo>) userProfile.Photo1;
+            return (
+                from l in photos
+                where l.UserProfile1.Any(c => c.userId == userId)
+                select l).ToList();
 
         }
 
