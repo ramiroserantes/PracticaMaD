@@ -147,70 +147,19 @@
   <data name="lclRetypePassword.Text" xml:space="preserve">
     <value>Retype password</value>
   </data>
-  <data name="lclAddress.Text" xml:space="preserve">
-    <value>Address</value>
-  </data>
   <data name="lclSurname.Text" xml:space="preserve">
     <value>Surname</value>
+  </data>
+  <data name="lclUserName.Text" xml:space="preserve">
+    <value>User name</value>
   </data>
   <data name="lnkUserExists.Text" xml:space="preserve">
     <value>Check if user exists</value>
   </data>
   <data name="Page.Title" xml:space="preserve">
-    <value>PracticaMaD - User Registration</value>
-  </data>
-  <data name="lclUserName.Text" xml:space="preserve">
-    <value>User name</value>
+    <value>Photogram - User Registration</value>
   </data>
   <data name="revEmail.ErrorMessage" xml:space="preserve">
     <value>Incorrect email syntax</value>
-  </data>
-  <data name="lclCreditCard.Text" xml:space="preserve">
-    <value>Register Credit Card</value>
-  </data>
-  <data name="default" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="lblNumberError.Text" xml:space="preserve">
-    <value>Credit Card already exists</value>
-  </data>
-  <data name="lclCheckDefault.Text" xml:space="preserve">
-    <value>Default Credit Card</value>
-  </data>
-  <data name="lclCreditNumber.Text" xml:space="preserve">
-    <value>Credit Card Number</value>
-  </data>
-  <data name="lclCreditType.Text" xml:space="preserve">
-    <value>Credit Card Type</value>
-  </data>
-  <data name="lclExpirationDate.Text" xml:space="preserve">
-    <value>Credit Card Expiration Date (MM/YY)</value>
-  </data>
-  <data name="lclVerificationCode.Text" xml:space="preserve">
-    <value>Credit Card Verification Code</value>
-  </data>
-  <data name="revExpirationDate.ErrorMessage" xml:space="preserve">
-    <value>Incorrect date syntax</value>
-  </data>
-  <data name="revNumberError.ErrorMessage" xml:space="preserve">
-    <value>Only numbers allow</value>
-  </data>
-  <data name="revNumberTamError.ErrorMessage" xml:space="preserve">
-    <value>Invalid Credit Card</value>
-  </data>
-  <data name="revVerificationTamError.ErrorMessage" xml:space="preserve">
-    <value>Invalid Verification Code Lenght</value>
-  </data>
-  <data name="lblOpcional.Text" xml:space="preserve">
-    <value>Optional: Register Credit Card</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="lnkBack.Text" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="lblDateError.Text" xml:space="preserve">
-    <value>Invalid Credit Card Expiration Date</value>
   </data>
 </root>

@@ -7,7 +7,6 @@ using Ninject;
 using System;
 using System.Transactions;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
-using Es.Udc.DotNet.PracticaMad.Model.UserService;
 using Es.Udc.DotNet.PracticaMad.Model;
 using System.Collections.Generic;
 

@@ -129,9 +129,6 @@
   <data name="lclFirstName.Text" xml:space="preserve">
     <value>First name</value>
   </data>
-  <data name="lclAddress.Text" xml:space="preserve">
-    <value>Address</value>
-  </data>
   <data name="lclLanguage.Text" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -145,12 +142,9 @@
     <value>Change password</value>
   </data>
   <data name="Page.Title" xml:space="preserve">
-    <value>PracticaMaD - Update User Profile</value>
+    <value>Photogram - Update User Profile</value>
   </data>
   <data name="revEmail.ErrorMessage" xml:space="preserve">
     <value>Incorrect email syntax</value>
-  </data>
-  <data name="lnkListCreditCards.Text" xml:space="preserve">
-    <value>User Credit Cards</value>
   </data>
 </root>

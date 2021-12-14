@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>PracticaMaD</title>
+    <title>Miniportal</title>
     <link href="~/Css/Styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -40,32 +40,12 @@
                         NavigateUrl="~/Pages/User/UpdateUserProfile.aspx"
                         meta:resourcekey="lnkUpdate" />
                     <asp:Label ID="lblDash3" runat="server" Text="-" />
-                    <asp:HyperLink ID="lnkListDeliveries" runat="server"
-                        NavigateUrl="~/Pages/Shopping/ListDeliveries.aspx"
-                        meta:resourcekey="lnkListDeliveries" />
-                    <asp:Label ID="lblDash7" runat="server" Text="-" />
-                    <asp:HyperLink ID="lnkProducts" runat="server"
-                        NavigateUrl="~/Pages/Product/ProductSearch.aspx"
-                        meta:resourcekey="lnkProducts" />
-                    <asp:Label ID="lblDash4" runat="server" Text="-" />
-                    <asp:HyperLink ID="lnkCart" runat="server"
-                        NavigateUrl="~/Pages/Shopping/Cart.aspx"
-                        meta:resourcekey="lnkCart" />
-                    <asp:Label ID="lblDash5" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkLogout" runat="server"
                         NavigateUrl="~/Pages/User/Logout.aspx"
                         meta:resourcekey="lnkLogout" />
                 </asp:ContentPlaceHolder>
             </span>
         </div>
-
-        <!-- Tag Cloud. -->
-        <div id="CloudTag">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder_Cloud" runat="server">
-                <asp:Table ID="tags" runat="server" HorizontalAlign="Center"></asp:Table>
-            </asp:ContentPlaceHolder>
-        </div>
-        
 
         <!-- Body content. -->
         <div id="content">

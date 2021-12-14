@@ -1,7 +1,7 @@
 using System;
 
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
-using Es.Udc.DotNet.PracticaMaD.Model.UserService.Exceptions;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {

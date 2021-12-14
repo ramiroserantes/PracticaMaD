@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Es.Udc.DotNet.PracticaMad.Model.UserService
+namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 {
 
     [Serializable()]

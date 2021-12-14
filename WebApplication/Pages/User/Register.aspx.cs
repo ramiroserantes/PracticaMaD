@@ -1,4 +1,4 @@
-using Es.Udc.DotNet.PracticaMaD.Model.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.ApplicationObjects;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
@@ -13,7 +13,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected void Page_Load(object sender, EventArgs e)
         {
             lblLoginError.Visible = false;
-            lblNumberError.Visible = false;
 
             if (!IsPostBack)
             {
@@ -26,7 +25,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 /* Combo box initialization */
                 UpdateComboLanguage(defaultLanguage);
                 UpdateComboCountry(defaultLanguage, defaultCountry);
-                UpdateComboCreditType(defaultLanguage, 0);
             }
         }
 
@@ -93,15 +91,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             this.comboCountry.SelectedValue = selectedCountry;
         }
 
-        private void UpdateComboCreditType(String selectedLanguage, int selectIndex)
-        {
-            this.comboCreditType.DataSource = CreditType.GetCreditType(selectedLanguage);
-            this.comboCreditType.DataTextField = "text";
-            this.comboCreditType.DataValueField = "value";
-            this.comboCreditType.DataBind();
-            this.comboCreditType.SelectedIndex = selectIndex;
-        }
-
         /// <summary>
         /// Handles the Click event of the btnRegister control.
         /// </summary>
@@ -110,57 +99,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         /// containing the event data.</param>
         protected void BtnRegisterClick(object sender, EventArgs e)
         {
-
             if (Page.IsValid)
             {
                 try
                 {
-                    long number = Convert.ToInt64(txtCreditNumber.Text);
-
-                    if (!SessionManager.CardExists(number))
-                    {
-                        int verification = Convert.ToInt32(txtVerificationCode.Text);
-                        System.DateTime date = DateTime.ParseExact(txtExpirationDate.Text, "MM/yy", null);
-                        if(date.Year.CompareTo(System.DateTime.Now.Year) < 0 || (date.Year.CompareTo(System.DateTime.Now.Year) == 0 && date.Month.CompareTo(System.DateTime.Now.Month) < 0))
-                        {
-                            lblDateError.Visible = true;
-                            lblLoginError.Visible = false;
-                            lblNumberError.Visible = false;
-                            return;
-                        }
-
-                        UserProfileDetails userProfileDetailsVO =
+                    UserProfileDetails userProfileDetailsVO =
                         new UserProfileDetails(txtFirstName.Text, txtSurname.Text,
                             txtEmail.Text, comboLanguage.SelectedValue,
-                            comboCountry.SelectedValue, 0, txtAddress.Text); ;
+                            comboCountry.SelectedValue);
 
-                        long usrId = SessionManager.RegisterUser(Context, txtLogin.Text,
-                            txtPassword.Text, userProfileDetailsVO);
+                    SessionManager.RegisterUser(Context, txtLogin.Text,
+                        txtPassword.Text, userProfileDetailsVO);
 
-                        SessionManager.RegisterCreditCard(Context, comboCreditType.SelectedValue,
-                          number, verification, true, date);
-
-                        Response.Redirect(Response.
-                            ApplyAppPathModifier("~/Pages/MainPage.aspx"));
-                    }
-                    else
-                    {
-                        lblLoginError.Visible = false;
-                        lblNumberError.Visible = true;
-                        lblDateError.Visible = false;
-                    }
+                    Response.Redirect(Response.
+                        ApplyAppPathModifier("~/Pages/MainPage.aspx"));
                 }
                 catch (DuplicateInstanceException)
                 {
                     lblLoginError.Visible = true;
-                    lblNumberError.Visible = false;
-                    lblDateError.Visible = false;
-                }
-                catch (FormatException)
-                {
-                    lblDateError.Visible = true;
-                    lblLoginError.Visible = false;
-                    lblNumberError.Visible = false;
                 }
             }
         }
@@ -172,7 +128,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
              */
             this.UpdateComboCountry(comboLanguage.SelectedValue,
                 comboCountry.SelectedValue);
-            this.UpdateComboCreditType(comboLanguage.SelectedValue, comboCreditType.SelectedIndex);
         }
     }
 }

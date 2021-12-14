@@ -1,4 +1,4 @@
-﻿using Es.Udc.DotNet.PracticaMaD.Model.UserService.Exceptions;
+﻿using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
 using System;
@@ -22,7 +22,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         /// containing the event data.</param>
         protected void BtnLoginClick(object sender, EventArgs e)
         {
-
             if (Page.IsValid)
             {
                 try
@@ -37,20 +36,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 catch (InstanceNotFoundException)
                 {
                     lblLoginError.Visible = true;
-                    lblPasswordError.Visible = false;
                 }
                 catch (IncorrectPasswordException)
                 {
-                    lblLoginError.Visible = false;
                     lblPasswordError.Visible = true;
                 }
             }
-            else
-            {
-                lblLoginError.Visible = false;
-                lblPasswordError.Visible = false;
-            }
-
         }
     }
 }

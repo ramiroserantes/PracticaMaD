@@ -1,7 +1,7 @@
 ﻿using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
-using Es.Udc.DotNet.PracticaMad.Model.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Ninject;
 using System;
 using System.Collections.Generic;

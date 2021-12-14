@@ -15,10 +15,6 @@
             <asp:HyperLink ID="lnkChangePassword" runat="server" 
                 NavigateUrl="~/Pages/User/ChangePassword.aspx"
                 meta:resourcekey="lnkChangePassword"/>
-            <asp:Label ID="lblDash3" runat="server" Text="-" />
-            <asp:HyperLink ID="lnkListCreditCards" runat="server" 
-                NavigateUrl="~/Pages/User/ListCreditCards.aspx"
-                meta:resourcekey="lnkListCreditCards"/>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclFirstName" runat="server" meta:resourcekey="lclFirstName" /></span><span class="entry">
                     <asp:TextBox ID="txtFirstName" runat="server" Width="100" Columns="16"></asp:TextBox>
@@ -30,12 +26,6 @@
                     <asp:TextBox ID="txtSurname" runat="server" Width="100" Columns="16"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvSurname" runat="server"
                         ControlToValidate="txtSurname" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
-            </div>
-            <div class="field">
-                <span class="label"><asp:Localize ID="lclAddress" runat="server" meta:resourcekey="lclAddress" /></span><span class="entry">
-                    <asp:TextBox ID="txtAddress" runat="server" Width="100" Columns="16"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvAddress" runat="server"
-                        ControlToValidate="txtAddress" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/></span>
             </div>
             <div class="field">
                 <span class="label"><asp:Localize ID="lclEmail" runat="server" meta:resourcekey="lclEmail" /></span><span class="entry">

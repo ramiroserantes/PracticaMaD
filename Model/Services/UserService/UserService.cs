@@ -6,7 +6,7 @@ using Es.Udc.DotNet.ModelUtil.Transactions;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Util;
 using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
-using Es.Udc.DotNet.PracticaMad.Model.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Ninject;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService

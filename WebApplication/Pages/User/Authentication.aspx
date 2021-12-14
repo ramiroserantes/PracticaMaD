@@ -11,15 +11,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent"
     runat="server">
-        <div id="register">
-            <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Pages/User/Register.aspx" meta:resourcekey="lnkRegister" />
-        </div>
-        <div id="form">
-        <div />
-        <div class="Error">
-            <asp:Label ID="lblLoginError" runat="server" ForeColor="Red" Style="position: relative" meta:resourcekey="lblLoginError"></asp:Label>                             
-            <asp:Label ID="lblPasswordError" runat="server" ForeColor="Red" Style="position: relative" meta:resourcekey="lblPasswordError"></asp:Label>
-        </div>
+    <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Pages/User/Register.aspx" meta:resourcekey="lnkRegister" />
+    <div id="form">
         <form id="AuthenticationForm" method="POST" runat="server">
             <div class="field">
                 <span class="label">
@@ -28,6 +21,9 @@
                         <asp:TextBox ID="txtLogin" runat="server" Width="100" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvLogin" runat="server"
                             ControlToValidate="txtLogin" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
+                        <asp:Label ID="lblLoginError" runat="server" ForeColor="Red" Style="position: relative"
+                            Visible="False" meta:resourcekey="lblLoginError">                        
+                        </asp:Label>
                     </span>
             </div>
             <div class="field">
@@ -36,7 +32,10 @@
                         class="entry">
                         <asp:TextBox TextMode="Password" ID="txtPassword" runat="server" Width="100" Columns="16"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
-                            ControlToValidate="txtPassword" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/> 
+                            ControlToValidate="txtPassword" Display="Dynamic" Text="<%$ Resources:Common, mandatoryField %>"/>
+                        <asp:Label ID="lblPasswordError" runat="server" ForeColor="Red" Style="position: relative"
+                            Visible="False" meta:resourcekey="lblPasswordError">       
+                        </asp:Label>
                     </span>
             </div>
             <div class="checkbox">
