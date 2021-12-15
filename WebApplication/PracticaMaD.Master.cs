@@ -16,8 +16,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
             if (!SessionManager.IsUserAuthenticated(Context))
             {
 
+                if (lblDash5 != null)
+                    lblDash5.Visible = false;
+                if (lnkMyProfile != null)
+                    lnkMyProfile.Visible = false;
                 if (lblDash2 != null)
-                    lblDash2.Visible = false;
+                    lblDash2.Visible = false;              
                 if (lnkUpdate != null)
                     lnkUpdate.Visible = false;
                 if (lblDash3 != null)
