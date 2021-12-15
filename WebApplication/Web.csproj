@@ -119,10 +119,12 @@
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Pages\Errors\InternalError.aspx" />
+    <Content Include="Pages\Photo\Explore.aspx" />
     <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
+    <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\UpdateUserProfile.aspx" />
     <Content Include="Web.config" />
@@ -164,6 +166,13 @@
     <Compile Include="Pages\Errors\InternalError.aspx.designer.cs">
       <DependentUpon>InternalError.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Photo\Explore.aspx.cs">
+      <DependentUpon>Explore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Photo\Explore.aspx.designer.cs">
+      <DependentUpon>Explore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserExists.aspx.cs">
       <DependentUpon>UserExists.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +200,13 @@
     </Compile>
     <Compile Include="Pages\User\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
