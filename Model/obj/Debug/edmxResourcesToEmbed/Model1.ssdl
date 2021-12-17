@@ -69,6 +69,7 @@
     <Property Name="lastName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="lenguage" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="country" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
   <Association Name="FK_CategoryPhoto">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />

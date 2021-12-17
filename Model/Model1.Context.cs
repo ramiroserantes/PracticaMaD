@@ -13,10 +13,10 @@ namespace Es.Udc.DotNet.PracticaMad.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class practicamadEntities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public practicamadEntities1()
+            : base("name=practicamadEntities1")
         {
         }
     

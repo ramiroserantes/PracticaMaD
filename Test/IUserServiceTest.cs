@@ -9,6 +9,8 @@ using System.Transactions;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
 using Es.Udc.DotNet.PracticaMad.Model;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace Es.Udc.DotNet.PracticaMad.Test
 {
@@ -23,6 +25,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private const string lastName = "lastName";
         private const string email = "user@udc.es";
         private const string lenguage = "es";
+        private const string country = "ES";
 
         private const string loginName2 = "loginNameTest2";
 
@@ -31,6 +34,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private const string lastName2 = "lastName2";
         private const string email2 = "user2@udc.es";
         private const string lenguage2 = "es2";
+        private const string country2 = "ES2";
 
 
         private const long NON_EXISTENT_USER_ID = -1;
@@ -46,13 +50,13 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
         [TestMethod]
         public void RegisterUserTest()
-        {
+        {           
             using (var scope = new TransactionScope())
             {
                 // Register user and find profile
                 var userId =
                     userService.RegisterUser(loginName, clearPassword,
-                        new UserProfileDetails(loginName, firstName, lastName, email, lenguage));
+                        new UserProfileDetails(loginName, firstName, lastName, email, lenguage, country));
 
                 var userProfile = userProfileDao.Find(userId);
 
@@ -64,9 +68,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 Assert.AreEqual(lastName, userProfile.lastName);
                 Assert.AreEqual(email, userProfile.email);
                 Assert.AreEqual(lenguage, userProfile.lenguage);
-                
+                Assert.AreEqual(country, userProfile.country);
 
             }
+         
         }
 
         
@@ -91,10 +96,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 var expected = new LoginResult(userId, firstName,
-                    PasswordEncrypter.Crypt(clearPassword), lenguage);
+                    PasswordEncrypter.Crypt(clearPassword), lenguage, country);
 
                 // Login with clear password
                 var actual =
@@ -116,10 +121,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 var expected = new LoginResult(userId, firstName,
-                    PasswordEncrypter.Crypt(clearPassword), lenguage);
+                    PasswordEncrypter.Crypt(clearPassword), lenguage, country);
 
                 // Login with encrypted password
                 var obtained =
@@ -141,7 +146,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             using (var scope = new TransactionScope())
             {
                 var expected =
-                    new UserProfileDetails(firstName, lastName, email, lenguage);
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country);
 
                 var userId =
                     userService.RegisterUser(loginName, clearPassword, expected);
@@ -166,11 +171,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Register the same user
                 userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
             }
         }
@@ -186,7 +191,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Login with incorrect (clear) password
                 var actual =
@@ -227,11 +232,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user and update profile details
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 var expected =
                     new UserProfileDetails(firstName + "X", lastName + "X",
-                        email + "X", "XX");
+                        email + "X", "XX", "XX");
 
                 userService.UpdateUserProfileDetails(userId, expected);
 
@@ -254,7 +259,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             using (var scope = new TransactionScope())
             {
                 userService.UpdateUserProfileDetails(NON_EXISTENT_USER_ID,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
             }
         }
 
@@ -268,7 +273,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Change password
                 var newClearPassword = clearPassword + "X";
@@ -290,7 +295,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 var userId = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Change password
                 var newClearPassword = clearPassword + "X";
@@ -320,7 +325,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user
                 userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 bool userExists = userService.UserExists(loginName);
 
@@ -351,11 +356,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user1
                 long userId1 = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Register user2
                 long userId2 = userService.RegisterUser(loginName2, clearPassword2,
-                    new UserProfileDetails(firstName2, lastName2, email2, lenguage2));
+                    new UserProfileDetails(firstName2, lastName2, email2, lenguage2, country2));
 
                 userService.FollowUser(userId1, userId2);
 
@@ -378,11 +383,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 // Register user1
                 long userId1 = userService.RegisterUser(loginName, clearPassword,
-                    new UserProfileDetails(firstName, lastName, email, lenguage));
+                    new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
                 // Register user2
                 long userId2 = userService.RegisterUser(loginName2, clearPassword2,
-                    new UserProfileDetails(firstName2, lastName2, email2, lenguage2));
+                    new UserProfileDetails(firstName2, lastName2, email2, lenguage2, country2));
 
                 userService.FollowUser(userId1, userId2);
 

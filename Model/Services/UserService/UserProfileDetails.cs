@@ -54,6 +54,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// </value>
         public String Lenguage { get; private set; }
 
+        /// <summary>
+        /// Gets the Country.
+        /// </summary>
+        /// <value>
+        /// The Country.
+        /// </value>
+        public string Country { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserProfileDetails"/> class.
@@ -63,14 +70,16 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// <param name="lastName">The last name.</param>
         /// <param name="email">The email.</param>
         /// <param name="lenguage">The lenguage.</param>
+        /// <param name="country">The country.</param>
         public UserProfileDetails(String loginName, String firstName, String lastName,
-            String email, String lenguage)
+            String email, String lenguage, String country)
         {
             this.LoginName = loginName;
             this.FirstName = firstName;
             this.Lastname = lastName;
             this.Email = email;
             this.Lenguage = lenguage;
+            this.Country = country;
         }
 
         /// <summary>
@@ -82,8 +91,9 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// <param name="lastName">The last name.</param>
         /// <param name="email">The email.</param>
         /// <param name="lenguage">The lenguage.</param>
+        /// <param name="country">The country.</param>
         public UserProfileDetails(long userId, String loginName, String firstName, String lastName,
-            String email, String lenguage)
+            String email, String lenguage, String country)
         {
             this.UserId = userId;
             this.LoginName = loginName;
@@ -91,6 +101,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             this.Lastname = lastName;
             this.Email = email;
             this.Lenguage = lenguage;
+            this.Country = country;
         }
 
         /// <summary>
@@ -100,13 +111,15 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// <param name="lastName">The last name.</param>
         /// <param name="email">The email.</param>
         /// <param name="lenguage">The lenguage.</param>
+        /// <param name="country">The country.</param>
         public UserProfileDetails(String firstName, String lastName,
-            String email, String lenguage)
+            String email, String lenguage, String country)
         {
             this.FirstName = firstName;
             this.Lastname = lastName;
             this.Email = email;
             this.Lenguage = lenguage;
+            this.Country = country;
         }
 
         /// <summary>
@@ -125,7 +138,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
                   && (this.FirstName == target.FirstName)
                   && (this.Lastname == target.Lastname)
                   && (this.Email == target.Email)
-                  && (this.Lenguage == target.Lenguage);
+                  && (this.Lenguage == target.Lenguage)
+                  && (this.Country == target.Country);
                 
         }
 
@@ -160,7 +174,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
                 "firstName = " + FirstName + " | " +
                 "lastName = " + Lastname + " | " +
                 "email = " + Email + " | " +
-                "lenguage = " + Lenguage + " ]";
+                "lenguage = " + Lenguage + " | " +
+                "country = " + Country + " ]";
 
 
             return strUserProfileDetails;

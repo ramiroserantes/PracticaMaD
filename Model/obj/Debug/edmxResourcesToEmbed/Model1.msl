@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities1">
     <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="practicamadModel.Category">
         <MappingFragment StoreEntitySet="Category">
@@ -57,6 +57,7 @@
           <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="lenguage" ColumnName="lenguage" />
+          <ScalarProperty Name="country" ColumnName="country" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

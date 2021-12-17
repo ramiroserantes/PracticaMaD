@@ -63,7 +63,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
             UserProfileDetails userProfileDetails =
                 new UserProfileDetails(userProfile.firstName,
-                    userProfile.lastName, userProfile.email, userProfile.lenguage);
+                    userProfile.lastName, userProfile.email, userProfile.lenguage, userProfile.country);
 
             return userProfileDetails;
 
@@ -105,7 +105,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
             
             return new LoginResult(userProfile.userId, userProfile.firstName,
-                storedPassword, userProfile.lenguage);
+                storedPassword, userProfile.lenguage, userProfile.country);
 
         }
 

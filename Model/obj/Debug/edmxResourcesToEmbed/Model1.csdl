@@ -63,6 +63,7 @@
     <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="lenguage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Comment" Relationship="Self.FK_UserComment" FromRole="UserProfile" ToRole="Comment" />
     <NavigationProperty Name="Photo" Relationship="Self.FK_UserPhoto" FromRole="UserProfile" ToRole="Photo" />
     <NavigationProperty Name="Tag" Relationship="Self.FK_UserTag" FromRole="UserProfile" ToRole="Tag" />
@@ -150,7 +151,7 @@
     <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="practicamadEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Category" EntityType="Self.Category" />
     <EntitySet Name="Comment" EntityType="Self.Comment" />
     <EntitySet Name="Photo" EntityType="Self.Photo" />

@@ -1,2 +1,0 @@
-C:\Software\2\PracticaMaD\WebApplication\obj\Debug\Web.csproj.AssemblyReference.cache
-C:\Software\2\PracticaMaD\WebApplication\obj\Debug\Web.csproj.CoreCompileInputs.cache

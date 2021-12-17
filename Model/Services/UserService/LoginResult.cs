@@ -13,13 +13,15 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// <param name="firstName">The first name.</param>
         /// <param name="encryptedPassword">The encrypted password.</param>
         /// <param name="lenguage">The lenguage.</param>
+        /// <param name="country">The country.</param>
         public LoginResult(long userProfileId, String firstName,
-            String encryptedPassword, string lenguage)
+            String encryptedPassword, string lenguage, string country)
         {
             this.UserProfileId = userProfileId;
             this.FirstName = firstName;
             this.EncryptedPassword = encryptedPassword;
             this.Lenguage = lenguage;
+            this.Country = country;
         }
 
         #region Properties Region
@@ -31,6 +33,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// The encrypted password.
         /// </value>
         public string EncryptedPassword { get; private set; }
+
+        /// <summary>
+        /// Gets the country.
+        /// </summary>
+        /// <value>
+        /// The country.
+        /// </value>
+        public string Country { get; private set; }
 
         /// <summary>
         /// Gets the lenguage.
@@ -72,7 +82,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             return (this.UserProfileId == target.UserProfileId)
                    && (this.FirstName == target.FirstName)
                    && (this.EncryptedPassword == target.EncryptedPassword)
-                   && (this.Lenguage == target.Lenguage);
+                   && (this.Lenguage == target.Lenguage)
+                   && (this.Country == target.Country);
         }
 
         /// <summary>
@@ -100,7 +111,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
                 "[ userProfileId = " + UserProfileId + " | " +
                 "firstName = " + FirstName + " | " +
                 "encryptedPassword = " + EncryptedPassword + " | " +
-                "lenguage = " + Lenguage + " ]";
+                "lenguage = " + Lenguage + " | " +
+                "country = " + Country + " ]";
 
             return strLoginResult;
         }

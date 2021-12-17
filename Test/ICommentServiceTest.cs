@@ -114,6 +114,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 lastName = "lastName",
                 email = "user@udc.es",
                 lenguage = "es",
+                country = "es",
             };
 
             userDao.Create(user);
