@@ -123,24 +123,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
         protected global::System.Web.UI.WebControls.HyperLink lnkMyProfile;
 
         /// <summary>
-        /// Control lblDash5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDash5;
-
-        /// <summary>
-        /// Control lnkUpdate.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkUpdate;
-
-        /// <summary>
         /// Control lblDash3.
         /// </summary>
         /// <remarks>

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+using Es.Udc.DotNet.ModelUtil.IoC;
 
-namespace WebApplication.Pages.Photo
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 {
-    public partial class Explore : System.Web.UI.Page
+    public partial class Explore : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

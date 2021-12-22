@@ -140,6 +140,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
                 userProfile.lastName = userProfileDetails.Lastname;
                 userProfile.email = userProfileDetails.Email;
                 userProfile.lenguage = userProfileDetails.Lenguage;
+                userProfile.country = userProfileDetails.Country;
 
                 UserProfileDao.Create(userProfile);
 
