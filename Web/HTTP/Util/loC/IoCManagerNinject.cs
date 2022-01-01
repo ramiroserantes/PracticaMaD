@@ -1,5 +1,13 @@
 ﻿using Es.Udc.DotNet.PracticaMad.Model.UserProfileDao;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoDao;
+
+using Es.Udc.DotNet.PracticaMad.Model.CommentService;
+using Es.Udc.DotNet.PracticaMad.Model.CommentDao;
+using Es.Udc.DotNet.PracticaMad.Model.TagDao;
+using Es.Udc.DotNet.PracticaMad.Model.CategoryDao;
+
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Ninject;
 using System.Configuration;
@@ -25,6 +33,24 @@ namespace Es.Udc.DotNet.PracticaMaD.HTTP.Util.IoC
             /* UserService */
             kernel.Bind<IUserService>().
                 To<UserService>();
+
+            kernel.Bind<ICommentService>().
+                To<CommentService>();
+
+            kernel.Bind<ICommentDao>().
+                To<CommentDaoEntityFramework>();
+
+            kernel.Bind<ITagDao>().
+                To<TagDaoEntityFramework>();
+
+            kernel.Bind<ICategoryDao>().
+                To<CategoryDaoEntityFramework>();
+
+            kernel.Bind<IPhotoDao>().
+            To<PhotoDaoEntityFramework>();
+
+            kernel.Bind<IPhotoService>().
+             To<PhotoService>();
 
             /* DbContext */
             string connectionString =
