@@ -160,6 +160,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Sql\SqlCreateData.sql" />
     <Content Include="Sql\SqlServerCreateDatabase.sql" />
   </ItemGroup>
   <ItemGroup>

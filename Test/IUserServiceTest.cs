@@ -27,14 +27,14 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private const string lenguage = "es";
         private const string country = "ES";
 
-        private const string loginName2 = "loginNameTest2";
+        private const string loginName2 = "loginNameTestt";
 
-        private const string clearPassword2 = "password2";
-        private const string firstName2 = "name2";
-        private const string lastName2 = "lastName2";
-        private const string email2 = "user2@udc.es";
-        private const string lenguage2 = "es2";
-        private const string country2 = "ES2";
+        private const string clearPassword2 = "passwordd";
+        private const string firstName2 = "namee";
+        private const string lastName2 = "lastNamee";
+        private const string email2 = "userr@udc.es";
+        private const string lenguage2 = "gal";
+        private const string country2 = "UK";
 
 
         private const long NON_EXISTENT_USER_ID = -1;
@@ -48,7 +48,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         public TestContext TestContext { get; set; }
 
 
-        [TestMethod]
+       [TestMethod]
         public void RegisterUserTest()
         {           
             using (var scope = new TransactionScope())
@@ -140,7 +140,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         /// <summary>
         /// A test for FindUserProfileDetails
         /// </summary>
-        [TestMethod]
+       [TestMethod]
         public void FindUserProfileDetailsTest()
         {
             using (var scope = new TransactionScope())
@@ -225,7 +225,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         /// <summary>
         /// A test for UpdateUserProfileDetails
         /// </summary>
-        [TestMethod]
+       [TestMethod]
         public void UpdateUserProfileDetailsTest()
         {
             using (var scope = new TransactionScope())

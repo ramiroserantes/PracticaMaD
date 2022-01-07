@@ -16,9 +16,9 @@
                 </span>
 
                 <span class="entry">
-                    <asp:TextBox ID="txtSearch" runat="server" Width="30%" Columns="16" meta:resourcekey="txtSearch"></asp:TextBox>
-                    <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="False" runat="server" Width="30%"></asp:DropDownList>
-                    <asp:Button ID="btnSearch" runat="server" OnClick="BtnSearchClick" meta:resourcekey="btnSearch" Width="30%" />
+                    <asp:TextBox ID="txtSearch" runat="server" Width="20%" Columns="16" meta:resourcekey="txtSearch"  style="text-align:center"></asp:TextBox>
+                    <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="False" runat="server" Width="20%"></asp:DropDownList>
+                    <asp:Button ID="btnSearch" runat="server" OnClick="BtnSearchClick" meta:resourcekey="btnSearch" Width="10%" />
                 </span>
             </div>
             <br />
@@ -40,10 +40,10 @@
                             HeaderText="<%$ Resources:Common, title %>"
                             DataNavigateUrlFields="photoId"
                             DataNavigateUrlFormatString="/Pages/Photo/PhotoDetails.aspx?photo={0}" />
-                        <asp:BoundField DataField="Category.categoryType"
-                            HeaderText="<%$ Resources:Common, categoryType %>" />
                         <asp:BoundField DataField="photoDate" HeaderText="<%$ Resources:Common, photoDate %>"
                             DataFormatString="{0:d/M/yyyy}" />
+                        <asp:ImageField HeaderText = "Link" DataImageUrlField="photoId" DataImageUrlFormatString="~/Images/{0}.jpg"  ControlStyle-Height="100px" ControlStyle-Width="100px"/>
+           
                     </Columns>
                 </asp:GridView>
             </div>

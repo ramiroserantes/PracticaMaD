@@ -9,6 +9,8 @@ using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.PracticaMad.Model;
 
 using Es.Udc.DotNet.ModelUtil.IoC;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 {
@@ -62,8 +64,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
                     selectedValue = Request.Params.Get("category");
 
-                    /* Get Products Info */
-                    PhotoBlock photoBlock = photoService.FindAllPhotosByCategoryAndKeyword(keyword, catId, startIndex);
+                    PhotoBlock photoBlock = photoService.FindAllPhotosByCategoryAndKeyword(keyword, catId, startIndex, count);
 
                     if (photoBlock.Photos.Count == 0)
                     {
@@ -99,7 +100,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 }
                 catch (ArgumentNullException)
                 {
-                    /* Get Products Info */
+
                     PhotoBlock photoBlock = photoService.FindAllPhotosByKeyword(keyword, startIndex, count);
 
                     if (photoBlock.Photos.Count == 0)
@@ -135,14 +136,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                     }
                 }
             }
-            /* If there is no keyword, search all products */
             else
             {
                 try
                 {
                     long tagId = long.Parse(Request.Params.Get("tagId"));
 
-                    /* Get Products Info */
+                  
                     PhotoBlock photoBlock = photoService.FindAllPhotosByTag(tagId, startIndex, count);
 
                     if (photoBlock.Photos.Count == 0)
@@ -177,9 +177,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                         }
                     }
                 }
-                catch (ArgumentNullException)
-                {
-                    /* Get Products Info */
+                catch (ArgumentNullException) { 
+
                     PhotoBlock photoBlock = photoService.FindAllPhotos(startIndex, count);
 
                     if (photoBlock.Photos.Count == 0)
@@ -191,7 +190,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                         gvPhotos.DataSource = photoBlock.Photos;
                         gvPhotos.DataBind();
 
-                        /* "Previous" link */
+
                         if ((startIndex - count) >= 0)
                         {
                             string url =
@@ -219,7 +218,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             if (!IsPostBack)
             {
                 List<Category> categories = photoService.FindAllCategories();
-
+                BindGrid();
                 // Create a table to store data for the DropDownList control.
                 DataTable dt = new DataTable();
 
@@ -248,8 +247,52 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
                 // Set the default selected item.
                 CategoryDropDownList.SelectedValue = selectedValue;
+                
             }
         }
+
+        private void BindGrid()
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            PhotoBlock photoBlock = photoService.FindAllPhotos();
+
+            if(photoBlock.Photos.Count == 0)
+            {
+                lblNoPhotos.Visible = true;
+                gvPhotos.Visible = false;
+            } else {
+                gvPhotos.Visible = true;
+            }
+
+            DataTable dt = new DataTable();
+
+            dt.Columns.AddRange(
+                new DataColumn[4]
+                {
+                    new DataColumn("photoId"),
+                    new DataColumn("link"),
+                    new DataColumn("title"),
+                    new DataColumn("photoDate")
+
+                }
+            );
+
+            for (int index = 0; index <= photoBlock.Photos.Count - 1; index = index + 1)
+            {
+                dt.Rows.Add(photoBlock.Photos[index].photoId, photoBlock.Photos[index].link, photoBlock.Photos[index].title, photoBlock.Photos[index].photoDate);
+            }
+
+
+            gvPhotos.DataSource = dt;
+            gvPhotos.DataBind();
+            gvPhotos.Columns[0].Visible = false;
+            gvPhotos.Columns[1].Visible = false;
+
+        }
+
+    
 
         protected void BtnSearchClick(object sender, EventArgs e)
         {
@@ -273,6 +316,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 }
             }
 
+        }
+
+        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView dr = (DataRowView)e.Row.DataItem;
+                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Data"]);
+                (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
+            }
         }
 
         protected DataRow CreateRow(string text, long value, DataTable dt)

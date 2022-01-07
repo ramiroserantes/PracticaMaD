@@ -401,7 +401,7 @@
           <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="practicamadEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="practicamadEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Comment" EntityType="Self.Comment" />
           <EntitySet Name="Photo" EntityType="Self.Photo" />
@@ -445,7 +445,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities1">
+        <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities2">
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="practicamadModel.Category">
               <MappingFragment StoreEntitySet="Category">

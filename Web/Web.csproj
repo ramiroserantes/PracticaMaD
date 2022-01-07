@@ -114,6 +114,8 @@
   <ItemGroup>
     <Content Include="Css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
     <Content Include="Pages\Errors\InternalError.aspx" />
     <Content Include="Pages\Photo\AddComment.aspx" />
     <Content Include="Pages\Photo\Explore.aspx" />

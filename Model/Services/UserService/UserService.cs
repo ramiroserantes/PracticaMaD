@@ -25,7 +25,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         [Inject]
         public IUserProfileDao UserProfileDao { private get; set; }
 
-        /// <summary>
+        /// <summary>		oldClearPassword	"passwordY"	string
+
         /// Changes the password.
         /// </summary>
         /// <param name="userProfileId">The user profile identifier.</param>
@@ -165,6 +166,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             userProfile.lastName = userProfileDetails.Lastname;
             userProfile.email = userProfileDetails.Email;
             userProfile.lenguage = userProfileDetails.Lenguage;
+            userProfile.country = userProfileDetails.Country;
             UserProfileDao.Update(userProfile);
         }
 
