@@ -99,5 +99,28 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         [Transactional]
         void FollowUser(long userProfileId, long userIdToFollow);
 
+        /// <summary>
+        /// Unfollows the user.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="userIdToFollow">The user identifier to unfollow.</param>
+        [Transactional]
+        void UnfollowUser(long userProfileId, long userIdToFollow);
+
+        /// <summary>
+        /// Checks if user is already following another user.
+        /// </summary>
+        /// <param name="userProfileId">The user profile.</param>
+        /// <param name="userIdToFollow">The other user profile.</param>
+        /// <returns></returns>
+        bool IsAlreadyFollowing(long userProfileId, long userIdToFollow);
+
+        /// <summary>
+        /// Gets the userProfileId from the loginName.
+        /// </summary>
+        /// <param name="loginName">The user profile.</param>
+        /// <returns></returns>
+        long GetUserProfileId(string loginName);
+
     }
 }

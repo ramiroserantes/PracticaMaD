@@ -232,6 +232,55 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             }
         }
 
+        /// <summary>
+        /// Unfollows the user.
+        /// </summary>
+        /// <param name="userProfileId">The user profile identifier.</param>
+        /// <param name="userIdToFollow">The user identifier to unfollow.</param>
+        /// <exception cref="InstanceNotFoundException"></exception>
+        [Transactional]
+        public void UnfollowUser(long userProfileId, long userIdToFollow)
+        {
+
+            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
+
+            bool containsItem = followeds.Any(u => u.userId == userIdToFollow); //comprobacion
+            if (containsItem)
+            {
+                UserProfileDao.UpdateUnfollowUser(userProfileId, userIdToFollow);
+            }
+        }
+
+        /// <summary>
+        /// Checks if user is already following another user.
+        /// </summary>
+        /// <param name="userProfileId">The user profile.</param>
+        /// <param name="userIdToFollow">The other user profile.</param>
+        /// <returns></returns>
+        public bool IsAlreadyFollowing(long userProfileId, long userIdToFollow)
+        {
+            List<UserProfile> followeds = UserProfileDao.FindByFollowed(userProfileId);
+            bool containsItem = followeds.Any(u => u.userId == userIdToFollow); //comprobacion
+            if (containsItem)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets the userProfileId from the loginName.
+        /// </summary>
+        /// <param name="loginName">The user profile.</param>
+        /// <returns></returns>
+        public long GetUserProfileId(string loginName)
+        {
+            return UserProfileDao.FindByLoginName(loginName).userId;
+        }
+
 
     }
 }

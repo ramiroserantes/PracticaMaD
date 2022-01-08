@@ -106,6 +106,36 @@ namespace Es.Udc.DotNet.PracticaMad.Model.UserProfileDao
         }
 
         /// <summary>
+        /// Unfollows an user.
+        /// </summary>
+        /// <param name="userId">The user who follows the other.</param>
+        /// <param name="userId2">The user who is going to be unfollowed.</param>
+        /// <returns></returns>
+        public void UpdateUnfollowUser(long userId, long userId2)
+        {
+            DbSet<UserProfile> userProfiles = Context.Set<UserProfile>();
+
+            UserProfile userProfile = null;
+            UserProfile userProfile2 = null;
+
+            var result =
+                (from u in userProfiles
+                 where u.userId == userId
+                 select u);
+
+            var result2 =
+                (from u in userProfiles
+                 where u.userId == userId2
+                 select u);
+
+            userProfile = result.FirstOrDefault();
+            userProfile2 = result2.FirstOrDefault();
+
+            userProfile.UserProfile2.Remove(userProfile2);
+            this.Update(userProfile);
+        }
+
+        /// <summary>
         /// Finds list with liked photos.
         /// </summary>
         /// <param name="userId">The user identifier.</param>

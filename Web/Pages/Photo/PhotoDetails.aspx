@@ -1,4 +1,4 @@
-﻿<%@ Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="PhotoDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.PhotoDetails" meta:resourcekey="Page" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="PhotoDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.PhotoDetails" meta:resourcekey="Page" 
     %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
