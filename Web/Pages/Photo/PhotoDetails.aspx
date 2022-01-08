@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true"
-    CodeBehind="PhotoDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.PhotoDetails"
+﻿<%@ Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="PhotoDetails.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.PhotoDetails" meta:resourcekey="Page" 
     %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
@@ -21,6 +20,7 @@
         Visible="False" meta:resourcekey="lblPhotoError"></asp:Label>
     </div>
     <br />
+ 
     <asp:Table ID="TablePhotoInfo" runat="server" Width="100%">
         <asp:TableHeaderRow runat="server">
             <asp:TableHeaderCell ID="cellCaptionPhotoID" runat="server"

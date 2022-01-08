@@ -56,9 +56,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 "/Pages/Photo/PhotoComments.aspx" +
                 "?photo=" + photo.photoId;
 
-            hlUser.NavigateUrl =
-                "/Pages/User/UserProfile.aspx" +
-                "?userProfile=" + photo.userId;
+            
 
 
             if (SessionManager.IsUserAuthenticated(Context))
@@ -80,7 +78,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 hlAddComment.Visible = true;
             }
 
-            hlAddComment.NavigateUrl = "/Pages/Photo/AddComment.aspx" +
+            hlAddComment.NavigateUrl = "~/Pages/Photo/AddComment.aspx" +
                     "?photo=" + photoId;
 
             if (photo.Comment.Count == 0)

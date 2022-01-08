@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" CodeBehind="Explore.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.Explore" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PracticaMaD.Master" AutoEventWireup="true" 
+    CodeBehind="Explore.aspx.cs" Inherits="Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo.Explore" 
+    meta:resourcekey="Page" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_MenuWelcome" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuExplanation" runat="server">
@@ -9,23 +12,20 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
         <form id="PhotoExplorerForm" method="get" runat="server">
-
-            <div class="field">
-                <span class="label">
+            <div></div><asp:HyperLink ID="lnkBack" runat="server"
+                NavigateUrl="~/Pages/MainPage.aspx"
+                meta:resourcekey="lnkBack" /><div />
                     <asp:Localize ID="lclSearch" runat="server" meta:resourcekey="lclSearch" />
-                </span>
-
                 <span class="entry">
                     <asp:TextBox ID="txtSearch" runat="server" Width="20%" Columns="16" meta:resourcekey="txtSearch"  style="text-align:center"></asp:TextBox>
                     <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="False" runat="server" Width="20%"></asp:DropDownList>
-                    <asp:Button ID="btnSearch" runat="server" OnClick="BtnSearchClick" meta:resourcekey="btnSearch" Width="10%" />
                 </span>
-            </div>
             <br />
+                <span class="entry">
+                    <asp:Button ID="btnSearch" runat="server" OnClick="BtnSearchClick" meta:resourcekey="btnSearch" />
+                </span>
             <br />
-            <asp:HyperLink ID="lnkBack" runat="server"
-                NavigateUrl="~/Pages/MainPage.aspx"
-                meta:resourcekey="lnkBack" />
+           
             <br />
             <br />
             <div>
@@ -39,7 +39,7 @@
                         <asp:HyperLinkField DataTextField="title"
                             HeaderText="<%$ Resources:Common, title %>"
                             DataNavigateUrlFields="photoId"
-                            DataNavigateUrlFormatString="/Pages/Photo/PhotoDetails.aspx?photo={0}" />
+                            DataNavigateUrlFormatString="~/Pages/Photo/PhotoDetails.aspx?photo={0}" />
                         <asp:BoundField DataField="photoDate" HeaderText="<%$ Resources:Common, photoDate %>"
                             DataFormatString="{0:d/M/yyyy}" />
                         <asp:ImageField HeaderText = "Link" DataImageUrlField="photoId" DataImageUrlFormatString="~/Images/{0}.jpg"  ControlStyle-Height="100px" ControlStyle-Width="100px"/>

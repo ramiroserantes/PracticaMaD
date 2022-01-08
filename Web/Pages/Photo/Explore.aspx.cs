@@ -218,7 +218,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             if (!IsPostBack)
             {
                 List<Category> categories = photoService.FindAllCategories();
-                BindGrid();
+      
                 // Create a table to store data for the DropDownList control.
                 DataTable dt = new DataTable();
 
@@ -251,47 +251,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             }
         }
 
-        private void BindGrid()
-        {
-            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
-            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
-
-            PhotoBlock photoBlock = photoService.FindAllPhotos();
-
-            if(photoBlock.Photos.Count == 0)
-            {
-                lblNoPhotos.Visible = true;
-                gvPhotos.Visible = false;
-            } else {
-                gvPhotos.Visible = true;
-            }
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.AddRange(
-                new DataColumn[4]
-                {
-                    new DataColumn("photoId"),
-                    new DataColumn("link"),
-                    new DataColumn("title"),
-                    new DataColumn("photoDate")
-
-                }
-            );
-
-            for (int index = 0; index <= photoBlock.Photos.Count - 1; index = index + 1)
-            {
-                dt.Rows.Add(photoBlock.Photos[index].photoId, photoBlock.Photos[index].link, photoBlock.Photos[index].title, photoBlock.Photos[index].photoDate);
-            }
-
-
-            gvPhotos.DataSource = dt;
-            gvPhotos.DataBind();
-            gvPhotos.Columns[0].Visible = false;
-            gvPhotos.Columns[1].Visible = false;
-
-        }
-
+     
     
 
         protected void BtnSearchClick(object sender, EventArgs e)
@@ -318,16 +278,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
         }
 
-        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                DataRowView dr = (DataRowView)e.Row.DataItem;
-                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Data"]);
-                (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
-            }
-        }
-
         protected DataRow CreateRow(string text, long value, DataTable dt)
         {
             // Create a DataRow using the DataTable.
@@ -350,5 +300,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
         {
             e.Row.Cells[0].Visible = false;
         }
+
+   
     }
 }

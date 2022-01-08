@@ -135,9 +135,6 @@
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
   </data>
-  <data name="searchButton" xml:space="preserve">
-    <value>Search</value>
-  </data>
   <data name="title" xml:space="preserve">
     <value>Title</value>
   </data>
