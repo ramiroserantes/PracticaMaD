@@ -35,9 +35,10 @@
             </asp:TableRow>
 
        </asp:Table>    
-       <asp:Table ID="lclTableImages" runat="server" meta:resourcekey="lclTableImages" Height="34px" Width="243px">
+       <asp:Table ID="lclTableImages" runat="server"  HorizontalAlign="Center" meta:resourcekey="lclTableImages" Height="34px" Width="243px">
                <asp:TableHeaderRow ID="Header1" runat="server">
                    <asp:TableHeaderCell ID="lclHeaderImage" meta:resourceKey="lclHeaderImage" ></asp:TableHeaderCell>
+                   <asp:TableHeaderCell ID="lclHeaderImageLink" meta:resourceKey="lclHeaderImageLink" ></asp:TableHeaderCell>
                </asp:TableHeaderRow>
        </asp:Table>
     </div>

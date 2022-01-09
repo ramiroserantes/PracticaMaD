@@ -21,6 +21,4 @@ INSERT INTO Photo
 INSERT INTO Photo
     VALUES('hieloAgain', 'desc', GETDATE(), 2, 33, 'iso', 1001, '../../Images/3.jpg', 2, 1);
 
-INSERT INTO Comment 
-    VALUES('hola', GETDATE(), 1 , 1);
 

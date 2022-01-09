@@ -21,7 +21,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             {
                 long photoId = long.Parse(Request.Params.Get("photo"));
 
-                tagBox.Visible = false;
                 commentBody.Visible = false;
                 btnAddComment.Visible = false;
 
@@ -30,7 +29,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 if (!SessionManager.IsUserAuthenticated(Context))
                 {
                     lblUnlogedUser.Visible = true;
-                    tagBox.Visible = false;
                     commentBody.Visible = false;
                     btnAddComment.Visible = false;
                     return;
@@ -47,14 +45,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             catch (ArgumentNullException)
             {
                 lblNoPhoto.Visible = true;
-                tagBox.Visible = false;
                 commentBody.Visible = false;
                 btnAddComment.Visible = false;
                 lnkBack.NavigateUrl = "~/Pages/Photo/PhotoSearch.aspx";
             }
             catch (InstanceNotFoundException)
             {
-                tagBox.Visible = true;
                 commentBody.Visible = true;
                 btnAddComment.Visible = true;
             }
@@ -76,31 +72,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                //IPhotoService photoService = iocManager.Resolve<IPhotoService>();
                 ICommentService commentService = iocManager.Resolve<ICommentService>();
 
-                if (tagBox.Text == string.Empty)
-                {
-                    commentService.AddComment(photoId, SessionManager.GetUserSession(Context).UserProfileId,
-                        commentBody.Text);
-                }
-                else
-                {
-                    List<string> strTags = tagBox.Text.Split(' ').ToList();
-                    List<long> tags = new List<long>();
-
-                    foreach (string strTag in strTags)
-                    {
-                        try
-                        {
-                            /*tags.Add(photoService.AddTag(strTag.ToLower(), userId));*/
-                        }
-                        catch (DuplicateInstanceException)
-                        {
-                            /*tags.Add(productService.FindTagByName(strTag).tagId);*/
-                        }
-                    }
-
-                    commentService.AddComment(photoId, SessionManager.GetUserSession(Context).UserProfileId,
-                        commentBody.Text/*, tags*/);
-                }
+                commentService.AddComment(photoId, SessionManager.GetUserSession(Context).UserProfileId,
+                      commentBody.Text/*, tags*/);
 
                 Response.Redirect(
                    Response.ApplyAppPathModifier("~/Pages/Photo/PhotoComments.aspx?photo=" + photoId.ToString()));

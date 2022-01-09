@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
-    
-    
-    public partial class AddComment {
-        
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
+{
+
+
+    public partial class AddComment
+    {
+
         /// <summary>
         /// Control lclMenuExplanation.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
-        
+
         /// <summary>
         /// Control AddCommentForm.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm AddCommentForm;
-        
+
         /// <summary>
         /// Control lblNoPhoto.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoPhoto;
-        
+
         /// <summary>
         /// Control lblUnlogedUser.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnlogedUser;
-        
+
         /// <summary>
         /// Control lblCommented.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCommented;
-        
+
         /// <summary>
         /// Control hlReturnToDetails.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlReturnToDetails;
-        
+
         /// <summary>
         /// Control lnkBack.
         /// </summary>
@@ -74,16 +76,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkBack;
-        
-        /// <summary>
-        /// Control tagBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tagBox;
-        
+
         /// <summary>
         /// Control commentBody.
         /// </summary>
@@ -92,7 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox commentBody;
-        
+
         /// <summary>
         /// Control btnAddComment.
         /// </summary>

@@ -70,6 +70,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Comment Date.
+        /// </summary>
+        internal static string commentDate {
+            get {
+                return ResourceManager.GetString("commentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comment Description.
+        /// </summary>
+        internal static string commentDescription {
+            get {
+                return ResourceManager.GetString("commentDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Description.
         /// </summary>
         internal static string description {

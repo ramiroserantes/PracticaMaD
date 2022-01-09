@@ -120,6 +120,12 @@
   <data name="categoryType" xml:space="preserve">
     <value>CategoryType</value>
   </data>
+  <data name="commentDate" xml:space="preserve">
+    <value>Comment Date</value>
+  </data>
+  <data name="commentDescription" xml:space="preserve">
+    <value>Comment Description</value>
+  </data>
   <data name="description" xml:space="preserve">
     <value>Description</value>
   </data>

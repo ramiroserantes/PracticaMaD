@@ -21,7 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             lblPhotoError.Visible = false;
             TablePhotoInfo.Visible = false;
             hlComments.Visible = true;
-            hlAddComment.Visible = false;
+            hlAddComment.Visible = true;
             hlUser.Visible = true;
 
             long photoId;

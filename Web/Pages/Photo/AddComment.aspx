@@ -25,8 +25,6 @@
                 <br />
                 <asp:HyperLink ID="lnkBack" runat="server" meta:resourcekey="lnkBack"></asp:HyperLink>
             </p>
-            <asp:TextBox ID="tagBox" runat="server" meta:resourcekey="commentTagBox"
-                Width="50%" TextMode="SingleLine"></asp:TextBox>
             <br />
             <br />
             <asp:TextBox ID="commentBody" runat="server" meta:resourcekey="commentBodyTextBox"

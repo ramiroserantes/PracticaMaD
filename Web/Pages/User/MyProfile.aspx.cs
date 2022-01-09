@@ -44,7 +44,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             TableRow row;
 
             TableCell images;
+            TableCell linkCell;
             Image imagenes;
+            HyperLink link;
 
             foreach (modelPhoto photo in photos.Photos)
             {
@@ -58,8 +60,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 imagenes.Height = 100;
                 images.Controls.Add(imagenes);
                 row.Controls.Add(images);
-                lclTableImages.Rows.Add(row);
 
+                linkCell = new TableCell();
+                link = new HyperLink();
+                link.ID = "linkId";
+                link.Text = "ver imagen";
+                link.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photo.photoId.ToString() ;
+                linkCell.Controls.Add(link);
+                row.Controls.Add(linkCell);
+
+                lclTableImages.Rows.Add(row);
             }
 
 

@@ -117,31 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LblFollowedTrans.Text" xml:space="preserve">
-    <value>Seguidos</value>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="lblFollowersTrans.Text" xml:space="preserve">
-    <value>Seguidores</value>
+  <data name="lblNoComments.Text" xml:space="preserve">
+    <value>No comments...</value>
   </data>
-  <data name="lclHeaderImage.Text" xml:space="preserve">
-    <value>Foto</value>
+  <data name="btnModify.Text" xml:space="preserve">
+    <value>Modify</value>
   </data>
-  <data name="lclHeaderImageLink.Text" xml:space="preserve">
-    <value>Ver Imagen</value>
+  <data name="lnkPrevious.Text" xml:space="preserve">
+    <value>Previous</value>
   </data>
-  <data name="lclMenuExplanation.Text" xml:space="preserve">
-    <value>Mi perfil</value>
+  <data name="lblCommentAdded.Text" xml:space="preserve">
+    <value>Se ha publicado el comentario</value>
   </data>
-  <data name="lclTableImages.Text" xml:space="preserve">
-    <value>Imagenes</value>
+  <data name="lblCommented.Text" xml:space="preserve">
+    <value>Usted ya ha publicado un comentario para esta foto.</value>
   </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Actualizar información de usuario</value>
+  <data name="lblNoPhoto.Text" xml:space="preserve">
+    <value>No se especificó producto</value>
   </data>
-  <data name="Page.Title" xml:space="preserve">
-    <value>Photogram -  Mi perfil</value>
+  <data name="lblUnlogedUser.Text" xml:space="preserve">
+    <value>Usuario no identificado</value>
   </data>
-  <data name="photo" xml:space="preserve">
-    <value>Foto</value>
+  <data name="lnkBack.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
 </root>
