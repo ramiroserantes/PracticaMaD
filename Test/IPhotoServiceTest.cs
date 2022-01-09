@@ -405,9 +405,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 Assert.AreEqual(findPhoto.t, t);
                 Assert.AreEqual(findPhoto.iso, iso);
                 Assert.AreEqual(findPhoto.wb, wb);
-                Assert.AreEqual(findPhoto.link, "C:/resource/" + findPhoto.photoId.ToString() + ".png");
+                Assert.AreEqual(findPhoto.link, "C:/EntregaMaD/PracticaMaD/Web/Images/" + findPhoto.photoId.ToString() + ".jpg");
                 Assert.AreEqual(findPhoto.categoryId, category.categoryId);
                 Assert.AreEqual(findPhoto.userId, user.userId);
+
+                File.Delete(findPhoto.link);
             }
         }
 

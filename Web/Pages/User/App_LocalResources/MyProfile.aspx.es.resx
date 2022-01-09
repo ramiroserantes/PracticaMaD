@@ -123,13 +123,22 @@
   <data name="lblFollowersTrans.Text" xml:space="preserve">
     <value>Seguidores</value>
   </data>
+  <data name="lclHeaderImage.Text" xml:space="preserve">
+    <value>Foto</value>
+  </data>
   <data name="lclMenuExplanation.Text" xml:space="preserve">
     <value>Mi perfil</value>
+  </data>
+  <data name="lclTableImages.Text" xml:space="preserve">
+    <value>Imagenes</value>
   </data>
   <data name="lnkUpdate.Text" xml:space="preserve">
     <value>Actualizar información de usuario</value>
   </data>
   <data name="Page.Title" xml:space="preserve">
     <value>Photogram -  Mi perfil</value>
+  </data>
+  <data name="photo" xml:space="preserve">
+    <value>Foto</value>
   </data>
 </root>

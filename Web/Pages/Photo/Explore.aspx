@@ -33,9 +33,16 @@
                             HeaderText="<%$ Resources:Common, title %>"
                             DataNavigateUrlFields="photoId"
                             DataNavigateUrlFormatString="~/Pages/Photo/PhotoDetails.aspx?photo={0}" />
+                        <asp:TemplateField>
+
+                        <ItemTemplate>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"UserProfile.loginName","~/Pages/User/Profile.aspx?loginName={0}" ) %>'
+                         Text="ver user"></asp:HyperLink>
+                         </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="photoDate" HeaderText="<%$ Resources:Common, photoDate %>"
                             DataFormatString="{0:d/M/yyyy}" />
-                        <asp:ImageField HeaderText = "Link" DataImageUrlField="photoId" DataImageUrlFormatString="~/Images/{0}.jpg"  ControlStyle-Height="100px" ControlStyle-Width="100px"/>
+                        <asp:ImageField HeaderText = "<%$ Resources:Common, photo %>" DataImageUrlField="photoId" DataImageUrlFormatString="../../Images/{0}.jpg"  ControlStyle-Height="100px" ControlStyle-Width="100px"/>
            
                     </Columns>
                 </asp:GridView>

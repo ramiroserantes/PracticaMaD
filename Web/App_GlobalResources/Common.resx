@@ -120,11 +120,20 @@
   <data name="categoryType" xml:space="preserve">
     <value>CategoryType</value>
   </data>
+  <data name="description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="loginName" xml:space="preserve">
+    <value>LoginName</value>
+  </data>
   <data name="mandatoryField" xml:space="preserve">
     <value>Mandatory Field</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="photo" xml:space="preserve">
+    <value>Photo</value>
   </data>
   <data name="photoDate" xml:space="preserve">
     <value>PhotoDate</value>

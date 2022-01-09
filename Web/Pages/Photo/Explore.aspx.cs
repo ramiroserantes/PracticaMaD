@@ -9,6 +9,7 @@ using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.PracticaMad.Model;
 
 using Es.Udc.DotNet.ModelUtil.IoC;
+using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;
 using System.Data.SqlClient;
 using System.Configuration;
 
@@ -25,13 +26,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             lnkPrevious.Visible = false;
             lnkNext.Visible = false;
             lblNoPhotos.Visible = false;
-            
+          
 
 
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
-
+           
             try
             {
                 startIndex = int.Parse(Request.Params.Get("startIndex"));
@@ -109,6 +110,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                     }
                     else
                     {
+                       
                         gvPhotos.DataSource = photoBlock.Photos;
                         gvPhotos.DataBind();
 
@@ -218,7 +220,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             if (!IsPostBack)
             {
                 List<Category> categories = photoService.FindAllCategories();
-      
+                
+                
                 // Create a table to store data for the DropDownList control.
                 DataTable dt = new DataTable();
 

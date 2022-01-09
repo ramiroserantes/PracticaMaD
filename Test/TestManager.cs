@@ -49,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 To<CommentService>();
 
             string connectionString =
-                ConfigurationManager.ConnectionStrings["practicamadEntities"].ConnectionString;
+                ConfigurationManager.ConnectionStrings["practicamadEntitiesTest"].ConnectionString;
 
             kernel.Bind<DbContext>().
                 ToSelf().

@@ -7,15 +7,18 @@ using System.Web.UI.WebControls;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
+using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
     public partial class MyProfile : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             IIoCManager iocManager = (IIoCManager)Application["managerIoC"];
             IUserService userService = iocManager.Resolve<IUserService>();
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
             LblUserName.Text = SessionManager.GetUserSession(Context).FirstName;
 
@@ -26,6 +29,41 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             LblFollowedText.Text = followeds.ToString();
             LblFollowersText.Text = followers.ToString();
+
+            loadPhotos();
+        }
+
+        protected void loadPhotos()
+        {
+            IIoCManager iocManager = (IIoCManager)Application["managerIoC"];
+
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            PhotoBlock photos = photoService.FindAllPhotosByUser(SessionManager.GetUserSession(Context).UserProfileId, 0, 3);
+
+            TableRow row;
+
+            TableCell images;
+            Image imagenes;
+
+            foreach (modelPhoto photo in photos.Photos)
+            {
+                row = new TableRow();
+
+                images = new TableCell();
+                images.ID = "photoId";
+                imagenes = new Image();
+                imagenes.ImageUrl = "../../Images/" + photo.photoId.ToString() + ".jpg";
+                imagenes.Width = 100;
+                imagenes.Height = 100;
+                images.Controls.Add(imagenes);
+                row.Controls.Add(images);
+                lclTableImages.Rows.Add(row);
+
+            }
+
+
         }
     }
-}
+
+    }

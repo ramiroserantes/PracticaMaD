@@ -34,10 +34,17 @@
                 </asp:TableCell>
             </asp:TableRow>
 
-        </asp:Table>            
+       </asp:Table>    
+       <asp:Table ID="lclTableImages" runat="server" meta:resourcekey="lclTableImages" Height="34px" Width="243px">
+               <asp:TableHeaderRow ID="Header1" runat="server">
+                   <asp:TableHeaderCell ID="lclHeaderImage" meta:resourceKey="lclHeaderImage" ></asp:TableHeaderCell>
+               </asp:TableHeaderRow>
+       </asp:Table>
     </div>
-    <div class="field3">
-        <p><asp:Label ID="Label2" runat="server" Text="Fotos" Font-Bold="true"></asp:Label></p>               
-    </div>
+
+     
+
+
+
     </form>
 </asp:Content>

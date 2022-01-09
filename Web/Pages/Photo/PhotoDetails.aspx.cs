@@ -56,8 +56,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 "/Pages/Photo/PhotoComments.aspx" +
                 "?photo=" + photo.photoId;
 
-            
-
 
             if (SessionManager.IsUserAuthenticated(Context))
             {
