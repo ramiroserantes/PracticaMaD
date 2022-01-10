@@ -32,15 +32,6 @@ DROP TABLE [UserProfile]
 GO
 
 
-
-/*
- * Create tables.
- * UserProfile table is created. Indexes required for the 
- * most common operations are also defined.
- */
-
-/*  UserProfile */
-
 CREATE TABLE UserProfile (
     userId bigint IDENTITY(1,1) NOT NULL,
     loginName varchar(100) NOT NULL,

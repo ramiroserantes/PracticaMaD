@@ -30,12 +30,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
             try
             {
-                photoId = long.Parse(Request.Params.Get("photoId"));
+                photoId = long.Parse(Request.Params.Get("photo"));
                 btnDelete.Attributes["name"] = photoId.ToString();
             }
             catch (ArgumentNullException)
             {
-                lblNoComments.Visible = true;
+                lblNoComments.Visible = false;
                 lnkBack.NavigateUrl = "~/Pages/Photo/Explore.aspx";
                 return;
             }
@@ -59,7 +59,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             }
             catch (ArgumentNullException)
             {
-                count = 2;
+                count = 5;
             }
 
             /* Get the Service */

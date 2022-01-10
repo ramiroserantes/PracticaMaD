@@ -21,8 +21,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             {
                 long photoId = long.Parse(Request.Params.Get("photo"));
 
-                commentBody.Visible = false;
-                btnAddComment.Visible = false;
+                commentBody.Visible = true;
+                btnAddComment.Visible = true;
 
                 lnkBack.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photoId.ToString();
 
@@ -33,14 +33,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                     btnAddComment.Visible = false;
                     return;
                 }
-                /* Get the Service */
+               
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
                 ICommentService commentService = iocManager.Resolve<ICommentService>();
 
                 commentService.FindCommentByPhotoAndUser(photoId,
                         SessionManager.GetUserSession(Context).UserProfileId);
 
-                lblCommented.Visible = true;
+                /*lblCommented.Visible = true;*/
             }
             catch (ArgumentNullException)
             {
@@ -67,13 +67,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             {
                 long photoId = long.Parse(Request.Params.Get("photo"));
 
-                /* Get the Service */
+                
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
-               //IPhotoService photoService = iocManager.Resolve<IPhotoService>();
                 ICommentService commentService = iocManager.Resolve<ICommentService>();
 
                 commentService.AddComment(photoId, SessionManager.GetUserSession(Context).UserProfileId,
-                      commentBody.Text/*, tags*/);
+                      commentBody.Text);
 
                 Response.Redirect(
                    Response.ApplyAppPathModifier("~/Pages/Photo/PhotoComments.aspx?photo=" + photoId.ToString()));

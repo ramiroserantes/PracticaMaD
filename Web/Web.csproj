@@ -119,6 +119,7 @@
     <Content Include="Pages\Errors\InternalError.aspx" />
     <Content Include="Pages\Photo\AddComment.aspx" />
     <Content Include="Pages\Photo\Explore.aspx" />
+    <Content Include="Pages\Photo\ModifyComment.aspx" />
     <Content Include="Pages\Photo\PhotoComments.aspx" />
     <Content Include="Pages\Photo\PhotoDetails.aspx" />
     <Content Include="Pages\UserExists.aspx" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="Pages\Photo\Explore.aspx.designer.cs">
       <DependentUpon>Explore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Photo\ModifyComment.aspx.cs">
+      <DependentUpon>ModifyComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Photo\ModifyComment.aspx.designer.cs">
+      <DependentUpon>ModifyComment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Photo\PhotoComments.aspx.cs">
       <DependentUpon>PhotoComments.aspx</DependentUpon>
@@ -420,6 +428,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Photo\App_LocalResources\PhotoComments.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Photo\App_LocalResources\ModifyComment.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
