@@ -298,7 +298,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             PhotoDao.Create(newPhoto);
 
-            newPhoto.link = "C:/EntregaMaD/PracticaMaD/Web/Images/" + newPhoto.photoId.ToString() + ".jpg";
+            newPhoto.link = "D:/MaD/MaD-ParteWeb/PracticaMaD/Web/Images/" + newPhoto.photoId.ToString() + ".jpg";
             newImage.Save(newPhoto.link, System.Drawing.Imaging.ImageFormat.Png);
 
             PhotoDao.Update(newPhoto);

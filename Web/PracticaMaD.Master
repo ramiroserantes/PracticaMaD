@@ -35,6 +35,10 @@
                     <asp:HyperLink ID="lnkExplore" runat="server"
                         NavigateUrl="~/Pages/Photo/Explore.aspx"
                         meta:resourcekey="lnkExplore" />
+                    <asp:Label ID="lblDash5" runat="server" Text="-" />                   
+                    <asp:HyperLink ID="lnkUpload" runat="server"
+                        NavigateUrl="~/Pages/Photo/UploadPhoto.aspx"
+                        meta:resourcekey="lnkUpload" />
                     <asp:Label ID="lblDash1" runat="server" Text="-" />
                     <asp:HyperLink ID="lnkAuthenticate" runat="server"
                         NavigateUrl="~/Pages/User/Authentication.aspx"

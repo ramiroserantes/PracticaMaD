@@ -122,6 +122,7 @@
     <Content Include="Pages\Photo\ModifyComment.aspx" />
     <Content Include="Pages\Photo\PhotoComments.aspx" />
     <Content Include="Pages\Photo\PhotoDetails.aspx" />
+    <Content Include="Pages\Photo\UploadPhoto.aspx" />
     <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="Pages\Photo\PhotoDetails.aspx.designer.cs">
       <DependentUpon>PhotoDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Photo\UploadPhoto.aspx.cs">
+      <DependentUpon>UploadPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Photo\UploadPhoto.aspx.designer.cs">
+      <DependentUpon>UploadPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserExists.aspx.cs">
       <DependentUpon>UserExists.aspx</DependentUpon>
@@ -431,6 +439,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Photo\App_LocalResources\ModifyComment.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Photo\App_LocalResources\UploadPhoto.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

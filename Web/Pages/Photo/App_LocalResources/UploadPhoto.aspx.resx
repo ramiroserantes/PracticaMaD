@@ -117,37 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnSearch.Text" xml:space="preserve">
-    <value>Search</value>
+  <data name="btnUploadPhoto.Text" xml:space="preserve">
+    <value>Upload</value>
   </data>
-  <data name="lblWelcome.Hello.Text" xml:space="preserve">
-    <value>Hello</value>
+  <data name="commentTagBox.placeholder" xml:space="preserve">
+    <value>Una lista de etiquetas separada por espacios...</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>Welcome to Photogram</value>
+  <data name="commentBodyTextBox.placeholder" xml:space="preserve">
+    <value>Escribe tu comentario aquí...</value>
   </data>
-  <data name="lclFooter.Text" xml:space="preserve">
-    <value>Copyright &amp;copy; Departamento Ciencias de la Computación y Tecnologías de la Información - Universidade da Coruña</value>
+  <data name="hlReturnToDetails.Text" xml:space="preserve">
+    <value>Volver a los detalles del producto</value>
   </data>
-  <data name="lclPageTitle.Text" xml:space="preserve">
-    <value>Photogram: Aplication to upload photos</value>
+  <data name="lblCommentAdded.Text" xml:space="preserve">
+    <value>Se ha publicado el comentario</value>
   </data>
-  <data name="lnkAuthenticate.Text" xml:space="preserve">
-    <value>Authentication</value>
+  <data name="lblCommented.Text" xml:space="preserve">
+    <value>Usted ya ha publicado un comentario para esta foto.</value>
   </data>
-  <data name="lnkExplore.Text" xml:space="preserve">
-    <value>Explore</value>
+  <data name="lblUnlogedUser.Text" xml:space="preserve">
+    <value>Usuario no identificado</value>
   </data>
-  <data name="lnkLogout.Text" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="lnkMyProfile.Text" xml:space="preserve">
-    <value>My Profile</value>
-  </data>
-  <data name="lnkUpdate.Text" xml:space="preserve">
-    <value>Update Profile</value>
-  </data>
-  <data name="lnkUpload.Text" xml:space="preserve">
-    <value>Upload photo</value>
+  <data name="lnkBack.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
 </root>

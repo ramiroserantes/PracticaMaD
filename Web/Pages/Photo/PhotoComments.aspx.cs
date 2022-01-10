@@ -40,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 return;
             }
 
-            lnkBack.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photoId=" + photoId.ToString();
+            lnkBack.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photoId.ToString();
 
             /* Get Start Index */
             try

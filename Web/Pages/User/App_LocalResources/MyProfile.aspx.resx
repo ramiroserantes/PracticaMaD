@@ -132,4 +132,7 @@
   <data name="Page.Title" xml:space="preserve">
     <value>Photogram -  My Profile</value>
   </data>
+  <data name="lnkBack.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
 </root>

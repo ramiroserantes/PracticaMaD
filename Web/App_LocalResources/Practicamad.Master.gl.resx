@@ -144,4 +144,7 @@
   <data name="lnkUpdate.Text" xml:space="preserve">
     <value>Actualizar información de usuario</value>
   </data>
+  <data name="lnkUpload.Text" xml:space="preserve">
+    <value>Subir foto</value>
+  </data>
 </root>

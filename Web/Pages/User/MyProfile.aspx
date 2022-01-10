@@ -14,6 +14,11 @@
     <div class="field1">
         <p><asp:Label ID="LblUserName" runat="server" Font-Bold="true"></asp:Label></p>               
     </div>
+    <div class="field1">
+        <asp:HyperLink ID="lnkBack" runat="server"
+                NavigateUrl="~/Pages/MainPage.aspx"
+                meta:resourcekey="lnkBack" />
+    </div>
     <div class="field2">
         <asp:Table ID="Table1" runat="server" Width="153px" HorizontalAlign="Center" >
             <asp:TableRow runat="server">
