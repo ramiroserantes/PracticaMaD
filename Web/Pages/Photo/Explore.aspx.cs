@@ -264,6 +264,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 string keyword = txtSearch.Text;
                 long catId = long.Parse(CategoryDropDownList.SelectedValue);
 
+
+
                 if (keyword == "")
                 {
                     return;

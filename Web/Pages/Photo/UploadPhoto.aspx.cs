@@ -118,9 +118,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             //Save the File to the Directory (Folder).
             ImageLoader.SaveAs(link + Path.GetFileName(ImageLoader.FileName));
 
-            //Display the Picture in Image control.
-            Image1.ImageUrl = link + Path.GetFileName(ImageLoader.FileName);
-
             image = System.Drawing.Image.FromFile(link + Path.GetFileName(ImageLoader.FileName));
 
             photoService.UploadPhoto(title, description, diaphragm, exhibitionTime, iso, whiteBalance,

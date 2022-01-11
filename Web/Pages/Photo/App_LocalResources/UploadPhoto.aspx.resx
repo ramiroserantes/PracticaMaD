@@ -141,4 +141,25 @@
   <data name="lnkBack.Text" xml:space="preserve">
     <value>Volver</value>
   </data>
+  <data name="lclBalance.Text" xml:space="preserve">
+    <value>White balance:</value>
+  </data>
+  <data name="lclCategory.Text" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="lclDescription.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="lclDiaphragm.Text" xml:space="preserve">
+    <value>Diaphragm:</value>
+  </data>
+  <data name="lclExhibition.Text" xml:space="preserve">
+    <value>Exhibition time:</value>
+  </data>
+  <data name="lclIso.Text" xml:space="preserve">
+    <value>Iso:</value>
+  </data>
+  <data name="lclTitle.Text" xml:space="preserve">
+    <value>Title:</value>
+  </data>
 </root>

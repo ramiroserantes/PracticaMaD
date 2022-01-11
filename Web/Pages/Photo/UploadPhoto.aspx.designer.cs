@@ -67,15 +67,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         protected global::System.Web.UI.WebControls.HyperLink lnkBack;
         
         /// <summary>
-        /// Control CategoryDropDownList.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoryDropDownList;
-        
-        /// <summary>
         /// Control ImageLoader.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,31 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         protected global::System.Web.UI.WebControls.FileUpload ImageLoader;
         
         /// <summary>
-        /// Control Image1.
+        /// Control lclCategory.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Localize lclCategory;
+        
+        /// <summary>
+        /// Control CategoryDropDownList.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CategoryDropDownList;
+        
+        /// <summary>
+        /// Control lclTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclTitle;
         
         /// <summary>
         /// Control txtTitle.
@@ -103,6 +112,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
+        /// Control lclDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclDescription;
+        
+        /// <summary>
         /// Control txtDesc.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDesc;
+        
+        /// <summary>
+        /// Control lclDiaphragm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclDiaphragm;
         
         /// <summary>
         /// Control txtDia.
@@ -121,13 +148,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         protected global::System.Web.UI.WebControls.TextBox txtDia;
         
         /// <summary>
-        /// Control txtLink.
+        /// Control lclExhibition.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLink;
+        protected global::System.Web.UI.WebControls.Localize lclExhibition;
         
         /// <summary>
         /// Control txtExhi.
@@ -139,6 +166,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         protected global::System.Web.UI.WebControls.TextBox txtExhi;
         
         /// <summary>
+        /// Control lclIso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclIso;
+        
+        /// <summary>
         /// Control txtIso.
         /// </summary>
         /// <remarks>
@@ -146,6 +182,15 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIso;
+        
+        /// <summary>
+        /// Control lclBalance.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize lclBalance;
         
         /// <summary>
         /// Control txtBalance.

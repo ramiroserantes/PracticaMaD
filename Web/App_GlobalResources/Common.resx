@@ -153,4 +153,22 @@
   <data name="title" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="dia" xml:space="preserve">
+    <value>Diaphragm</value>
+  </data>
+  <data name="exhi" xml:space="preserve">
+    <value>Exhibition time</value>
+  </data>
+  <data name="iso" xml:space="preserve">
+    <value>Iso</value>
+  </data>
+  <data name="like" xml:space="preserve">
+    <value>Likes</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="wb" xml:space="preserve">
+    <value>White balance</value>
+  </data>
 </root>

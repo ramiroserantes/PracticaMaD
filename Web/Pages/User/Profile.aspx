@@ -27,15 +27,20 @@
                 </asp:TableCell>
             </asp:TableRow>
 
-        </asp:Table>            
+        </asp:Table>
+               <asp:Table ID="lclTableImages" runat="server"  HorizontalAlign="Center" meta:resourcekey="lclTableImages" Height="34px" Width="243px">
+               <asp:TableHeaderRow ID="Header1" runat="server"> 
+                   <asp:TableHeaderCell ID="lclHeaderImage" meta:resourceKey="lclHeaderImage" ></asp:TableHeaderCell>
+                   <asp:TableHeaderCell ID="lclHeaderImageLink" meta:resourceKey="lclHeaderImageLink" ></asp:TableHeaderCell>
+               </asp:TableHeaderRow>
+       </asp:Table>
     </div>
+
+
     <div class="fieldFollow">
         <asp:Button ID="BtnUnfollow" runat="server" OnClick="BtnUnfollow_Click" meta:resourcekey="BtnUnfollow" Visible="False"/>
         <br />
         <asp:Button ID="BtnFollow" runat="server" OnClick="BtnFollow_Click" meta:resourcekey="BtnFollow" Visible="False"/>
-    </div>
-    <div class="field3">
-        <p><asp:Label ID="Label2" runat="server" Text="Fotos" Font-Bold="true"></asp:Label></p>               
     </div>
     </form>
 </asp:Content>

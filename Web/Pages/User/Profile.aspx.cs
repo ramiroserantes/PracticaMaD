@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
+using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
@@ -35,6 +37,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             LblFollowedText.Text = followeds.ToString();
             LblFollowersText.Text = followers.ToString();
 
+            loadPhotos(userId);
+
             if (SessionManager.IsUserAuthenticated(Context))
             {
 
@@ -58,6 +62,48 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 }
 
             }
+        }
+
+        protected void loadPhotos(long userId)
+        {
+            IIoCManager iocManager = (IIoCManager)Application["managerIoC"];
+
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            PhotoBlock photos = photoService.FindAllPhotosByUser(userId, 0, 3);
+
+            TableRow row;
+
+            TableCell images, linkCell, deleteCell;
+            Image imagenes;
+            HyperLink link;
+            Button delete;
+
+            foreach (modelPhoto photo in photos.Photos)
+            {
+                row = new TableRow();
+
+                images = new TableCell();
+                images.ID = "photoId";
+                imagenes = new Image();
+                imagenes.ImageUrl = "../../Images/" + photo.photoId.ToString() + ".jpg";
+                imagenes.Width = 100;
+                imagenes.Height = 100;
+                images.Controls.Add(imagenes);
+                row.Controls.Add(images);
+
+                linkCell = new TableCell();
+                link = new HyperLink();
+                link.ID = "linkId";
+                link.Text = "Ver imagen";
+                link.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photo.photoId.ToString();
+                linkCell.Controls.Add(link);
+                row.Controls.Add(linkCell);
+
+                lclTableImages.Rows.Add(row);
+            }
+
+
         }
 
         protected void BtnFollow_Click(object sender, EventArgs e)

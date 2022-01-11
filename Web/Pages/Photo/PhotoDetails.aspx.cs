@@ -22,7 +22,6 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             TablePhotoInfo.Visible = false;
             hlComments.Visible = true;
             hlAddComment.Visible = true;
-            hlUser.Visible = true;
 
             long photoId;
 
@@ -49,13 +48,21 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
             cellPhotoID.Text = photo.photoId.ToString();
             cellPhotoTitle.Text = photo.title;
+            cellPhotoDescription.Text = photo.photoDescription;
             cellCategoryType.Text = photo.Category.categoryType;
             cellPhotoDate.Text = photo.photoDate.ToString("d/M/yyyy");
+            cellPhotoDia.Text = photo.f.ToString();
+            cellPhotoExhi.Text = photo.t.ToString();
+            cellPhotoIso.Text = photo.iso;
+            cellPhotoUser.Text = photo.UserProfile.loginName;
+            cellPhotoBalance.Text = photo.wb.ToString();
+            cellPhotoLikes.Text = photo.UserProfile1.Count.ToString();
 
             hlComments.NavigateUrl =
-                "/Pages/Photo/PhotoComments.aspx" +
+                "~/Pages/Photo/PhotoComments.aspx" +
                 "?photo=" + photo.photoId;
 
+            
 
             if (SessionManager.IsUserAuthenticated(Context))
             {
@@ -64,7 +71,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                     commentService.FindCommentByPhotoAndUser(photoId,
                         SessionManager.GetUserSession(Context).UserProfileId);
 
-                    lblDash1.Visible = false;
+                    lblDash1.Visible = true;
                 }
                 catch (InstanceNotFoundException)
                 {
@@ -84,6 +91,20 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 hlComments.Visible = false;
                 lblDash1.Visible = false;
             }
+
+        }
+        protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            long userId = SessionManager.GetUserSession(Context).UserProfileId;
+            long id = Convert.ToInt64(cellPhotoID.Text);
+            photoService.DeletePhoto(id,userId);
+
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("/Pages/MainPage.aspx"));
         }
     }
 }

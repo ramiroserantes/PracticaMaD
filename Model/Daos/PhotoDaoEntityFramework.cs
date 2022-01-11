@@ -203,9 +203,9 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
 
             var result =
                 (from p in photos
-                where ((p.title.ToLower().Contains(keywords.ToLower()) ||
-                (p.photoDescription.ToLower().Contains(keywords.ToLower())) &&
-                (p.categoryId == categoryId)))
+                where (p.title.ToLower().Contains(keywords.ToLower()) ||
+                p.photoDescription.ToLower().Contains(keywords.ToLower()) &&
+                p.categoryId == categoryId)
                 orderby p.photoDate descending
                 select p).Skip(startIndex).Take(count);
 

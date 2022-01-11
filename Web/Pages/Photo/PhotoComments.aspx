@@ -51,6 +51,14 @@
                 <Columns>
                     <asp:BoundField DataField="commentId" ItemStyle-CssClass="hiddencol"/>
                     <asp:BoundField DataField="UserProfile.loginName" HeaderText="<%$ Resources:Common, loginName %>" />
+                     <asp:TemplateField>
+                        <ItemTemplate>
+                        <asp:HyperLink ID="HyperLink1" DataTextField="user"
+                            HeaderText="<%$ Resources:Common, user %>" runat="server" 
+                            NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"UserProfile.loginName","~/Pages/User/Profile.aspx?loginName={0}" ) %>'
+                         Text="ver user"></asp:HyperLink>
+                        </ItemTemplate>
+                        </asp:TemplateField>
                     <asp:BoundField DataField="commentDescription" HeaderText="<%$ Resources:Common, commentDescription %>" />
                     <asp:BoundField DataField="commentDate" HeaderText="<%$ Resources:Common, commentDate %>"
                         DataFormatString="{0:d/M/yyyy}" />

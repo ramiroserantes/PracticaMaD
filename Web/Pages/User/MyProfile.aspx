@@ -12,12 +12,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">    
     <form id="form1" runat="server">
     <div class="field1">
-        <p><asp:Label ID="LblUserName" runat="server" Font-Bold="true"></asp:Label></p>               
-    </div>
-    <div class="field1">
         <asp:HyperLink ID="lnkBack" runat="server"
                 NavigateUrl="~/Pages/MainPage.aspx"
                 meta:resourcekey="lnkBack" />
+    </div>
+    <div class="field1">
+        <p><asp:Label ID="LblUserName" runat="server" Font-Bold="true"></asp:Label></p>               
     </div>
     <div class="field2">
         <asp:Table ID="Table1" runat="server" Width="153px" HorizontalAlign="Center" >
@@ -44,6 +44,7 @@
                <asp:TableHeaderRow ID="Header1" runat="server">
                    <asp:TableHeaderCell ID="lclHeaderImage" meta:resourceKey="lclHeaderImage" ></asp:TableHeaderCell>
                    <asp:TableHeaderCell ID="lclHeaderImageLink" meta:resourceKey="lclHeaderImageLink" ></asp:TableHeaderCell>
+                   <asp:TableHeaderCell ID="lclHeaderDelete" runat="server" meta:resourcekey="lclHeaderDelete" OnClick="BtnDelete_Click"/>
                </asp:TableHeaderRow>
        </asp:Table>
     </div>

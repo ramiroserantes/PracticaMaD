@@ -26,45 +26,66 @@
             </p>
             <br />
             <br />
+
+            <div class="entry">
+                <span class="entry">
+                <asp:FileUpload ID="ImageLoader" runat="server"></asp:FileUpload>
+                    </span>
+            </div>
+            
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclCategory" runat="server" meta:resourcekey="lclCategory"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="False" runat="server" Width="200"></asp:DropDownList>
                 </span>
             </div>
-            <asp:FileUpload ID="ImageLoader" runat="server"></asp:FileUpload>
-            <asp:Image ID="Image1" runat="server" Height = "100" Width = "100" />
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclTitle" runat="server" meta:resourcekey="lclTitle"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:TextBox ID="txtTitle" runat="server" Width="200"></asp:TextBox>
                 </span>
             </div>
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclDescription" runat="server" meta:resourcekey="lclDescription"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:TextBox ID="txtDesc" runat="server" Width="200"></asp:TextBox>
                 </span>
             </div>
             <div class="field">
                 <span class="label">
-                    <asp:TextBox Text="hola" ID="txtDia" runat="server" Width="200"></asp:TextBox>
-                </span>
+                    <asp:Localize ID="lclDiaphragm" runat="server" meta:resourcekey="lclDiaphragm"></asp:Localize>
+                        </span>
+                    <span class="entry">
+                        <asp:TextBox ID="txtDia" runat="server" Width="200"></asp:TextBox>
+                    </span>
             </div>
             <div class="field">
                 <span class="label">
-                    <asp:TextBox ID="txtLink" runat="server" Width="200"></asp:TextBox>
-                </span>
-            </div>
-            <div class="field">
-                <span class="label">
+                    <asp:Localize ID="lclExhibition" runat="server" meta:resourcekey="lclExhibition"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:TextBox ID="txtExhi" runat="server" Width="200"></asp:TextBox>
                 </span>
             </div>
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclIso" runat="server" meta:resourcekey="lclIso"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:TextBox ID="txtIso" runat="server" Width="200"></asp:TextBox>
                 </span>
             </div>
             <div class="field">
                 <span class="label">
+                    <asp:Localize ID="lclBalance" runat="server" meta:resourcekey="lclBalance"></asp:Localize>
+                        </span>
+                    <span class="entry">
                     <asp:TextBox ID="txtBalance" runat="server" Width="200"></asp:TextBox>
                 </span>
             </div>

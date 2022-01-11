@@ -7,6 +7,8 @@ using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMad.Model;
 using Es.Udc.DotNet.PracticaMad.Model.CommentService;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;

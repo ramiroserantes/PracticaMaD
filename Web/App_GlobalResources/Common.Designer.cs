@@ -19,7 +19,7 @@ namespace Resources {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile el proyecto de Visual Studio.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Common {
@@ -97,6 +97,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Diaphragm.
+        /// </summary>
+        internal static string dia {
+            get {
+                return ResourceManager.GetString("dia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Exhibition time.
+        /// </summary>
+        internal static string exhi {
+            get {
+                return ResourceManager.GetString("exhi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Iso.
+        /// </summary>
+        internal static string iso {
+            get {
+                return ResourceManager.GetString("iso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Likes.
+        /// </summary>
+        internal static string like {
+            get {
+                return ResourceManager.GetString("like", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a LoginName.
         /// </summary>
         internal static string loginName {
@@ -165,6 +201,24 @@ namespace Resources {
         internal static string title {
             get {
                 return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User.
+        /// </summary>
+        internal static string user {
+            get {
+                return ResourceManager.GetString("user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a White balance.
+        /// </summary>
+        internal static string wb {
+            get {
+                return ResourceManager.GetString("wb", resourceCulture);
             }
         }
     }
