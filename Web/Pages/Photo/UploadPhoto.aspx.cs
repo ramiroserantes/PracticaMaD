@@ -103,7 +103,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             title = this.txtTitle.Text;
             description =this.txtDesc.Text;
             diaphragm = long.Parse(this.txtDia.Text);
-            link = @"C:\EntregaMaD\PracticaMaD\Web\Images\";
+            //link = @"C:\EntregaMaD\PracticaMaD\Web\Images\";
+            link = @"D:\MaD\MaD-ParteWeb\PracticaMaD\Web\Images\";
             exhibitionTime = long.Parse(this.txtExhi.Text);
             iso = this.txtIso.Text;
             whiteBalance = long.Parse(this.txtBalance.Text);

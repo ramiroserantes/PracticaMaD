@@ -90,6 +90,7 @@
         <asp:HyperLink ID="hlComments" runat="server" meta:resourcekey="hlComments" />
     </div>
      <asp:Button ID="btnDelete" runat="server" meta:resourcekey="btnDelete" OnClick="BtnDelete_Click" />
+     <asp:Button ID="btnLike" runat="server" meta:resourcekey="btnLike" OnClick="BtnLikeClick" />
     <br />
 </form>
 

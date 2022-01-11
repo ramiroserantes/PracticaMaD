@@ -283,6 +283,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
         }
 
+
         protected DataRow CreateRow(string text, long value, DataTable dt)
         {
             // Create a DataRow using the DataTable.

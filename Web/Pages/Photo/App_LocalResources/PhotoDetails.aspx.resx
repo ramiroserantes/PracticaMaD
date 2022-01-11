@@ -141,4 +141,7 @@
   <data name="lnkUpdate.Text" xml:space="preserve">
     <value>Modificar comentario</value>
   </data>
+  <data name="btnLike.Text" xml:space="preserve">
+    <value>Like</value>
+  </data>
 </root>
