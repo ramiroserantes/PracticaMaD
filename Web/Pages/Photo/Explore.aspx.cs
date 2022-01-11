@@ -48,7 +48,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             }
             catch (ArgumentNullException)
             {
-                count = 3-1;
+                count = 2;
             }
 
             /* Get keyword */

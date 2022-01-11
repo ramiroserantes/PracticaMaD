@@ -278,13 +278,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// 
 
 
-        public long UploadPhoto(string title, string description, long f,
+        public long UploadPhoto(string userName, string title, string description, long f,
                                 long t, string iso, long wb, long categoryId, long userId, Image newImage)
         {
 
 
             Photo newPhoto = new Photo
             {
+                userName = userName,
                 title = title,
                 photoDescription = description,
                 photoDate = System.DateTime.Now,

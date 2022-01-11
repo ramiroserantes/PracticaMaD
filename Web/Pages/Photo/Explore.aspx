@@ -35,16 +35,10 @@
                             DataNavigateUrlFields="photoId"
                             DataNavigateUrlFormatString="~/Pages/Photo/PhotoDetails.aspx?photo={0}" />
                         
-                        <asp:TemplateField>
-                        <ItemTemplate>
-                        <asp:HyperLink ID="HyperLink1" DataTextField="user"
-                            HeaderText="<%$ Resources:Common, user %>" runat="server" 
-                            NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"UserProfile.loginName","~/Pages/User/Profile.aspx?loginName={0}" ) %>'
-                         Text="ver user"></asp:HyperLink>
-                        </ItemTemplate>
-                        </asp:TemplateField>
-
-                        
+                         <asp:HyperLinkField DataTextField="userName"
+                            HeaderText="<%$ Resources:Common, user %>"
+                            DataNavigateUrlFields="userName"
+                            DataNavigateUrlFormatString="~/Pages/User/Profile.aspx?loginName={0}" />
                         <asp:ImageField HeaderText = "<%$ Resources:Common, photo %>" DataImageUrlField="photoId" 
                             DataImageUrlFormatString="../../Images/{0}.jpg"  ControlStyle-Height="100px" ControlStyle-Width="100px"/>
    

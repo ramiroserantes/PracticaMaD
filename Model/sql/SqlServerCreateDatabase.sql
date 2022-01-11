@@ -56,6 +56,7 @@ CREATE TABLE Category (
 
 CREATE TABLE Photo (
     photoId bigint IDENTITY(1,1) NOT NULL,
+    userName varchar(100) NOT NULL,
     title varchar(100) NOT NULL,
     photoDescription varchar(100) NOT NULL,
     photoDate DATETIME NOT NULL,
@@ -115,6 +116,7 @@ CREATE TABLE Comment(
     commentId bigint IDENTITY(1,1) NOT NULL,
     commentDescription varchar(100) NOT NULL,
     commentDate DATETIME NOT NULL,
+    userName varchar(100) NOT NULL,
     userId bigint NOT NULL,
     photoId bigint NOT NULL,
 

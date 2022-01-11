@@ -14,6 +14,7 @@
     <Property Name="commentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="commentDescription" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="commentDate" Type="datetime" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="userId" Type="bigint" Nullable="false" />
     <Property Name="photoId" Type="bigint" Nullable="false" />
   </EntityType>
@@ -38,6 +39,7 @@
       <PropertyRef Name="photoId" />
     </Key>
     <Property Name="photoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="photoDescription" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="photoDate" Type="datetime" Nullable="false" />

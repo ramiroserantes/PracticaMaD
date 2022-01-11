@@ -118,6 +118,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             UserSession userSession = new UserSession();
             userSession.UserProfileId = usrId;
             userSession.FirstName = userProfileDetails.FirstName;
+            userSession.LoginName = userProfileDetails.LoginName;
 
             Locale locale = new Locale(userProfileDetails.Lenguage,
                 userProfileDetails.Country);
@@ -179,7 +180,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             UserSession userSession = new UserSession();
             userSession.UserProfileId = loginResult.UserProfileId;
             userSession.FirstName = loginResult.FirstName;
-
+            userSession.LoginName = loginResult.LoginName;
             Locale locale =
                 new Locale(loginResult.Lenguage, loginResult.Country);
 

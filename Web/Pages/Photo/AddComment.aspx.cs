@@ -8,6 +8,7 @@ using Es.Udc.DotNet.ModelUtil.Exceptions;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.PracticaMad.Model.CommentService;
+using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 
 
@@ -70,8 +71,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 
                 IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
                 ICommentService commentService = iocManager.Resolve<ICommentService>();
+                IUserService userService = iocManager.Resolve<IUserService>();
 
-                commentService.AddComment(photoId, SessionManager.GetUserSession(Context).UserProfileId,
+                commentService.AddComment(SessionManager.GetUserSession(Context).LoginName, photoId, SessionManager.GetUserSession(Context).UserProfileId,
                       commentBody.Text);
 
                 Response.Redirect(

@@ -14,11 +14,12 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// <param name="encryptedPassword">The encrypted password.</param>
         /// <param name="lenguage">The lenguage.</param>
         /// <param name="country">The country.</param>
-        public LoginResult(long userProfileId, String firstName,
+        public LoginResult(long userProfileId, String firstName, String loginName,
             String encryptedPassword, string lenguage, string country)
         {
             this.UserProfileId = userProfileId;
             this.FirstName = firstName;
+            this.LoginName = loginName;
             this.EncryptedPassword = encryptedPassword;
             this.Lenguage = lenguage;
             this.Country = country;
@@ -42,6 +43,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
         /// </value>
         public string Country { get; private set; }
 
+        public string LoginName { get; private set; }
         /// <summary>
         /// Gets the lenguage.
         /// </summary>
@@ -81,6 +83,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
 
             return (this.UserProfileId == target.UserProfileId)
                    && (this.FirstName == target.FirstName)
+                   && (this.LoginName == target.LoginName)
                    && (this.EncryptedPassword == target.EncryptedPassword)
                    && (this.Lenguage == target.Lenguage)
                    && (this.Country == target.Country);
@@ -110,6 +113,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             strLoginResult =
                 "[ userProfileId = " + UserProfileId + " | " +
                 "firstName = " + FirstName + " | " +
+                "loginName = " + LoginName + " | " +
                 "encryptedPassword = " + EncryptedPassword + " | " +
                 "lenguage = " + Lenguage + " | " +
                 "country = " + Country + " ]";

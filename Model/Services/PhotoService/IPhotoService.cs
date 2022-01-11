@@ -150,7 +150,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
         [Transactional]
-        long UploadPhoto(string title, string description, long f, long t,
+        long UploadPhoto(string userName, string title, string description, long f, long t,
                         string iso, long wb, long categoryId, long userId, Image newImage);
 
         /// <summary>

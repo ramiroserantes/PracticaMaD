@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities2">
+  <EntityContainerMapping StorageEntityContainer="practicamadModelStoreContainer" CdmEntityContainer="practicamadEntities">
     <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="practicamadModel.Category">
         <MappingFragment StoreEntitySet="Category">
@@ -15,6 +15,7 @@
           <ScalarProperty Name="commentId" ColumnName="commentId" />
           <ScalarProperty Name="commentDescription" ColumnName="commentDescription" />
           <ScalarProperty Name="commentDate" ColumnName="commentDate" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
           <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="photoId" ColumnName="photoId" />
         </MappingFragment>
@@ -24,6 +25,7 @@
       <EntityTypeMapping TypeName="practicamadModel.Photo">
         <MappingFragment StoreEntitySet="Photo">
           <ScalarProperty Name="photoId" ColumnName="photoId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="photoDescription" ColumnName="photoDescription" />
           <ScalarProperty Name="photoDate" ColumnName="photoDate" />

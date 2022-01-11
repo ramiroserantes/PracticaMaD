@@ -35,7 +35,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 lblPhotoError.Visible = true;
                 return;
             }
-
+            
             TablePhotoInfo.Visible = true;
 
             /* Get the Service */
@@ -43,8 +43,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
             ICommentService commentService = iocManager.Resolve<ICommentService>();
 
-            /* Get Products Info */
             PracticaMad.Model.Photo photo = photoService.FindPhoto(photoId);
+
+            long userId;
+
+            try {
+                userId = SessionManager.GetUserSession(Context).UserProfileId;
+            } catch (NullReferenceException) {
+                userId = -1;
+            }
+
+            if (photoService.FindPhoto(photo.photoId).UserProfile.userId != userId)
+            {
+                btnDelete.Visible = false;
+            }
+            else 
+            {
+                btnDelete.Visible = true;
+            } 
 
             cellPhotoID.Text = photo.photoId.ToString();
             cellPhotoTitle.Text = photo.title;
@@ -98,8 +114,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
+            
+
             long userId = SessionManager.GetUserSession(Context).UserProfileId;
             long id = Convert.ToInt64(cellPhotoID.Text);
+
             photoService.DeletePhoto(id,userId);
 
 

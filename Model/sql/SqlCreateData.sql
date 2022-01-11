@@ -13,12 +13,12 @@ INSERT INTO Category
     VALUES('hielo');
 
 INSERT INTO Photo
-    VALUES('fuego', 'desc', GETDATE(), 2, 3, 'iso', 100, '../..Images/1.jpg', 1, 1);
+    VALUES('user', 'fuego', 'desc', GETDATE(), 2, 3, 'iso', 100, 'C:/EntregaMaD/PracticaMaD/Web/Images/1.jpg', 1, 1);
    
 INSERT INTO Photo
-    VALUES('hielo', 'desc', GETDATE(), 2, 33, 'iso', 1001, '../../Images/2.jpg', 2, 2);
+    VALUES('anotherUser', 'hielo', 'desc', GETDATE(), 2, 33, 'iso', 1001, 'C:/EntregaMaD/PracticaMaD/Web/Images/2.jpg', 2, 2);
 
 INSERT INTO Photo
-    VALUES('hieloAgain', 'desc', GETDATE(), 2, 33, 'iso', 1001, '../../Images/3.jpg', 2, 1);
+    VALUES('user', 'hieloAgain', 'desc', GETDATE(), 2, 33, 'iso', 1001, 'C:/EntregaMaD/PracticaMaD/Web/Images/3.jpg', 2, 1);
 
 

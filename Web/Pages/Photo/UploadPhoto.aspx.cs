@@ -103,7 +103,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             title = this.txtTitle.Text;
             description =this.txtDesc.Text;
             diaphragm = long.Parse(this.txtDia.Text);
-            link = @"D:\MaD\MaD-ParteWeb\PracticaMaD\Web\Images\";
+            link = @"C:\EntregaMaD\PracticaMaD\Web\Images\";
             exhibitionTime = long.Parse(this.txtExhi.Text);
             iso = this.txtIso.Text;
             whiteBalance = long.Parse(this.txtBalance.Text);
@@ -120,7 +120,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
             image = System.Drawing.Image.FromFile(link + Path.GetFileName(ImageLoader.FileName));
 
-            photoService.UploadPhoto(title, description, diaphragm, exhibitionTime, iso, whiteBalance,
+            photoService.UploadPhoto(SessionManager.GetUserSession(Context).FirstName, title, description, diaphragm, exhibitionTime, iso, whiteBalance,
                 (long.Parse(CategoryDropDownList.SelectedItem.Value)), SessionManager.GetUserSession(Context).UserProfileId, image);
 
             Response.Redirect(

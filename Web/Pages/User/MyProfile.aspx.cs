@@ -65,36 +65,14 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 link = new HyperLink();
                 link.ID = "linkId";
                 link.Text = "Ver imagen";
-                link.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photo.photoId.ToString() ;
+                link.NavigateUrl = "~/Pages/Photo/PhotoDetails.aspx?photo=" + photo.photoId.ToString();
                 linkCell.Controls.Add(link);
                 row.Controls.Add(linkCell);
-
-                deleteCell = new TableCell();
-                delete = new Button();
-                delete.ID = "deleteId";
-                delete.Text = "Borrar imagen";
-                deleteCell.Controls.Add(delete);
-                row.Controls.Add(deleteCell);
 
                 lclTableImages.Rows.Add(row);
             }
 
 
-        }
-        protected void BtnDelete_Click(object sender, EventArgs e)
-        {
-            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
-            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
-            long userId = SessionManager.GetUserSession(Context).UserProfileId;
-
-            long photoId = long.Parse(lclHeaderDelete.Attributes["name"]);
-
-            long id = Convert.ToInt64(photoId.ToString());
-            photoService.DeletePhoto(id, userId);
-
-
-            Response.Redirect(Response.
-                        ApplyAppPathModifier("/Pages/MainPage.aspx"));
         }
     }
 

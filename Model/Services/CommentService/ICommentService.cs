@@ -73,7 +73,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.CommentService
         /// <param name="userId">The user identifier.</param>
         /// <param name="commentBody">The comment body.</param>
         /// <returns></returns>
-        long AddComment(long photoId, long userId, string commentBody);
+        long AddComment(string userName, long photoId, long userId, string commentBody);
 
         /// <summary>
         /// Deletes the comment.

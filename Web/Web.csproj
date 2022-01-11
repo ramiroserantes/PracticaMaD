@@ -128,6 +128,7 @@
     <Content Include="Pages\User\ChangePassword.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
+    <Content Include="Pages\User\Followers.aspx" />
     <Content Include="Pages\User\Profile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\UpdateUserProfile.aspx" />
@@ -247,6 +248,13 @@
     </Compile>
     <Compile Include="Pages\User\MyProfile.aspx.designer.cs">
       <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Followers.aspx.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Followers.aspx.designer.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

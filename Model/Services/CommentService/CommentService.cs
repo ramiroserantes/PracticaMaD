@@ -85,12 +85,13 @@ namespace Es.Udc.DotNet.PracticaMad.Model.CommentService
         /// <param name="commentBody">The comment body.</param>
         /// <returns></returns>
         /// <exception cref="InstanceNotFoundException"></exception>
-        public long AddComment(long photoId, long userId, string commentBody)
+        public long AddComment(string userName, long photoId, long userId, string commentBody)
         {
             Comment comment = new Comment
             {
                 commentDescription = commentBody,
                 commentDate = System.DateTime.Now,
+                userName = userName,
                 userId = userId,
                 photoId = photoId
             };

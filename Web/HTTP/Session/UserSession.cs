@@ -7,6 +7,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
         private long userProfileId;
         private String firstName;
+        private String loginName;
 
         public long UserProfileId
         {
@@ -18,6 +19,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
         {
             get { return firstName; }
             set { firstName = value; }
+        }
+
+        public String LoginName
+        {
+            get { return loginName; }
+            set { loginName = value; }
         }
     }
 }

@@ -105,7 +105,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.Services.UserService
             }
 
             
-            return new LoginResult(userProfile.userId, userProfile.firstName,
+            return new LoginResult(userProfile.userId, userProfile.firstName, userProfile.loginName,
                 storedPassword, userProfile.lenguage, userProfile.country);
 
         }

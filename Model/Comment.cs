@@ -17,6 +17,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         public long commentId { get; set; }
         public string commentDescription { get; set; }
         public System.DateTime commentDate { get; set; }
+        public string userName { get; set; }
         public long userId { get; set; }
         public long photoId { get; set; }
     

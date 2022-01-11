@@ -23,6 +23,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         }
     
         public long photoId { get; set; }
+        public string userName { get; set; }
         public string title { get; set; }
         public string photoDescription { get; set; }
         public System.DateTime photoDate { get; set; }
