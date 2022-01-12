@@ -11,8 +11,9 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
+         <div class="field1">
         <form id="FollowersForm" method="get" runat="server">
-             <asp:HyperLink ID="lnkBack" runat="server" meta:resourcekey="lnkBack"></asp:HyperLink>
+             <asp:HyperLink ID="lnkBack" runat="server"  meta:resourcekey="lnkBack"></asp:HyperLink>
             <br />
             <p>
                     <asp:Label ID="lblNoFollowers" meta:resourcekey="lblNoFollowers" runat="server"></asp:Label>

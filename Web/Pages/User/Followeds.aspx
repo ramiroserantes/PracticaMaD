@@ -6,11 +6,18 @@
     <asp:Localize ID="lclMenuExplanation" runat="server" meta:resourcekey="lclMenuExplanation" />
 </asp:Content>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_MenuLinks" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_BodyContent" runat="server">
     <div id="form">
+         <div class="field1">
+        <asp:HyperLink ID="HyperLink1" runat="server"
+                NavigateUrl="~/Pages/MainPage.aspx"
+                meta:resourcekey="lnkBack" />
+
+         </div>
         <form id="FollowersForm" method="get" runat="server">
              <asp:HyperLink ID="lnkBack" runat="server" meta:resourcekey="lnkBack"></asp:HyperLink>
             <br />

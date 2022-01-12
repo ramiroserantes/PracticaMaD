@@ -25,14 +25,14 @@
             <asp:TableRow runat="server">
                 <asp:TableHeaderCell ID="HeaderCell1" runat="server">
                     <asp:HyperLink ID="Followers" runat="server"
-                    NavigateUrl="~/Pages/User/Followers.aspx"
-                    meta:resourcekey="lnkFollowers" />
+                    NavigateUrl="~/Pages/User/Followeds.aspx"
+                    meta:resourcekey="lnkFolloweds" />
                 </asp:TableHeaderCell>
 
                 <asp:TableHeaderCell ID="HeaderCell2" runat="server">
                      <asp:HyperLink ID="HyperLink2" runat="server"
-                      NavigateUrl="~/Pages/User/Followeds.aspx"
-                      meta:resourcekey="lnkFolloweds" />
+                      NavigateUrl="~/Pages/User/Followers.aspx"
+                      meta:resourcekey="lnkFollowers" />
                 </asp:TableHeaderCell> 
             </asp:TableRow>
 

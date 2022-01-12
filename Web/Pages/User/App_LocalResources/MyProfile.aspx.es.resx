@@ -138,6 +138,9 @@
   <data name="lnkFolloweds.Text" xml:space="preserve">
     <value>Seguidos</value>
   </data>
+  <data name="lnkFollowers.Text" xml:space="preserve">
+    <value>Seguidores</value>
+  </data>
   <data name="lnkUpdate.Text" xml:space="preserve">
     <value>Actualizar información de usuario</value>
   </data>
