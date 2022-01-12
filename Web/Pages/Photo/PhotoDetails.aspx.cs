@@ -140,5 +140,18 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             Response.Redirect(Response.
                         ApplyAppPathModifier("/Pages/Photo/PhotoDetails.aspx" + "?photo=" + photoId));
         }
+        protected void BtnRemoveLikeClick(object sender, EventArgs e)
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            long userId = SessionManager.GetUserSession(Context).UserProfileId;
+            long photoId = Convert.ToInt64(cellPhotoID.Text);
+
+            photoService.DeleteLike(userId, photoId);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("/Pages/Photo/PhotoDetails.aspx" + "?photo=" + photoId));
+        }
     }
 }

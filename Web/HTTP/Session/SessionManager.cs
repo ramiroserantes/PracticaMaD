@@ -3,6 +3,7 @@ using Es.Udc.DotNet.PracticaMad.Model.Services.UserService.Exceptions;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Util;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.View.ApplicationObjects;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.ModelUtil.IoC;
 using System;
 using System.Web;
@@ -85,17 +86,24 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
 
         private static IUserService userService;
 
+        private static IPhotoService photoService;
+
         public IUserService UserService
         {
             set { userService = value; }
         }
 
+        public IPhotoService PhotoService
+        {
+            set { photoService = value; }
+        }
         static SessionManager()
         {
             IIoCManager iocManager =
                 (IIoCManager)HttpContext.Current.Application["managerIoC"];
 
             userService = iocManager.Resolve<IUserService>();
+            photoService = iocManager.Resolve<IPhotoService>();
         }
 
         /// <summary>
@@ -187,6 +195,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             UpdateSessionForAuthenticatedUser(context, userSession, locale);
 
             return loginResult;
+        }
+
+        public static void CreateTag(string tagName, long photoId)
+        {
+            photoService.AddTag(tagName, photoId);
+        }
+
+
+        public static TagBlock FindAllTags(int startIndex, int count)
+        {
+            return photoService.FindAllTags(startIndex, count);
         }
 
         /// <summary>

@@ -78,13 +78,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected global::System.Web.UI.WebControls.TableHeaderCell HeaderCell1;
 
         /// <summary>
-        /// Control LblFollowed.
+        /// Control Followers.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFollowed;
+        protected global::System.Web.UI.WebControls.HyperLink Followers;
 
         /// <summary>
         /// Control HeaderCell2.
@@ -96,13 +96,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
         protected global::System.Web.UI.WebControls.TableHeaderCell HeaderCell2;
 
         /// <summary>
-        /// Control LblFollowers.
+        /// Control HyperLink2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFollowers;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
 
         /// <summary>
         /// Control Cell1.

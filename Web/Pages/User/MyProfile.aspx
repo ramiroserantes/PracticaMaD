@@ -15,6 +15,7 @@
         <asp:HyperLink ID="lnkBack" runat="server"
                 NavigateUrl="~/Pages/MainPage.aspx"
                 meta:resourcekey="lnkBack" />
+
     </div>
     <div class="field1">
         <p><asp:Label ID="LblUserName" runat="server" Font-Bold="true"></asp:Label></p>               
@@ -23,10 +24,15 @@
         <asp:Table ID="Table1" runat="server" Width="153px" HorizontalAlign="Center" >
             <asp:TableRow runat="server">
                 <asp:TableHeaderCell ID="HeaderCell1" runat="server">
-                    <asp:Label ID="LblFollowed" runat="server" meta:resourcekey="LblFollowedTrans"></asp:Label>
+                    <asp:HyperLink ID="Followers" runat="server"
+                    NavigateUrl="~/Pages/User/Followers.aspx"
+                    meta:resourcekey="lnkFollowers" />
                 </asp:TableHeaderCell>
+
                 <asp:TableHeaderCell ID="HeaderCell2" runat="server">
-                    <asp:Label ID="LblFollowers" runat="server" meta:resourcekey="LblFollowersTrans"></asp:Label>
+                     <asp:HyperLink ID="HyperLink2" runat="server"
+                      NavigateUrl="~/Pages/User/Followeds.aspx"
+                      meta:resourcekey="lnkFolloweds" />
                 </asp:TableHeaderCell> 
             </asp:TableRow>
 

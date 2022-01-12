@@ -69,5 +69,6 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
         /// <param name="count">The count.</param>
         /// <returns></returns>
         List<Photo> FindByKeywords(string keywords, int startIndex = 0, int count = 20);
+
     }
 }

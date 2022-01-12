@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web {
-    
-    
-    public partial class PracticaMaD {
-        
+namespace Es.Udc.DotNet.PracticaMaD.Web
+{
+
+
+    public partial class PracticaMaD
+    {
+
         /// <summary>
         /// Control Head1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
+
         /// <summary>
         /// Control lclPageTitle.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Localize lclPageTitle;
-        
+
         /// <summary>
         /// Control ContentPlaceHolder_MenuWelcome.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuWelcome;
-        
+
         /// <summary>
         /// Control lblWelcome.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWelcome;
-        
+
         /// <summary>
         /// Control ContentPlaceHolder_MenuExplanation.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuExplanation;
-        
+
         /// <summary>
         /// Control ContentPlaceHolder_MenuLinks.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_MenuLinks;
-        
+
         /// <summary>
         /// Control lblDash4.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash4;
-        
+
         /// <summary>
         /// Control lnkExplore.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkExplore;
-        
+
         /// <summary>
         /// Control lblDash5.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash5;
-        
+
         /// <summary>
         /// Control lnkUpload.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkUpload;
-        
+
         /// <summary>
         /// Control lblDash1.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash1;
-        
+
         /// <summary>
         /// Control lnkAuthenticate.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkAuthenticate;
-        
+
         /// <summary>
         /// Control lblDash2.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash2;
-        
+
         /// <summary>
         /// Control lnkMyProfile.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkMyProfile;
-        
+
         /// <summary>
         /// Control lblDash3.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash3;
-        
+
         /// <summary>
         /// Control lnkLogout.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
-        
+
         /// <summary>
         /// Control ContentPlaceHolder_BodyContent.
         /// </summary>
@@ -164,7 +166,25 @@ namespace Es.Udc.DotNet.PracticaMaD.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_BodyContent;
-        
+
+        /// <summary>
+        /// Control ContentPlaceHolder_Cloud.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_Cloud;
+
+        /// <summary>
+        /// Control tags.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tags;
+
         /// <summary>
         /// Control lclFooter.
         /// </summary>

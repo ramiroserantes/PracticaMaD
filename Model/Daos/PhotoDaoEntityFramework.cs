@@ -246,10 +246,10 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoDao
             return photo;
 
         }
-        #endregion  IUserProfileDao Members. Specific Operations
 
+        #endregion  IUserProfileDao Members. Specific Operations
 
     }
 
-  
+
 }

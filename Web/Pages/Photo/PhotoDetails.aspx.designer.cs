@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
-    
-    
-    public partial class PhotoDetails {
-        
+namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
+{
+
+
+    public partial class PhotoDetails
+    {
+
         /// <summary>
         /// Control lclMenuExplanation.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Localize lclMenuExplanation;
-        
+
         /// <summary>
         /// Control PhotoCommentForm.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm PhotoCommentForm;
-        
+
         /// <summary>
         /// Control lnkBack.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkBack;
-        
+
         /// <summary>
         /// Control lblPhotoError.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhotoError;
-        
+
         /// <summary>
         /// Control TablePhotoInfo.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table TablePhotoInfo;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoID.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoID;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoTitle.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoTitle;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoDescription.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoDescription;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoUser.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoUser;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoCategory.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoCategory;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoDate.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoDate;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoDia.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoDia;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoExhi.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoExhi;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoIso.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoIso;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoBalance.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoBalance;
-        
+
         /// <summary>
         /// Control cellCaptionPhotoLike.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableHeaderCell cellCaptionPhotoLike;
-        
+
         /// <summary>
         /// Control cellPhotoID.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoID;
-        
+
         /// <summary>
         /// Control cellPhotoTitle.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoTitle;
-        
+
         /// <summary>
         /// Control cellPhotoDescription.
         /// </summary>
@@ -182,7 +184,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoDescription;
-        
+
         /// <summary>
         /// Control cellPhotoUser.
         /// </summary>
@@ -191,7 +193,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoUser;
-        
+
         /// <summary>
         /// Control cellCategoryType.
         /// </summary>
@@ -200,7 +202,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellCategoryType;
-        
+
         /// <summary>
         /// Control cellPhotoDate.
         /// </summary>
@@ -209,7 +211,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoDate;
-        
+
         /// <summary>
         /// Control cellPhotoDia.
         /// </summary>
@@ -218,7 +220,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoDia;
-        
+
         /// <summary>
         /// Control cellPhotoExhi.
         /// </summary>
@@ -227,7 +229,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoExhi;
-        
+
         /// <summary>
         /// Control cellPhotoIso.
         /// </summary>
@@ -236,7 +238,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoIso;
-        
+
         /// <summary>
         /// Control cellPhotoBalance.
         /// </summary>
@@ -245,7 +247,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoBalance;
-        
+
         /// <summary>
         /// Control cellPhotoLikes.
         /// </summary>
@@ -254,7 +256,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell cellPhotoLikes;
-        
+
         /// <summary>
         /// Control hlAddComment.
         /// </summary>
@@ -263,7 +265,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlAddComment;
-        
+
         /// <summary>
         /// Control lblDash1.
         /// </summary>
@@ -272,7 +274,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDash1;
-        
+
         /// <summary>
         /// Control hlComments.
         /// </summary>
@@ -281,16 +283,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlComments;
-        
-        /// <summary>
-        /// Control btnDelete.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
-        
+
         /// <summary>
         /// Control btnLike.
         /// </summary>
@@ -299,5 +292,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLike;
+
+        /// <summary>
+        /// Control btnRemoveLike.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveLike;
+
+        /// <summary>
+        /// Control btnDelete.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

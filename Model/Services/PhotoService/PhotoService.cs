@@ -299,7 +299,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             PhotoDao.Create(newPhoto);
 
-            newPhoto.link = "D:/MaD/MaD-ParteWeb/PracticaMaD/Web/Images/" + newPhoto.photoId.ToString() + ".jpg";
+            newPhoto.link = "C:/EntregaMaD/PracticaMaD/Web/Images/" + newPhoto.photoId.ToString() + ".jpg";
             newImage.Save(newPhoto.link, System.Drawing.Imaging.ImageFormat.Png);
 
             PhotoDao.Update(newPhoto);
@@ -343,7 +343,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <returns></returns>
         /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.DuplicateInstanceException"></exception>
         /// <exception cref="DuplicateInstanceException"></exception>
-        public long AddTag(string tagName, long userId)
+        public long AddTag(string tagName, long photoId)
         {
             Tag tag = new Tag();
             try
@@ -356,7 +356,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             catch (InstanceNotFoundException)
             {
                 tag.tagName = tagName;
-                tag.userId = userId;
+                tag.photoId = photoId;
 
                 TagDao.Create(tag);
             }
@@ -389,6 +389,21 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             if (existMoreTags) tags.RemoveAt(count);
 
             return new TagBlock(tags, existMoreTags);
+        }
+
+        public void AddPhotoTag(long tagId, long photoId) {
+
+            Photo p = PhotoDao.Find(photoId);
+
+            tag
+
+            p.Tag.Add
+        }
+
+        public int GetUsedTag(string TagName) {
+
+            return TagDao.FindUsedTags(TagName);
+        
         }
 
         #endregion Tag Members

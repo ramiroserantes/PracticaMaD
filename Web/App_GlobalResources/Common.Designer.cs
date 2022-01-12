@@ -19,7 +19,7 @@ namespace Resources {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile el proyecto de Visual Studio.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Common {
@@ -57,6 +57,15 @@ namespace Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string btnRemoveLike {
+            get {
+                return ResourceManager.GetString("btnRemoveLike", resourceCulture);
             }
         }
         
@@ -111,6 +120,33 @@ namespace Resources {
         internal static string exhi {
             get {
                 return ResourceManager.GetString("exhi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Followed.
+        /// </summary>
+        internal static string followed {
+            get {
+                return ResourceManager.GetString("followed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Followers.
+        /// </summary>
+        internal static string followers {
+            get {
+                return ResourceManager.GetString("followers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Not Valid Value.
+        /// </summary>
+        internal static string InputError {
+            get {
+                return ResourceManager.GetString("InputError", resourceCulture);
             }
         }
         
@@ -192,6 +228,15 @@ namespace Resources {
         internal static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Required Param.
+        /// </summary>
+        internal static string RequiredParam {
+            get {
+                return ResourceManager.GetString("RequiredParam", resourceCulture);
             }
         }
         

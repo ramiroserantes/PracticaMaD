@@ -89,8 +89,14 @@
         <asp:Label ID="lblDash1" runat="server" Text=" - "></asp:Label>
         <asp:HyperLink ID="hlComments" runat="server" meta:resourcekey="hlComments" />
     </div>
-     <asp:Button ID="btnDelete" runat="server" meta:resourcekey="btnDelete" OnClick="BtnDelete_Click" />
+    <br />
      <asp:Button ID="btnLike" runat="server" meta:resourcekey="btnLike" OnClick="BtnLikeClick" />
+     <asp:Button ID="btnRemoveLike" runat="server" meta:resourcekey="btnRemoveLike" OnClick="BtnRemoveLikeClick" />
+    <div>
+        <br />
+         <asp:Button ID="btnDelete" runat="server" meta:resourcekey="btnDelete" OnClick="BtnDelete_Click" />
+    </div>
+
     <br />
 </form>
 

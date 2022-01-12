@@ -30,6 +30,8 @@
             <div class="entry">
                 <span class="entry">
                 <asp:FileUpload ID="ImageLoader" runat="server"></asp:FileUpload>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ImageLoader" Display="Static"
+                         ErrorMessage="<%$ resources:Common, RequiredParam%>" ForeColor="Red" />
                     </span>
             </div>
             
@@ -38,7 +40,17 @@
                     <asp:Localize ID="lclCategory" runat="server" meta:resourcekey="lclCategory"></asp:Localize>
                         </span>
                     <span class="entry">
-                    <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="False" runat="server" Width="200"></asp:DropDownList>
+                    <asp:DropDownList ID="CategoryDropDownList" AutoPostBack="True" runat="server" Width="200"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RFV1" runat="server" ControlToValidate="CategoryDropDownList" InitialValue="0"
+                         ErrorMessage="<%$ resources:Common, RequiredParam%>" ForeColor="Red" />
+                </span>
+            </div>
+             <div class="field">
+                <span class="label">
+                    <asp:Localize ID="Localize1" runat="server" meta:resourcekey="lclTags"></asp:Localize>
+                        </span>
+                    <span class="entry">
+                    <asp:DropDownList ID="DropDownList1" AutoPostBack="True" runat="server" Width="200"></asp:DropDownList>
                 </span>
             </div>
             <div class="field">
@@ -63,6 +75,8 @@
                         </span>
                     <span class="entry">
                         <asp:TextBox ID="txtDia" runat="server" Width="200"></asp:TextBox>
+                        <asp:CompareValidator ID="cv" runat="server" ControlToValidate="txtDia" Type="Integer" Operator="DataTypeCheck"
+                         ErrorMessage="<%$ resources:Common, InputError%>" ForeColor="Red" /> 
                     </span>
             </div>
             <div class="field">
@@ -71,6 +85,8 @@
                         </span>
                     <span class="entry">
                     <asp:TextBox ID="txtExhi" runat="server" Width="200"></asp:TextBox>
+                    <asp:CompareValidator ID="cv2" runat="server" ControlToValidate="txtExhi" Type="Integer" Operator="DataTypeCheck"
+                         ErrorMessage="<%$ resources:Common, InputError%>" ForeColor="Red"/> 
                 </span>
             </div>
             <div class="field">
@@ -87,6 +103,8 @@
                         </span>
                     <span class="entry">
                     <asp:TextBox ID="txtBalance" runat="server" Width="200"></asp:TextBox>
+                    <asp:CompareValidator ID="cv3" runat="server" ControlToValidate="txtBalance" Type="Integer" Operator="DataTypeCheck"
+                         ErrorMessage="<%$ resources:Common, InputError%>" ForeColor="Red" />
                 </span>
             </div>
             

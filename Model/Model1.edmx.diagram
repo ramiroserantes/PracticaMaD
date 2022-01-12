@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="207ac98f72754bae9648682d8b70792d" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="practicamadModel.Category" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Comment" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Photo" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.Tag" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="practicamadModel.UserProfile" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+      <Diagram DiagramId="f1fa0fe86c4d403f96c2307812742b91" Name="Diagram1">
+        <EntityTypeShape EntityType="practicamadModel.Category" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Comment" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Photo" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.Tag" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="practicamadModel.UserProfile" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
         <AssociationConnector Association="practicamadModel.FK_CategoryPhoto" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.FK_PhotoComment" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.FK_UserComment" ManuallyRouted="false" />
-        <AssociationConnector Association="practicamadModel.FK_PhotoTag" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.FK_UserPhoto" ManuallyRouted="false" />
-        <AssociationConnector Association="practicamadModel.FK_UserTag" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.Follow" ManuallyRouted="false" />
         <AssociationConnector Association="practicamadModel.Likes" ManuallyRouted="false" />
+        <AssociationConnector Association="practicamadModel.PhotoTags" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,8 +18,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         public Photo()
         {
             this.Comment = new HashSet<Comment>();
-            this.Tag = new HashSet<Tag>();
             this.UserProfile1 = new HashSet<UserProfile>();
+            this.Tag = new HashSet<Tag>();
         }
     
         public long photoId { get; set; }
@@ -38,10 +38,10 @@ namespace Es.Udc.DotNet.PracticaMad.Model
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tag> Tag { get; set; }
         public virtual UserProfile UserProfile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserProfile> UserProfile1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tag> Tag { get; set; }
     }
 }

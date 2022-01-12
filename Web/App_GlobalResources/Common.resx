@@ -171,4 +171,19 @@
   <data name="wb" xml:space="preserve">
     <value>White balance</value>
   </data>
+  <data name="followed" xml:space="preserve">
+    <value>Followed</value>
+  </data>
+  <data name="followers" xml:space="preserve">
+    <value>Followers</value>
+  </data>
+  <data name="btnRemoveLike" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InputError" xml:space="preserve">
+    <value>Not Valid Value</value>
+  </data>
+  <data name="RequiredParam" xml:space="preserve">
+    <value>Required Param</value>
+  </data>
 </root>

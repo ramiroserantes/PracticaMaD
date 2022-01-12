@@ -14,12 +14,16 @@ namespace Es.Udc.DotNet.PracticaMad.Model
     
     public partial class Tag
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tag()
+        {
+            this.Photo = new HashSet<Photo>();
+        }
+    
         public long tagId { get; set; }
         public string tagName { get; set; }
-        public long userId { get; set; }
-        public Nullable<long> photoId { get; set; }
     
-        public virtual Photo Photo { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Photo> Photo { get; set; }
     }
 }

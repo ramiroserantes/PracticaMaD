@@ -21,6 +21,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
             LblUserName.Text = SessionManager.GetUserSession(Context).FirstName;
+            
 
             long userId = SessionManager.GetUserSession(Context).UserProfileId;
 
@@ -39,7 +40,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
-            PhotoBlock photos = photoService.FindAllPhotosByUser(SessionManager.GetUserSession(Context).UserProfileId, 0, 3);
+            PhotoBlock photos = photoService.FindAllPhotosByUser(SessionManager.GetUserSession(Context).UserProfileId, 0, Global.numberImages);
 
             TableRow row;
 

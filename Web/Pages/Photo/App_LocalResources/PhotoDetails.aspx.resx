@@ -144,4 +144,7 @@
   <data name="btnLike.Text" xml:space="preserve">
     <value>Like</value>
   </data>
+  <data name="btnRemoveLike.Text" xml:space="preserve">
+    <value>Remove Like</value>
+  </data>
 </root>

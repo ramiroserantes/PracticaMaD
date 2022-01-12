@@ -57,7 +57,6 @@
     </Key>
     <Property Name="tagId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tagName" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="userId" Type="bigint" Nullable="false" />
     <Property Name="photoId" Type="bigint" />
   </EntityType>
   <EntityType Name="UserProfile">
@@ -181,18 +180,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserTag">
-    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-    <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="userId" />
-      </Principal>
-      <Dependent Role="Tag">
-        <PropertyRef Name="userId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="practicamadModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
@@ -236,10 +223,6 @@
     <AssociationSet Name="FK_UserPhoto" Association="Self.FK_UserPhoto">
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Photo" EntitySet="Photo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserTag" Association="Self.FK_UserTag">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Tag" EntitySet="Tag" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

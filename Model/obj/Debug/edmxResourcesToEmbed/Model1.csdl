@@ -49,10 +49,8 @@
     </Key>
     <Property Name="tagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tagName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="userId" Type="Int64" Nullable="false" />
     <Property Name="photoId" Type="Int64" />
     <NavigationProperty Name="Photo" Relationship="Self.FK_PhotoTag" FromRole="Tag" ToRole="Photo" />
-    <NavigationProperty Name="UserProfile" Relationship="Self.FK_UserTag" FromRole="Tag" ToRole="UserProfile" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
@@ -68,7 +66,6 @@
     <Property Name="country" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Comment" Relationship="Self.FK_UserComment" FromRole="UserProfile" ToRole="Comment" />
     <NavigationProperty Name="Photo" Relationship="Self.FK_UserPhoto" FromRole="UserProfile" ToRole="Photo" />
-    <NavigationProperty Name="Tag" Relationship="Self.FK_UserTag" FromRole="UserProfile" ToRole="Tag" />
     <NavigationProperty Name="UserProfile1" Relationship="Self.Follow" FromRole="UserProfile" ToRole="UserProfile1" />
     <NavigationProperty Name="UserProfile2" Relationship="Self.Follow" FromRole="UserProfile1" ToRole="UserProfile" />
     <NavigationProperty Name="Photo1" Relationship="Self.Likes" FromRole="UserProfile" ToRole="Photo" />
@@ -133,18 +130,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserTag">
-    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-    <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="userId" />
-      </Principal>
-      <Dependent Role="Tag">
-        <PropertyRef Name="userId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="Follow">
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
     <End Role="UserProfile1" Type="Self.UserProfile" Multiplicity="*" />
@@ -178,10 +163,6 @@
     <AssociationSet Name="FK_UserPhoto" Association="Self.FK_UserPhoto">
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Photo" EntitySet="Photo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserTag" Association="Self.FK_UserTag">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="Tag" EntitySet="Tag" />
     </AssociationSet>
     <AssociationSet Name="Follow" Association="Self.Follow">
       <End Role="UserProfile" EntitySet="UserProfile" />

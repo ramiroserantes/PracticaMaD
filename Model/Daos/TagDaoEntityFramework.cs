@@ -47,6 +47,23 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
         }
 
 
+        public int FindUsedTags(string tagName)
+        {
+
+            DbSet<Tag> tags = Context.Set<Tag>();
+
+            #region Option 1: Using Linq.
+            var result =
+                (from t in tags
+                 where (t.tagName == tagName)
+                 select t);
+
+            #endregion Option 1: Using Linq.
+
+            return result.ToList().Count;
+        }
+
+
         /// <summary>
         /// Finds the name of the by.
         /// </summary>

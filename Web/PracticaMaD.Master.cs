@@ -1,6 +1,10 @@
 ﻿using System;
-
+using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
+using Es.Udc.DotNet.PracticaMad.Model;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web
 {
@@ -42,6 +46,42 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                 if (lnkAuthenticate != null)
                     lnkAuthenticate.Visible = false;
             }
+            cloudTag();
         }
+
+        protected void cloudTag()
+        {
+
+            HyperLink item;
+            TableRow row;
+            TableCell cell;
+
+            int count = 10;
+            int start = 0;
+
+            TagBlock block;
+            do
+            {
+                block = SessionManager.FindAllTags(start, count);
+                row = new TableRow();
+
+                foreach (Tag tag in block.Tags)
+                {
+                    cell = new TableCell();
+                    item = new HyperLink();
+
+                    item.Text = tag.tagName;
+                    item.NavigateUrl = "~/Pages/Photo/Explore.aspx?tagId=" + tag.tagId;
+                    cell.Controls.Add(item);
+                    row.Cells.Add(cell);
+                };
+
+                tags.Rows.Add(row);
+                start++;
+
+            } while (block.ExistMoreTags);
+
+        }
+
     }
 }

@@ -44,7 +44,6 @@
         <MappingFragment StoreEntitySet="Tag">
           <ScalarProperty Name="tagId" ColumnName="tagId" />
           <ScalarProperty Name="tagName" ColumnName="tagName" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="photoId" ColumnName="photoId" />
         </MappingFragment>
       </EntityTypeMapping>

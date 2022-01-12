@@ -162,4 +162,7 @@
   <data name="lclTitle.Text" xml:space="preserve">
     <value>Title:</value>
   </data>
+  <data name="lclTags.Text" xml:space="preserve">
+    <value>Tags</value>
+  </data>
 </root>

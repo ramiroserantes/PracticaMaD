@@ -24,9 +24,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
         protected void Page_Load(object sender, EventArgs e)
         {
             string selectedValue = "-1";
+            string selectedValue2 = "-2";
             try
             {
                 selectedValue = Request.Params.Get("category");
+                selectedValue2 = Request.Params.Get("Tag");
 
                 btnUploadPhoto.Visible = true;
 
@@ -85,12 +87,48 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
                 // Set the default selected item.
                 CategoryDropDownList.SelectedValue = selectedValue;
+                LoadTags(selectedValue2);
             }
 
 
 
         }
 
+        protected void LoadTags(string s) {
+
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+            TagBlock tag = photoService.FindAllTags();
+
+            // Create a table to store data for the DropDownList control.
+            DataTable dt = new DataTable();
+
+            // Define the columns of the table.
+            dt.Columns.Add(new DataColumn("TagTypeField", typeof(string)));
+            dt.Columns.Add(new DataColumn("TagIdField", typeof(long)));
+
+            // Populate the table.
+            dt.Rows.Add(CreateRow("-", -1, dt));
+
+            foreach (Tag t in tag.Tags)
+            {
+                dt.Rows.Add(CreateRow(t.tagName, t.tagId, dt));
+            }
+
+            // Create a DataView from the DataTable to act as the data source
+            // for the DropDownList control.
+            DataView dv = new DataView(dt);
+
+            DropDownList1.DataSource = dv;
+            DropDownList1.DataTextField = "TagTypeField";
+            DropDownList1.DataValueField = "TagIdField";
+
+            // Bind the data to the control.
+            DropDownList1.DataBind();
+
+            // Set the default selected item.
+            DropDownList1.SelectedValue = s;
+        }
         protected void BtnUploadPhotoClick(object sender, EventArgs e)
         {
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
@@ -104,10 +142,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             description =this.txtDesc.Text;
             diaphragm = long.Parse(this.txtDia.Text);
             //link = @"C:\EntregaMaD\PracticaMaD\Web\Images\";
-            link = @"D:\MaD\MaD-ParteWeb\PracticaMaD\Web\Images\";
+            link = @"C:\EntregaMaD\PracticaMaD\Web\Images\";
             exhibitionTime = long.Parse(this.txtExhi.Text);
             iso = this.txtIso.Text;
             whiteBalance = long.Parse(this.txtBalance.Text);
+
 
             //Check whether Directory (Folder) exists.
             if (!Directory.Exists(link))
@@ -121,8 +160,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
             image = System.Drawing.Image.FromFile(link + Path.GetFileName(ImageLoader.FileName));
 
-            photoService.UploadPhoto(SessionManager.GetUserSession(Context).FirstName, title, description, diaphragm, exhibitionTime, iso, whiteBalance,
+            long p = photoService.UploadPhoto(SessionManager.GetUserSession(Context).FirstName, title, description, diaphragm, exhibitionTime, iso, whiteBalance,
                 (long.Parse(CategoryDropDownList.SelectedItem.Value)), SessionManager.GetUserSession(Context).UserProfileId, image);
+
+            photoService.AddTag(DropDownList1.SelectedItem.Text, p);
 
             Response.Redirect(
              Response.ApplyAppPathModifier("~/Pages/MainPage.aspx?"));

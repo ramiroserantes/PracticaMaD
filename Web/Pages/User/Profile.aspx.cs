@@ -70,7 +70,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
-            PhotoBlock photos = photoService.FindAllPhotosByUser(userId, 0, 3);
+            PhotoBlock photos = photoService.FindAllPhotosByUser(userId, 0, Global.numberImages);
 
             TableRow row;
 

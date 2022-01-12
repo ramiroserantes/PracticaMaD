@@ -9,6 +9,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
 {
     public class Global : System.Web.HttpApplication
     {
+        public static int numberPage = 2;
+        public static int numberImages = 3;
         protected void Application_Start(object sender, EventArgs e)
         {
             Application.Lock();

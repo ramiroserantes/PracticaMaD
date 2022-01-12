@@ -21,5 +21,8 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
         /// <param name="tagName">Name of the tag.</param>
         /// <returns></returns>
         Tag FindByName(string tagName);
+
+        int FindUsedTags(string tagName);
+       
     }
 }

@@ -13,6 +13,7 @@ using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 {
     public partial class Explore : SpecificCulturePage
@@ -48,7 +49,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             }
             catch (ArgumentNullException)
             {
-                count = 2;
+                count = Global.numberPage;
             }
 
             /* Get keyword */

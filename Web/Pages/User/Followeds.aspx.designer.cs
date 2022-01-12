@@ -11,7 +11,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
 
 
-    public partial class Followers
+    public partial class Followeds
     {
 
         /// <summary>

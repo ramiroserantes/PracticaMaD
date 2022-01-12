@@ -15,7 +15,7 @@ using userProfile = Es.Udc.DotNet.PracticaMad.Model.UserProfile;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 {
-    public partial class Followers : SpecificCulturePage
+    public partial class Followeds : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,9 +33,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IUserService userService = iocManager.Resolve<IUserService>();
 
-            List<userProfile> followers = userService.GetFollowers(userId);
+            List<userProfile> followeds = userService.GetFolloweds(userId);
 
-                gvFollowers.DataSource = followers;
+                gvFollowers.DataSource = followeds;
                 gvFollowers.DataBind();
 
         }

@@ -22,3 +22,8 @@ INSERT INTO Photo
     VALUES('user', 'hieloAgain', 'desc', GETDATE(), 2, 33, 'iso', 1001, 'C:/EntregaMaD/PracticaMaD/Web/Images/3.jpg', 2, 1);
 
 
+INSERT INTO Tag
+    VALUES('tag1', 1);
+  
+INSERT INTO Tag
+    VALUES('tag2', 2);

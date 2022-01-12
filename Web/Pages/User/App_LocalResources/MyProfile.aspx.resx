@@ -135,4 +135,10 @@
   <data name="lnkBack.Text" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="lnkFolloweds.Text" xml:space="preserve">
+    <value>Followed</value>
+  </data>
+  <data name="lnkFollowers.Text" xml:space="preserve">
+    <value>Followers</value>
+  </data>
 </root>

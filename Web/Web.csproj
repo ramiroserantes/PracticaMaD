@@ -126,6 +126,7 @@
     <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
+    <Content Include="Pages\User\Followeds.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Followers.aspx" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Followeds.aspx.cs">
+      <DependentUpon>Followeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Followeds.aspx.designer.cs">
+      <DependentUpon>Followeds.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\User\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -450,6 +458,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Photo\App_LocalResources\UploadPhoto.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Followers.aspx.es.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\User\App_LocalResources\Followed.aspx.es.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -59,6 +59,14 @@
         <div id="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder_BodyContent" runat="server" />
         </div>
+
+        <br />
+        <div id="CloudTag">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder_Cloud" runat="server">
+                <asp:Table ID="tags" runat="server" HorizontalAlign="Center"></asp:Table>
+            </asp:ContentPlaceHolder>
+        </div>
+         <br />
         <!-- Footer. -->
         <div id="footer">
             <asp:Localize ID="lclFooter" runat="server" meta:resourcekey="lclFooter" />
