@@ -5,6 +5,7 @@ using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Es.Udc.DotNet.ModelUtil.IoC;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web
 {
@@ -51,13 +52,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
 
         protected void cloudTag()
         {
-
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+            
             HyperLink item;
             TableRow row;
             TableCell cell;
 
             int count = 10;
             int start = 0;
+            int size = 0;
 
             TagBlock block;
             do
@@ -71,6 +75,11 @@ namespace Es.Udc.DotNet.PracticaMaD.Web
                     item = new HyperLink();
 
                     item.Text = tag.tagName;
+                    size = 7 + photoService.GetUsedTag(tag.tagId);
+
+                    if (size.CompareTo(20) > 0) { size = 20; }
+                    item.Font.Size = size;
+
                     item.NavigateUrl = "~/Pages/Photo/Explore.aspx?tagId=" + tag.tagId;
                     cell.Controls.Add(item);
                     row.Cells.Add(cell);

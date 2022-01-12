@@ -117,79 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="categoryType" xml:space="preserve">
-    <value>CategoryType</value>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add tag</value>
   </data>
-  <data name="commentDate" xml:space="preserve">
-    <value>Comment Date</value>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete tag</value>
   </data>
-  <data name="commentDescription" xml:space="preserve">
-    <value>Comment Description</value>
+  <data name="btnEditComment.Text" xml:space="preserve">
+    <value>Save changes</value>
   </data>
-  <data name="description" xml:space="preserve">
-    <value>Description</value>
+  <data name="commentBodyTextBox.placeholder" xml:space="preserve">
+    <value>Write your new comment here...</value>
   </data>
-  <data name="loginName" xml:space="preserve">
-    <value>LoginName</value>
+  <data name="hlReturnToDetails.Text" xml:space="preserve">
+    <value>Return to the product details</value>
   </data>
-  <data name="mandatoryField" xml:space="preserve">
-    <value>Mandatory Field</value>
+  <data name="lblNoComment.Text" xml:space="preserve">
+    <value>No comment specified</value>
   </data>
-  <data name="Next" xml:space="preserve">
-    <value>Next</value>
+  <data name="lblUnlogedUser.Text" xml:space="preserve">
+    <value>User not identified</value>
   </data>
-  <data name="photo" xml:space="preserve">
-    <value>Photo</value>
-  </data>
-  <data name="photoDate" xml:space="preserve">
-    <value>PhotoDate</value>
-  </data>
-  <data name="photoId" xml:space="preserve">
-    <value>PhotoId</value>
-  </data>
-  <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
-  </data>
-  <data name="title" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="dia" xml:space="preserve">
-    <value>Diaphragm</value>
-  </data>
-  <data name="exhi" xml:space="preserve">
-    <value>Exhibition time</value>
-  </data>
-  <data name="iso" xml:space="preserve">
-    <value>Iso</value>
-  </data>
-  <data name="like" xml:space="preserve">
-    <value>Likes</value>
-  </data>
-  <data name="user" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="wb" xml:space="preserve">
-    <value>White balance</value>
-  </data>
-  <data name="followed" xml:space="preserve">
-    <value>Followed</value>
-  </data>
-  <data name="followers" xml:space="preserve">
-    <value>Followers</value>
-  </data>
-  <data name="btnRemoveLike" xml:space="preserve">
-    <value />
-  </data>
-  <data name="InputError" xml:space="preserve">
-    <value>Not Valid Value</value>
-  </data>
-  <data name="RequiredParam" xml:space="preserve">
-    <value>Required Param</value>
-  </data>
-  <data name="tagName" xml:space="preserve">
-    <value>Tag name</value>
-  </data>
-  <data name="tags" xml:space="preserve">
-    <value>Tags</value>
+  <data name="lnkBack.Text" xml:space="preserve">
+    <value>Volver</value>
   </data>
 </root>

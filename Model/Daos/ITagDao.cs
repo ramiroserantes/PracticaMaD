@@ -1,4 +1,5 @@
-﻿using Es.Udc.DotNet.ModelUtil.Dao;
+﻿
+using Es.Udc.DotNet.ModelUtil.Dao;
 using System.Collections.Generic;
 
 namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
@@ -23,6 +24,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
         Tag FindByName(string tagName);
 
         int FindUsedTags(long tagId);
-       
+
+        List<Tag> FindByPhotoTags(long photoId);
+
+        void DeletePhotoTag(long tagId, long photoId);
+
+        void UpdatePhotoTag(long tagId, long photoId);
+
+
+
     }
 }

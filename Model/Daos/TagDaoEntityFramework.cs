@@ -91,6 +91,69 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
 
             return tag;
         }
+
+        public List<Tag> FindByPhotoTags(long photoId)
+        {
+            DbSet<Tag> tags = Context.Set<Tag>();
+
+            return (
+                from t in tags
+                where t.Photo.Any(p => p.photoId == photoId)
+                select t).ToList();
+
+        }
+
+        public void DeletePhotoTag(long tagId, long photoId)
+        {
+            DbSet<Tag> tags = Context.Set<Tag>();
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            Tag tag = null;
+            Photo photo = null;
+
+            var result =
+                (from t in tags
+                 where t.tagId == tagId
+                 select t);
+
+            var result2 =
+                (from u in photos
+                 where u.photoId == photoId
+                 select u);
+
+            tag = result.FirstOrDefault();
+            photo = result2.FirstOrDefault();
+
+            tag.Photo.Remove(photo);
+            this.Update(tag);
+
+        }
+
+        public void UpdatePhotoTag(long tagId, long photoId)
+        {
+            DbSet<Tag> tags = Context.Set<Tag>();
+            DbSet<Photo> photos = Context.Set<Photo>();
+
+            Tag tag = null;
+            Photo photo = null;
+
+            var result =
+                (from t in tags
+                 where t.tagId == tagId
+                 select t);
+
+            var result2 =
+                (from p in photos
+                 where p.photoId == photoId
+                 select p);
+
+            tag = result.FirstOrDefault();
+            photo = result2.FirstOrDefault();
+
+            tag.Photo.Add(photo);
+            this.Update(tag);
+
+        }
         #endregion ITagDaoMembers
     }
 }

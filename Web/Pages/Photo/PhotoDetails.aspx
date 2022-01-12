@@ -56,6 +56,9 @@
             <asp:TableHeaderCell ID="cellCaptionPhotoLike" runat="server"
                 Text="<%$ Resources:Common, like %>"></asp:TableHeaderCell>
 
+            <asp:TableHeaderCell ID="cellCaptionPhotoTags" runat="server"
+                Text="<%$ Resources:Common, tags %>"></asp:TableHeaderCell>
+
         </asp:TableHeaderRow>
         <asp:TableRow runat="server">
             <asp:TableCell ID="cellPhotoID" runat="server"></asp:TableCell>
@@ -80,6 +83,8 @@
 
             <asp:TableCell ID="cellPhotoLikes" runat="server"></asp:TableCell>
 
+            <asp:TableCell ID="cellPhotoTags" runat="server"></asp:TableCell>
+
         </asp:TableRow>
     </asp:Table>
     <br />
@@ -95,6 +100,11 @@
     <div>
         <br />
          <asp:Button ID="btnDelete" runat="server" meta:resourcekey="btnDelete" OnClick="BtnDelete_Click" />
+    </div>
+
+    <div>
+        <br />
+         <asp:Button ID="btnTags" runat="server" meta:resourcekey="btnTags" OnClick="BtnTags_Click" />
     </div>
 
     <br />

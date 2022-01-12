@@ -198,5 +198,9 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         int GetUsedTag(long TagId);
 
+        List<Tag> FindByPhotoTags(long photoId);
+
+        void DeleteTag(long tagId, long photoId);
+
     }
 }

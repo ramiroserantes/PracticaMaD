@@ -11,10 +11,11 @@ using Es.Udc.DotNet.PracticaMad.Model.CommentService;
 
 using Es.Udc.DotNet.ModelUtil.IoC;
 using Es.Udc.DotNet.ModelUtil.Exceptions;
+using System.Collections;
 
 namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 {
-    public partial class PhotoDetails: SpecificCulturePage
+    public partial class PhotoDetails : SpecificCulturePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                 lblPhotoError.Visible = true;
                 return;
             }
-            
+
             TablePhotoInfo.Visible = true;
 
             /* Get the Service */
@@ -44,12 +45,23 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             ICommentService commentService = iocManager.Resolve<ICommentService>();
 
             PracticaMad.Model.Photo photo = photoService.FindPhoto(photoId);
+            List<PracticaMad.Model.Tag> tags = photoService.FindByPhotoTags(photoId);
+
+            String tagsString = "";
+
+            foreach (PracticaMad.Model.Tag t in tags)
+            {
+                tagsString = tagsString + " " + t.tagName.ToString();
+            }
 
             long userId;
 
-            try {
+            try
+            {
                 userId = SessionManager.GetUserSession(Context).UserProfileId;
-            } catch (NullReferenceException) {
+            }
+            catch (NullReferenceException)
+            {
                 userId = -1;
             }
 
@@ -57,10 +69,10 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             {
                 btnDelete.Visible = false;
             }
-            else 
+            else
             {
                 btnDelete.Visible = true;
-            } 
+            }
 
             cellPhotoID.Text = photo.photoId.ToString();
             cellPhotoTitle.Text = photo.title;
@@ -74,11 +86,13 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             cellPhotoBalance.Text = photo.wb.ToString();
             cellPhotoLikes.Text = photo.UserProfile1.Count.ToString();
 
+            cellPhotoTags.Text = tagsString;
+
             hlComments.NavigateUrl =
                 "~/Pages/Photo/PhotoComments.aspx" +
                 "?photo=" + photo.photoId;
 
-            
+
 
             if (SessionManager.IsUserAuthenticated(Context))
             {
@@ -114,12 +128,12 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
 
-            
+
 
             long userId = SessionManager.GetUserSession(Context).UserProfileId;
             long id = Convert.ToInt64(cellPhotoID.Text);
 
-            photoService.DeletePhoto(id,userId);
+            photoService.DeletePhoto(id, userId);
 
 
             Response.Redirect(Response.
@@ -152,6 +166,17 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
 
             Response.Redirect(Response.
                         ApplyAppPathModifier("/Pages/Photo/PhotoDetails.aspx" + "?photo=" + photoId));
+        }
+
+        protected void BtnTags_Click(object sender, EventArgs e)
+        {
+            IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
+            IPhotoService photoService = iocManager.Resolve<IPhotoService>();
+
+            long id = Convert.ToInt64(cellPhotoID.Text);
+
+            Response.Redirect(Response.
+                        ApplyAppPathModifier("/Pages/Photo/ModifyTags.aspx" + "?photo=" + id));
         }
     }
 }

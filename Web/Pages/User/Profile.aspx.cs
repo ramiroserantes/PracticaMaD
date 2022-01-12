@@ -47,7 +47,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
                 // If the user is authenticated and goes to his profile, redirects to MyProfile
                 if (userId == authenticateUserId)
                 {
-                    Response.Redirect("./MyProfile.aspx");
+                    Response.Redirect(Response.
+                        ApplyAppPathModifier("/Pages/User/MyProfile.aspx"));
+                    
                 }
                 else
                 {

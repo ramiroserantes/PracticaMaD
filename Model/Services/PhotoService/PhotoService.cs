@@ -392,17 +392,28 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
         public void AddPhotoTag(long tagId, long photoId) {
 
-            Photo p = PhotoDao.Find(photoId);
-
-            Tag t = TagDao.Find(tagId);
-
-            p.Tag.Add(t);
+            TagDao.UpdatePhotoTag(tagId, photoId);
         }
 
         public int GetUsedTag(long TagId) {
 
             return TagDao.FindUsedTags(TagId);
         
+        }
+
+        public List<Tag> FindByPhotoTags(long photoId)
+        {
+
+            return TagDao.FindByPhotoTags(photoId);
+
+        }
+
+        [Transactional]
+        public void DeleteTag(long tagId, long photoId)
+        {
+
+            TagDao.DeletePhotoTag(tagId, photoId);
+            
         }
 
         #endregion Tag Members
