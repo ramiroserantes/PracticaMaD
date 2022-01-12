@@ -161,7 +161,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                         if ((startIndex - count) >= 0)
                         {
                             string url =
-                                "/Pages/Photo/Explore.aspx" + "?tagId=" + tagId + "startIndex=" + (startIndex - count) +
+                                "/Pages/Photo/Explore.aspx" + "?tagId=" + tagId + "&startIndex=" + (startIndex - count) +
                                 "&count=" + count;
 
                             lnkPrevious.NavigateUrl = Response.ApplyAppPathModifier(url);
@@ -172,7 +172,7 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
                         if (photoBlock.ExistMorePhotos)
                         {
                             string url =
-                                "/Pages/Photo/Explore.aspx" + "?tagId=" + tagId + "startIndex=" + (startIndex + count) +
+                                "/Pages/Photo/Explore.aspx" + "?tagId=" + tagId + "&startIndex=" + (startIndex + count) +
                                 "&count=" + count;
 
                             lnkNext.NavigateUrl = Response.ApplyAppPathModifier(url);
@@ -263,7 +263,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             if (Page.IsValid)
             {
                 string keyword = txtSearch.Text;
-                long catId = long.Parse(CategoryDropDownList.SelectedValue);
+
+                long catId = long.Parse(CategoryDropDownList.SelectedItem.Value);
 
 
 

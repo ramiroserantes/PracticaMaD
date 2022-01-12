@@ -144,8 +144,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
         {
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
-
-            long userId = SessionManager.GetUserSession(Context).UserProfileId;
+            long userId = -1;
+            try
+            {
+                userId = SessionManager.GetUserSession(Context).UserProfileId;
+            }
+            catch (NullReferenceException)
+            {
+                Response.Redirect(Response.
+                       ApplyAppPathModifier("~/Pages/User/Authentication.aspx"));
+            }
             long photoId = Convert.ToInt64(cellPhotoID.Text);
 
             photoService.GenerateLike(userId, photoId);
@@ -158,8 +166,16 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
         {
             IIoCManager iocManager = (IIoCManager)HttpContext.Current.Application["managerIoC"];
             IPhotoService photoService = iocManager.Resolve<IPhotoService>();
-
-            long userId = SessionManager.GetUserSession(Context).UserProfileId;
+            long userId = -1;
+            try
+            {
+                userId = SessionManager.GetUserSession(Context).UserProfileId;
+            }
+            catch (NullReferenceException) {
+                Response.Redirect(Response.
+                       ApplyAppPathModifier("~/Pages/User/Authentication.aspx"));
+            }
+            
             long photoId = Convert.ToInt64(cellPhotoID.Text);
 
             photoService.DeleteLike(userId, photoId);

@@ -127,13 +127,13 @@
     <Content Include="Pages\UserExists.aspx" />
     <Content Include="Pages\User\Authentication.aspx" />
     <Content Include="Pages\User\ChangePassword.aspx" />
+    <Content Include="Pages\User\Followeds.aspx" />
     <Content Include="Pages\User\Logout.aspx" />
     <Content Include="Pages\User\MyProfile.aspx" />
     <Content Include="Pages\User\Followers.aspx" />
     <Content Include="Pages\User\Profile.aspx" />
     <Content Include="Pages\User\Register.aspx" />
     <Content Include="Pages\User\UpdateUserProfile.aspx" />
-    <Content Include="Pages\User\UserProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Pages\MainPage.aspx" />
   </ItemGroup>
@@ -243,6 +243,13 @@
     <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\Followeds.aspx.cs">
+      <DependentUpon>Followeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Followeds.aspx.designer.cs">
+      <DependentUpon>Followeds.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\User\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,13 +291,6 @@
     </Compile>
     <Compile Include="Pages\User\UpdateUserProfile.aspx.designer.cs">
       <DependentUpon>UpdateUserProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\User\UserProfile.aspx.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\User\UserProfile.aspx.designer.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\MainPage.aspx.cs">
