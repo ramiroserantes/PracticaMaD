@@ -23,7 +23,13 @@ INSERT INTO Photo
 
 
 INSERT INTO Tag
-    VALUES('tag1', 1);
+    VALUES('tag1');
   
 INSERT INTO Tag
-    VALUES('tag2', 2);
+    VALUES('tag2');
+
+INSERT INTO [PhotoTags]
+    VALUES(1, 1);
+
+INSERT INTO [PhotoTags]
+    VALUES(1, 2);

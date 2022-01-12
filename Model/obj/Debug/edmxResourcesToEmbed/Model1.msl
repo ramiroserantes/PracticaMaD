@@ -44,7 +44,6 @@
         <MappingFragment StoreEntitySet="Tag">
           <ScalarProperty Name="tagId" ColumnName="tagId" />
           <ScalarProperty Name="tagName" ColumnName="tagName" />
-          <ScalarProperty Name="photoId" ColumnName="photoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -76,6 +75,14 @@
       </EndProperty>
       <EndProperty Name="UserProfile">
         <ScalarProperty Name="userId" ColumnName="userId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PhotoTags" TypeName="practicamadModel.PhotoTags" StoreEntitySet="PhotoTags">
+      <EndProperty Name="Photo">
+        <ScalarProperty Name="photoId" ColumnName="photoId" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="tagId" ColumnName="tagId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

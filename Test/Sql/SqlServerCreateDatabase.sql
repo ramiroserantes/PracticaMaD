@@ -2,6 +2,10 @@
 
 /* ********** Drop Table UserProfile if already exists *********** */
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[PhotoTags]') AND type in ('U'))
+DROP TABLE [PhotoTags]
+GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[Tag]') AND type in ('U'))
 DROP TABLE [Tag]
 GO
@@ -78,12 +82,21 @@ CREATE TABLE Photo (
 CREATE TABLE Tag (
     tagId bigint IDENTITY(1,1) NOT NULL,
     tagName varchar(100) NOT NULL,
-    photoId bigint NULL,
 
     CONSTRAINT [PK_Tag] PRIMARY KEY (tagId),
 	CONSTRAINT [UniqueKey_Name] UNIQUE (tagName),
-    CONSTRAINT [FK_PhotoTag] FOREIGN KEY (photoId)
-        REFERENCES Photo(photoId)
+);
+
+CREATE TABLE [PhotoTags] (
+
+    photoId bigint NOT NULL,
+    tagId bigint NOT NULL,
+
+	CONSTRAINT [PK_PhotoTags] PRIMARY KEY (photoId, tagId),
+    CONSTRAINT [FK_PhotoIds]  FOREIGN KEY (photoId)
+        REFERENCES Photo (photoId),
+    CONSTRAINT [FK_Tags]  FOREIGN KEY (tagId)
+        REFERENCES Tag (tagId) 
 );
 
 

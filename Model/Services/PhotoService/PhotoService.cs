@@ -343,7 +343,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <returns></returns>
         /// <exception cref="Es.Udc.DotNet.ModelUtil.Exceptions.DuplicateInstanceException"></exception>
         /// <exception cref="DuplicateInstanceException"></exception>
-        public long AddTag(string tagName, long photoId)
+        public long AddTag(string tagName)
         {
             Tag tag = new Tag();
             try
@@ -356,7 +356,6 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
             catch (InstanceNotFoundException)
             {
                 tag.tagName = tagName;
-                tag.photoId = photoId;
 
                 TagDao.Create(tag);
             }
@@ -395,14 +394,14 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
 
             Photo p = PhotoDao.Find(photoId);
 
-            tag
+            Tag t = TagDao.Find(tagId);
 
-            p.Tag.Add
+            p.Tag.Add(t);
         }
 
-        public int GetUsedTag(string TagName) {
+        public int GetUsedTag(long TagId) {
 
-            return TagDao.FindUsedTags(TagName);
+            return TagDao.FindUsedTags(TagId);
         
         }
 

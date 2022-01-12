@@ -40,18 +40,8 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         private const string iso = "iso";
 
 
-        private const string loginName = "loginNameTest";
-
-        private const string clearPassword = "password";
-        private const string firstName = "name";
-        private const string lastName = "lastName";
-        private const string email = "user@udc.es";
-        private const string lenguage = "es";
-
         private const string commentBody = "comment1";
 
-        private const string tagName1 = "tag1";
-        private const string tagName2 = "tag2";
 
         private static IKernel kernel;
         private static IPhotoService photoService;
@@ -83,12 +73,13 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
             return category;
         }
-        private Photo CreatePhoto(string title, string photoDescription, System.DateTime photoDate,
+        private Photo CreatePhoto(string loginName, string title, string photoDescription, System.DateTime photoDate,
                 long f, long t, string iso, long wb, long categoryId, long userId)
         {
 
             Photo photo = new Photo
             {
+                userName = loginName,
                 title = title,
                 photoDescription = photoDescription,
                 photoDate = photoDate,
@@ -125,8 +116,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         {
             Tag tag = new Tag
             {
-                tagName = tagName,
-                userId = userId
+                tagName = tagName
             };
 
             tagDao.Create(tag);
@@ -144,11 +134,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
 
-                var commentId = commentService.AddComment(photo.photoId, user.userId, commentBody);
+                var commentId = commentService.AddComment(user.loginName, photo.photoId, user.userId, commentBody);
 
                 var findComment = commentDao.Find(commentId);
 
@@ -170,10 +160,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
-                var commentId = commentService.AddComment(photo.photoId, user.userId, commentBody);
+                var commentId = commentService.AddComment(user.loginName,  photo.photoId, user.userId, commentBody);
 
                 var findComment = commentDao.Find(commentId);
                 Assert.AreEqual(commentBody, findComment.commentDescription);
@@ -193,10 +183,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
-                var commentId = commentService.AddComment(photo.photoId, user.userId, commentBody);
+                var commentId = commentService.AddComment(user.loginName, photo.photoId, user.userId, commentBody);
 
                 var findComment = commentDao.Find(commentId);
 
@@ -224,7 +214,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
                 List<string> commentsBody = new List<string>
@@ -235,8 +225,8 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 List<long> commentsIds = new List<long>
                 {
-                    commentService.AddComment(photo.photoId, user.userId, commentsBody[0]),
-                    commentService.AddComment(photo.photoId, user.userId, commentsBody[1])
+                    commentService.AddComment(user.loginName, photo.photoId, user.userId, commentsBody[0]),
+                    commentService.AddComment(user.loginName, photo.photoId, user.userId, commentsBody[1])
                 };
 
                 CommentBlock listComments = commentService.FindAllPhotoComments(photo.photoId);

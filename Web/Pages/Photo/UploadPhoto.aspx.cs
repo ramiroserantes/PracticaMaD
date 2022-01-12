@@ -11,7 +11,6 @@ using Es.Udc.DotNet.PracticaMad.Model;
 using Es.Udc.DotNet.PracticaMad.Model.CommentService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
 using System.Data;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
@@ -163,7 +162,8 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.Photo
             long p = photoService.UploadPhoto(SessionManager.GetUserSession(Context).FirstName, title, description, diaphragm, exhibitionTime, iso, whiteBalance,
                 (long.Parse(CategoryDropDownList.SelectedItem.Value)), SessionManager.GetUserSession(Context).UserProfileId, image);
 
-            photoService.AddTag(DropDownList1.SelectedItem.Text, p);
+
+            photoService.AddPhotoTag(long.Parse(DropDownList1.SelectedItem.Value), p);
 
             Response.Redirect(
              Response.ApplyAppPathModifier("~/Pages/MainPage.aspx?"));

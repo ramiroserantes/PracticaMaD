@@ -10,7 +10,6 @@ using Es.Udc.DotNet.PracticaMad.Model.CommentService;
 using Es.Udc.DotNet.PracticaMad.Model.PhotoService;
 using Es.Udc.DotNet.PracticaMad.Model.Services.UserService;
 using Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session;
-using Es.Udc.DotNet.ModelUtil.IoC;
 using modelPhoto = Es.Udc.DotNet.PracticaMad.Model.Photo;
 using System.Data.SqlClient;
 using System.Configuration;

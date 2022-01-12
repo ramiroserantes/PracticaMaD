@@ -22,7 +22,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
         /// <returns></returns>
         Tag FindByName(string tagName);
 
-        int FindUsedTags(string tagName);
+        int FindUsedTags(long tagId);
        
     }
 }

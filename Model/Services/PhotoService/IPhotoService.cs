@@ -165,7 +165,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <param name="tagName">Name of the tag.</param>
         /// <param name="userId">The user identifier.</param>
         /// <returns></returns>
-        long AddTag(string tagName, long photoId);
+        long AddTag(string tagName);
 
         void AddPhotoTag(long tagId, long photoId);
         /// <summary>
@@ -196,7 +196,7 @@ namespace Es.Udc.DotNet.PracticaMad.Model.PhotoService
         /// <returns></returns>
         int GetPhotoLikes(long photoId);
 
-        int GetUsedTag(string TagName);
+        int GetUsedTag(long TagId);
 
     }
 }

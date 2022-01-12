@@ -98,7 +98,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var userId = userService.RegisterUser(loginName, clearPassword,
                     new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
-                var expected = new LoginResult(userId, firstName,
+                var expected = new LoginResult(userId, firstName, loginName,
                     PasswordEncrypter.Crypt(clearPassword), lenguage, country);
 
                 // Login with clear password
@@ -123,7 +123,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var userId = userService.RegisterUser(loginName, clearPassword,
                     new UserProfileDetails(firstName, lastName, email, lenguage, country));
 
-                var expected = new LoginResult(userId, firstName,
+                var expected = new LoginResult(userId, firstName, loginName, 
                     PasswordEncrypter.Crypt(clearPassword), lenguage, country);
 
                 // Login with encrypted password

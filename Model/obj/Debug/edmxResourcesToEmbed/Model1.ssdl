@@ -51,13 +51,20 @@
     <Property Name="categoryId" Type="bigint" Nullable="false" />
     <Property Name="userId" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="PhotoTags">
+    <Key>
+      <PropertyRef Name="photoId" />
+      <PropertyRef Name="tagId" />
+    </Key>
+    <Property Name="photoId" Type="bigint" Nullable="false" />
+    <Property Name="tagId" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="Tag">
     <Key>
       <PropertyRef Name="tagId" />
     </Key>
     <Property Name="tagId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tagName" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="photoId" Type="bigint" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
@@ -96,6 +103,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PhotoIds">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+    <End Role="PhotoTags" Type="Self.PhotoTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="photoId" />
+      </Principal>
+      <Dependent Role="PhotoTags">
+        <PropertyRef Name="photoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PhotoLikes">
     <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
     <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
@@ -108,15 +127,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PhotoTag">
-    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
-    <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+  <Association Name="FK_Tags">
+    <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+    <End Role="PhotoTags" Type="Self.PhotoTags" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Photo">
-        <PropertyRef Name="photoId" />
+      <Principal Role="Tag">
+        <PropertyRef Name="tagId" />
       </Principal>
-      <Dependent Role="Tag">
-        <PropertyRef Name="photoId" />
+      <Dependent Role="PhotoTags">
+        <PropertyRef Name="tagId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -186,6 +205,7 @@
     <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotoTags" EntityType="Self.PhotoTags" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CategoryPhoto" Association="Self.FK_CategoryPhoto">
@@ -196,13 +216,17 @@
       <End Role="Photo" EntitySet="Photo" />
       <End Role="Comment" EntitySet="Comment" />
     </AssociationSet>
+    <AssociationSet Name="FK_PhotoIds" Association="Self.FK_PhotoIds">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="PhotoTags" EntitySet="PhotoTags" />
+    </AssociationSet>
     <AssociationSet Name="FK_PhotoLikes" Association="Self.FK_PhotoLikes">
       <End Role="Photo" EntitySet="Photo" />
       <End Role="Likes" EntitySet="Likes" />
     </AssociationSet>
-    <AssociationSet Name="FK_PhotoTag" Association="Self.FK_PhotoTag">
-      <End Role="Photo" EntitySet="Photo" />
+    <AssociationSet Name="FK_Tags" Association="Self.FK_Tags">
       <End Role="Tag" EntitySet="Tag" />
+      <End Role="PhotoTags" EntitySet="PhotoTags" />
     </AssociationSet>
     <AssociationSet Name="FK_User1Id" Association="Self.FK_User1Id">
       <End Role="UserProfile" EntitySet="UserProfile" />

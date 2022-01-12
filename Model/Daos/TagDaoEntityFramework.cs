@@ -47,20 +47,18 @@ namespace Es.Udc.DotNet.PracticaMad.Model.TagDao
         }
 
 
-        public int FindUsedTags(string tagName)
+        public int FindUsedTags(long tagId)
         {
+            DbSet<Tag> tag = Context.Set<Tag>();
 
-            DbSet<Tag> tags = Context.Set<Tag>();
+            var result = (
+                from t in tag
+                where t.tagId == tagId
+                select t);
 
-            #region Option 1: Using Linq.
-            var result =
-                (from t in tags
-                 where (t.tagName == tagName)
-                 select t);
-
-            #endregion Option 1: Using Linq.
-
-            return result.ToList().Count;
+            Tag tagr = result.FirstOrDefault();
+            
+            return tagr.Photo.Count; ;
         }
 
 

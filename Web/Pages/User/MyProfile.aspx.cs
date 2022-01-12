@@ -44,10 +44,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.Pages.User
 
             TableRow row;
 
-            TableCell images, linkCell, deleteCell;
+            TableCell images, linkCell;
             Image imagenes;
             HyperLink link;
-            Button delete;
 
             foreach (modelPhoto photo in photos.Photos)
             {

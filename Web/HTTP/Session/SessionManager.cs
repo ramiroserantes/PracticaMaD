@@ -197,9 +197,9 @@ namespace Es.Udc.DotNet.PracticaMaD.Web.HTTP.Session
             return loginResult;
         }
 
-        public static void CreateTag(string tagName, long photoId)
+        public static void CreateTag(string tagName)
         {
-            photoService.AddTag(tagName, photoId);
+            photoService.AddTag(tagName);
         }
 
 

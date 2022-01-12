@@ -81,12 +81,13 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
             return category;
         }
-        private Photo CreatePhoto(string title, string photoDescription, System.DateTime photoDate,
+        private Photo CreatePhoto(string userLogin, string title, string photoDescription, System.DateTime photoDate,
                 long f, long t, string iso, long wb, long categoryId, long userId)
         {
 
             Photo photo = new Photo
             {
+                userName = userLogin,
                 title = title,
                 photoDescription = photoDescription,
                 photoDate = photoDate,
@@ -122,12 +123,11 @@ namespace Es.Udc.DotNet.PracticaMad.Test
         }
 
 
-        private Tag CreateTag(string tagName, long userId)
+        private Tag CreateTag(string tagName)
         {
             Tag tag = new Tag
             {
                 tagName = tagName,
-                userId = userId
             };
 
             tagDao.Create(tag);
@@ -145,7 +145,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
                 var photoFind = photoDao.Find(photo.photoId);
 
@@ -191,10 +191,10 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var category = CreateCategory(categoryType);
                 List<Photo> photoList = new List<Photo>
                 {
-                    CreatePhoto(title, photoDescription, photoDate,
+                    CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f,  t,  iso, wb, category.categoryId,  user.userId),
 
-                    CreatePhoto("title2", "photoDescription2", System.DateTime.Now,
+                    CreatePhoto(user.loginName, "title2", "photoDescription2", System.DateTime.Now,
                     3,  33,  "iso2", 333, category.categoryId,  user.userId),
 
                 };
@@ -206,6 +206,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 for (int i = 0; i < photoList.Count; i++)
                 {
+                    Assert.AreEqual(photoList[i].userName, expectedPhotoList.Photos[i].userName);
                     Assert.AreEqual(photoList[i].photoId, expectedPhotoList.Photos[i].photoId);
                     Assert.AreEqual(photoList[i].title, expectedPhotoList.Photos[i].title);
                     Assert.AreEqual(photoList[i].photoDescription, expectedPhotoList.Photos[i].photoDescription);
@@ -235,18 +236,18 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 List<Photo> photoList = new List<Photo>
                 {
-                    CreatePhoto(title, photoDescription, photoDate,
+                    CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f,  t,  iso, wb, category1.categoryId,  user.userId),
 
-                    CreatePhoto("title2", "photoDescription2", System.DateTime.Now,
+                    CreatePhoto(user.loginName, "title2", "photoDescription2", System.DateTime.Now,
                     3,  33,  "iso2", 333, category1.categoryId,  user.userId),
 
                 };
 
-                CreatePhoto("ooo", "oooo", System.DateTime.Now,
+                CreatePhoto(user.loginName, "ooo", "oooo", System.DateTime.Now,
                    3, 33, "iso2", 333, category2.categoryId, user.userId);
 
-                CreatePhoto("ooo", "oooo", System.DateTime.Now,
+                CreatePhoto(user.loginName, "ooo", "oooo", System.DateTime.Now,
                    3, 33, "iso2", 333, category2.categoryId, user.userId);
 
                 var expectedPhotoList = photoService.FindAllPhotosByCategoryAndKeyword("title", category1.categoryId);
@@ -256,6 +257,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 Assert.AreEqual(photoList.Count, expectedPhotoList.Photos.Count);
                 for (int i = 0; i < photoList.Count; i++)
                 {
+                    Assert.AreEqual(photoList[i].userName, expectedPhotoList.Photos[i].userName);
                     Assert.AreEqual(photoList[i].photoId, expectedPhotoList.Photos[i].photoId);
                     Assert.AreEqual(photoList[i].title, expectedPhotoList.Photos[i].title);
                     Assert.AreEqual(photoList[i].photoDescription, expectedPhotoList.Photos[i].photoDescription);
@@ -283,7 +285,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
             {
                 var user = CreateUser("loginNameTest1");
 
-                var tagId = photoService.AddTag(tagName1, user.userId);
+                var tagId = photoService.AddTag(tagName1);
 
                 var tag = tagDao.Find(tagId);
 
@@ -304,8 +306,8 @@ namespace Es.Udc.DotNet.PracticaMad.Test
 
                 List<Tag> tagList = new List<Tag>
                 {
-                    CreateTag(tagName1, user.userId),
-                    CreateTag(tagName2, user.userId)
+                    CreateTag(tagName1),
+                    CreateTag(tagName2)
                 };
 
                 TagBlock tagFoundList = photoService.FindAllTags();
@@ -337,7 +339,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var user3 = CreateUser("loginNameTest3");
 
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
                 photoService.GenerateLike(user.userId, photo.photoId);
@@ -363,7 +365,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var user3 = CreateUser("loginNameTest3");
 
                 var category = CreateCategory(categoryType);
-                var photo = CreatePhoto(title, photoDescription, photoDate,
+                var photo = CreatePhoto(user.loginName, title, photoDescription, photoDate,
                     f, t, iso, wb, category.categoryId, user.userId);
 
                 photoService.GenerateLike(user.userId, photo.photoId);
@@ -392,11 +394,12 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var user = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
                 var image = Image.FromFile(path);
-                var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
+                var photoId = photoService.UploadPhoto(user.loginName, title, photoDescription, f, t, iso, wb,
                     category.categoryId, user.userId, image);
 
                 var findPhoto = photoDao.Find(photoId);
 
+                Assert.AreEqual(findPhoto.userName, user.loginName);
                 Assert.AreEqual(findPhoto.photoDate.Date, System.DateTime.Now.Date);
                 Assert.AreEqual(findPhoto.title, title);
                 Assert.AreEqual(findPhoto.photoDescription, photoDescription);
@@ -425,7 +428,7 @@ namespace Es.Udc.DotNet.PracticaMad.Test
                 var user1 = CreateUser("loginNameTest1");
                 var category = CreateCategory(categoryType);
                 var image = Image.FromFile(path);
-                var photoId = photoService.UploadPhoto(title, photoDescription, f, t, iso, wb,
+                var photoId = photoService.UploadPhoto(user1.loginName, title, photoDescription, f, t, iso, wb,
                     category.categoryId, user1.userId, image);
 
                 var findPhoto = photoDao.Find(photoId);
